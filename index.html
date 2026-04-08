@@ -156,6 +156,11 @@
             box-shadow: none;
         }
 
+        .counter-btn.selected {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            box-shadow: 0 0 15px rgba(212, 161, 71, 0.6);
+        }
+
         .counter-value {
             font-size: 1.8rem;
             font-weight: 700;
@@ -581,7 +586,7 @@
             align-items: center;
             height: 280px;
             position: relative;
-            perspective: 1500px;
+            perspective: 1000px;
             margin: 20px 0;
             width: 100%;
             max-width: 340px;
@@ -601,14 +606,15 @@
         }
 
         /* 扇形叠放效果 - 所有卡牌都可见，从左到右展开 */
-        .card-item:nth-child(1) { transform: translateX(-60px) rotateY(12deg) translateZ(0); }
-        .card-item:nth-child(2) { transform: translateX(-20px) rotateY(4deg) translateZ(-20px); }
-        .card-item:nth-child(3) { transform: translateX(20px) rotateY(-4deg) translateZ(-40px); }
-        .card-item:nth-child(4) { transform: translateX(60px) rotateY(-12deg) translateZ(-60px); }
-        .card-item:nth-child(5) { transform: translateX(90px) rotateY(-18deg) translateZ(-80px); }
-        .card-item:nth-child(6) { transform: translateX(110px) rotateY(-22deg) translateZ(-100px); }
-        .card-item:nth-child(7) { transform: translateX(125px) rotateY(-25deg) translateZ(-115px); }
-        .card-item:nth-child(8) { transform: translateX(135px) rotateY(-27deg) translateZ(-130px); }
+        /* 移除 translateZ 避免近大远小，所有卡牌大小一致 */
+        .card-item:nth-child(1) { transform: translateX(-50px) rotateY(10deg); }
+        .card-item:nth-child(2) { transform: translateX(-30px) rotateY(5deg); }
+        .card-item:nth-child(3) { transform: translateX(-10px) rotateY(0deg); }
+        .card-item:nth-child(4) { transform: translateX(10px) rotateY(-5deg); }
+        .card-item:nth-child(5) { transform: translateX(30px) rotateY(-10deg); }
+        .card-item:nth-child(6) { transform: translateX(50px) rotateY(-15deg); }
+        .card-item:nth-child(7) { transform: translateX(70px) rotateY(-20deg); }
+        .card-item:nth-child(8) { transform: translateX(90px) rotateY(-25deg); }
 
         .card-item.completed {
             opacity: 0;
@@ -699,12 +705,12 @@
         }
 
         .card-word {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            padding: 10px 18px;
+            padding: 6px 12px;
             background: rgba(212, 161, 71, 0.2);
-            border-radius: 10px;
-            margin: 10px 0;
+            border-radius: 8px;
+            margin: 8px 0;
             border: 1px solid rgba(212, 161, 71, 0.3);
             color: var(--primary);
             word-break: break-all;
@@ -730,12 +736,12 @@
 
         /* 卡牌内拍照样式 */
         .card-video {
-            width: calc(100% - 20px);
-            height: 140px;
+            width: calc(100% - 16px);
+            height: 160px;
             background: #000;
             border-radius: 8px;
             object-fit: cover;
-            margin-top: 8px;
+            margin-top: 6px;
             transform: scaleX(-1); /* 镜像翻转，更符合自拍习惯 */
         }
 
@@ -744,11 +750,11 @@
         }
 
         .card-photo-preview {
-            width: calc(100% - 20px);
-            height: 140px;
+            width: calc(100% - 16px);
+            height: 160px;
             object-fit: cover;
             border-radius: 8px;
-            margin-top: 8px;
+            margin-top: 6px;
             display: none;
         }
 
@@ -854,9 +860,16 @@
                     </div>
                 </div>
                 <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--primary-bg); font-size: 0.9rem; opacity: 0.8;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <span>🕵️ 卧底：<strong id="preview-undercover" style="color: var(--primary);">1</strong> 人</span>
-                        <span>👨‍🌾 平民：<strong id="preview-civilian" style="color: var(--primary);">2</strong> 人</span>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span>🕵️ 卧底：<strong id="preview-undercover" style="color: var(--primary);">2</strong> 人</span>
+                        <span>👨‍🌾 平民：<strong id="preview-civilian" style="color: var(--primary);">4</strong> 人</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span>🃏 白板：</span>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="counter-btn" id="blank-btn-0" onclick="setBlankCount(0)" style="width: 36px; height: 36px;">0</button>
+                            <button class="counter-btn" id="blank-btn-1" onclick="setBlankCount(1)" style="width: 36px; height: 36px;">1</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1127,8 +1140,9 @@
 
         // ==================== 游戏状态 ====================
         let gameState = {
-            totalPlayers: 3,
-            undercoverCount: 1,
+            totalPlayers: 6,
+            undercoverCount: 2,
+            blankCount: 0,
             players: [],
             currentPlayerIndex: 0,
             currentRound: 1,
@@ -1146,6 +1160,9 @@
             // 自动日夜切换
             updateTheme();
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+
+            // 初始化白板按钮
+            initBlankButtons();
 
             // 更新显示
             updateCounts();
@@ -1181,22 +1198,41 @@
         // ==================== 计数器 ====================
         function adjustCount(delta) {
             gameState.totalPlayers = Math.max(3, Math.min(12, gameState.totalPlayers + delta));
-            // 固定 1 个卧底，0 个白板
-            gameState.undercoverCount = 1;
-            gameState.blankCount = 0;
+            // 根据总人数自动调整卧底数量
+            if (gameState.totalPlayers <= 5) {
+                gameState.undercoverCount = 1;
+            } else if (gameState.totalPlayers <= 8) {
+                gameState.undercoverCount = 2;
+            } else {
+                gameState.undercoverCount = 3;
+            }
+            updateCounts();
+        }
+
+        function setBlankCount(count) {
+            gameState.blankCount = count;
+            // 更新按钮样式
+            document.getElementById('blank-btn-0').classList.toggle('selected', count === 0);
+            document.getElementById('blank-btn-1').classList.toggle('selected', count === 1);
             updateCounts();
         }
 
         function updateCounts() {
             document.getElementById('total-count').textContent = gameState.totalPlayers;
             document.getElementById('preview-undercover').textContent = gameState.undercoverCount;
-            document.getElementById('preview-civilian').textContent = gameState.totalPlayers - gameState.undercoverCount;
+            document.getElementById('preview-civilian').textContent = gameState.totalPlayers - gameState.undercoverCount - gameState.blankCount;
+        }
+
+        // 初始化白板按钮状态
+        function initBlankButtons() {
+            document.getElementById('blank-btn-0').classList.add('selected');
         }
 
         // ==================== 游戏流程 ====================
         function startGame() {
             const total = gameState.totalPlayers;
             const undercover = gameState.undercoverCount;
+            const blank = gameState.blankCount;
 
             // 从默认词库中随机选择一对词语
             const randomIndex = Math.floor(Math.random() * defaultWords.length);
@@ -1205,6 +1241,7 @@
             // 分配角色
             let roles = [];
             for (let i = 0; i < undercover; i++) roles.push({ type: 'undercover', word: pair.w2 });
+            for (let i = 0; i < blank; i++) roles.push({ type: 'blank', word: '' });
             while (roles.length < total) roles.push({ type: 'civilian', word: pair.w1 });
 
             // 洗牌
@@ -1309,7 +1346,7 @@
                             <div class="card-hint">${isCompleted ? '已完成' : (isNext && !isFlippedManually ? '点击揭开' : '等待中...')}</div>
                         </div>
                         <div class="card-back">
-                            <div class="card-word">${player.word ? `📝 ${player.word} 📝` : '🃏 白板'}</div>
+                            <div class="card-word">${player.word || '🃏 白板'}</div>
                             ${isTakingPhoto ? `
                                 <video id="card-video-${i}" class="card-video" autoplay playsinline></video>
                                 <canvas id="card-canvas-${i}" class="card-canvas"></canvas>
@@ -1423,7 +1460,7 @@
 
         function showWord() {
             const player = gameState.players[gameState.currentPlayerIndex];
-            const wordDisplay = player.word ? `📝 ${player.word} 📝` : '🃏 白板（没有词语）🃏';
+            const wordDisplay = player.word || '🃏 白板';
             document.getElementById('player-word').textContent = wordDisplay;
             document.getElementById('word-progress-current').textContent = player.number;
             document.getElementById('word-progress-total').textContent = gameState.totalPlayers;
@@ -1629,7 +1666,7 @@
             if (reviewWordTarget) {
                 const player = gameState.players.find(p => p.number === reviewWordTarget);
                 if (player) {
-                    const wordDisplay = player.word ? `📝 ${player.word} 📝` : '🃏 白板（没有词语）🃏';
+                    const wordDisplay = player.word || '🃏 白板';
                     document.getElementById('review-word-text').textContent = wordDisplay;
                     document.getElementById('review-word-player').textContent = player.number;
                     showPage('review-word-page');
@@ -1678,7 +1715,16 @@
                 const roleBadge = document.createElement('div');
                 roleBadge.className = 'eliminated-role-badge';
                 roleBadge.textContent = getRoleName(player.type);
-                roleBadge.style.backgroundColor = player.type === 'undercover' ? 'var(--danger)' : 'var(--primary)';
+
+                // 根据身份设置颜色
+                if (player.type === 'undercover') {
+                    roleBadge.style.backgroundColor = 'var(--danger)';
+                } else if (player.type === 'blank') {
+                    roleBadge.style.backgroundColor = '#888';
+                } else {
+                    roleBadge.style.backgroundColor = 'var(--primary)';
+                }
+
                 playerOption.appendChild(roleBadge);
             }
         }
@@ -1686,17 +1732,21 @@
         function checkWinCondition() {
             const alive = gameState.players.filter(p => !p.eliminated);
             const aliveUndercover = alive.filter(p => p.type === 'undercover');
+            const aliveBlank = alive.filter(p => p.type === 'blank');
             const aliveCivilian = alive.filter(p => p.type === 'civilian');
 
             let winner = null;
 
             // 判断胜负
-            if (aliveUndercover.length === 0) {
-                // 没有卧底了，平民获胜
+            if (aliveUndercover.length === 0 && aliveBlank.length === 0) {
+                // 没有卧底和白板了，平民获胜
                 winner = 'civilian';
             } else if (aliveCivilian.length === 0) {
                 // 没有平民了，卧底获胜
                 winner = 'undercover';
+            } else if (aliveUndercover.length === 0 && aliveBlank.length > 0 && aliveCivilian.length <= aliveBlank.length) {
+                // 白板人数 >= 平民人数且没有卧底，白板获胜
+                winner = 'blank';
             }
 
             if (winner) {
@@ -1765,6 +1815,7 @@
 
             // 更新结算页面
             const undercover = gameState.players.filter(p => p.type === 'undercover');
+            const blank = gameState.players.filter(p => p.type === 'blank');
             const civilian = gameState.players.filter(p => p.type === 'civilian');
 
             document.getElementById('result-emoji').textContent = getWinnerEmoji(winner);
@@ -1787,6 +1838,15 @@
                     ${undercoverPlayer?.avatar ? `<img src="${undercoverPlayer.avatar}" style="width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary); margin: 8px auto;">` : ''}
                     <div style="margin-top: 5px; font-size: 1.1rem;">${undercoverPlayer?.number}号 (卧底)</div>
                     <div style="font-size: 0.9rem; opacity: 0.8;">词语：${undercoverPlayer?.word || 'N/A'}</div>
+                `;
+            } else if (winner === 'blank') {
+                const blankPlayer = blank[0];
+                winnerInfo = `
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🃏</div>
+                    <div style="font-weight: 700; color: var(--primary); margin-bottom: 8px;">白板获胜</div>
+                    ${blankPlayer?.avatar ? `<img src="${blankPlayer.avatar}" style="width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary); margin: 8px auto;">` : ''}
+                    <div style="margin-top: 5px; font-size: 1.1rem;">${blankPlayer?.number}号 (白板)</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">词语：无</div>
                 `;
             }
             document.getElementById('winner-info-box').innerHTML = winnerInfo;
@@ -1813,6 +1873,7 @@
             switch(winner) {
                 case 'civilian': return '🎉';
                 case 'undercover': return '😈';
+                case 'blank': return '🃏';
                 default: return '🏆';
             }
         }
@@ -1821,6 +1882,7 @@
             switch(winner) {
                 case 'civilian': return '👨‍🌾 平民获胜！';
                 case 'undercover': return '🕵️ 卧底获胜！';
+                case 'blank': return '🃏 白板获胜！';
                 default: return '游戏结束';
             }
         }
@@ -1831,6 +1893,8 @@
                     return gameState.players.filter(p => p.type !== 'civilian');
                 case 'undercover':
                     return gameState.players.filter(p => p.type === 'civilian');
+                case 'blank':
+                    return gameState.players.filter(p => p.type !== 'blank');
                 default:
                     return [];
             }

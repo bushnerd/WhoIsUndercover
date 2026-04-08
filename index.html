@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>谁是卧底 - 无境探险</title>
+    <style>
+        :root {
+            /* 品牌配色 - 深蓝色背景 + 金色主色调 */
+            --bg: #141E30;             /* 深蓝背景 */
+            --primary: #D4A147;        /* 金色主色调 */
+            --primary-light: #E8C87A;  /* 浅金色 */
+            --primary-dark: #B88A3C;   /* 深金色 */
+            --primary-bg: rgba(212, 161, 71, 0.15);  /* 金色半透明背景 */
+            --text: #FFFFFF;           /* 白色文字 */
+            --card-bg: rgba(255, 255, 255, 0.08);    /* 半透明卡片背景 */
+            --accent: #F4A460;         /* 暖色强调 */
+            --success: #4CAF50;
+            --danger: #A12E31;         /* 暗红色 */
+            --card-gold: linear-gradient(135deg, #D4A147, #F4C86A, #D4A147);
+        }
+
+        [data-theme="light"] {
+            --bg: #F5F7FA;
+            --primary: #B88A3C;
+            --primary-light: #D4A147;
+            --primary-bg: rgba(184, 138, 60, 0.1);
+            --text: #1A1A1A;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            background: linear-gradient(180deg, #0F1623 0%, #141E30 50%, #0A1020 100%);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 日夜切换按钮 */
+        /* 日夜切换按钮 */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #141E30;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(212, 161, 71, 0.4);
+            z-index: 1000;
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.9);
+        }
+
+        /* 页面切换 */
+        .page {
+            display: none;
+            flex: 1;
+            flex-direction: column;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        /* 标题 */
+        .page-title {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 20px 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* 卡片 */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            border: 1px solid rgba(212, 161, 71, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+        }
+
+        /* 计数器控件 */
+        .counter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .counter-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #141E30;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(212, 161, 71, 0.4);
+            font-weight: 700;
+        }
+
+        .counter-btn:active {
+            transform: scale(0.9);
+        }
+
+        .counter-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .counter-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(212, 161, 71, 0.3);
+        }
+
+        .counter-label {
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        /* 大按钮 */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px 24px;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #141E30;
+            box-shadow: 0 4px 12px rgba(212, 161, 71, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        /* 词库选择器 */
+        .word-bank-select {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* 玩家列表 */
+        .player-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .player-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: var(--bg);
+            border-radius: 12px;
+            gap: 12px;
+        }
+
+        .player-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .player-status {
+            flex: 1;
+        }
+
+        .player-role {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-bg);
+            border-radius: 16px;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* 游戏状态 */
+        .game-status {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+
+        .round-info {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 24px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        /* 投票选项 - 玩家头像网格 */
+        .vote-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        @media (min-width: 400px) {
+            .vote-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .vote-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 16px;
+            background: var(--card-bg);
+            border: 2px solid rgba(212, 161, 71, 0.3);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-height: 140px;
+        }
+
+        .vote-option:hover {
+            border-color: rgba(212, 161, 71, 0.6);
+            background: rgba(212, 161, 71, 0.1);
+        }
+
+        .vote-option.selected {
+            border-color: var(--primary);
+            background: rgba(212, 161, 71, 0.2);
+            box-shadow: 0 0 20px rgba(212, 161, 71, 0.4);
+            transform: scale(1.02);
+        }
+
+        /* 当有选中项时，未选中的变暗 */
+        .vote-options.has-selected .vote-option:not(.selected) {
+            opacity: 0.3;
+            filter: grayscale(0.5);
+        }
+
+        .vote-option.eliminated {
+            opacity: 1;
+            cursor: not-allowed;
+            position: relative;
+            border-color: var(--danger);
+        }
+
+        /* 淘汰标记 - 右上角 X */
+        .vote-option.eliminated::before {
+            content: '✕';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 24px;
+            height: 24px;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            z-index: 10;
+        }
+
+        /* 身份标签 */
+        .eliminated-role-badge {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .vote-radio {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vote-option.selected .vote-radio::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        /* 结算页面 */
+        .result-emoji {
+            font-size: 4rem;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .result-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .result-detail {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .loser-box {
+            background: linear-gradient(135deg, #FFE5E5, #FFF0F0);
+            border: 2px solid var(--danger);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        [data-theme="dark"] .loser-box {
+            background: linear-gradient(135deg, #3D1A1A, #2D1A1A);
+            border-color: #E74C3C;
+        }
+
+        /* 词库管理 */
+        .word-pair-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--bg);
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .word-pair-text {
+            font-size: 0.95rem;
+        }
+
+        .word-pair-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .word-pair-actions button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-delete {
+            background: #FFE5E5;
+            color: var(--danger);
+        }
+
+        /* 拍照界面 */
+        .camera-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .camera-video {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: #000;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .camera-canvas {
+            display: none;
+        }
+
+        .camera-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .camera-btn {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            background: var(--bg);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s;
+        }
+
+        .camera-btn:active {
+            transform: scale(0.9);
+        }
+
+        .camera-btn-capture {
+            background: var(--primary);
+            color: white;
+        }
+
+        .avatar-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            margin: 10px 0;
+        }
+
+        .player-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 2px 10px rgba(212, 161, 71, 0.4);
+            margin-bottom: 10px;
+        }
+
+        .player-item-with-avatar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            gap: 8px;
+        }
+
+        .player-number-badge {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #141E30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 2px solid #141E30;
+            z-index: 10;
+        }
+
+        /* 卡牌翻转效果 - 金色扇形叠放 */
+        .card-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 280px;
+            position: relative;
+            perspective: 1500px;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 340px;
+        }
+
+        .card-item {
+            position: absolute;
+            width: 160px;
+            height: 220px;
+            cursor: pointer;
+            transition: transform 0.4s ease, opacity 0.3s, box-shadow 0.3s;
+            transform-style: preserve-3d;
+            left: 50%;
+            top: 50%;
+            margin-left: -80px; /* 居中 */
+            margin-top: -110px;
+        }
+
+        /* 扇形叠放效果 - 所有卡牌都可见，从左到右展开 */
+        .card-item:nth-child(1) { transform: translateX(-60px) rotateY(12deg) translateZ(0); }
+        .card-item:nth-child(2) { transform: translateX(-20px) rotateY(4deg) translateZ(-20px); }
+        .card-item:nth-child(3) { transform: translateX(20px) rotateY(-4deg) translateZ(-40px); }
+        .card-item:nth-child(4) { transform: translateX(60px) rotateY(-12deg) translateZ(-60px); }
+        .card-item:nth-child(5) { transform: translateX(90px) rotateY(-18deg) translateZ(-80px); }
+        .card-item:nth-child(6) { transform: translateX(110px) rotateY(-22deg) translateZ(-100px); }
+        .card-item:nth-child(7) { transform: translateX(125px) rotateY(-25deg) translateZ(-115px); }
+        .card-item:nth-child(8) { transform: translateX(135px) rotateY(-27deg) translateZ(-130px); }
+
+        .card-item.completed {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(-200px) rotateY(-90deg);
+        }
+
+        .card-item.active {
+            z-index: 100;
+            /* 保持扇形位置，只添加高亮效果 */
+            box-shadow: 0 0 30px rgba(212, 161, 71, 0.8), 0 4px 20px rgba(0,0,0,0.4);
+            filter: brightness(1.15);
+        }
+
+        .card-item.active .card-front {
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 25px rgba(212, 161, 71, 0.6), 0 4px 15px rgba(0,0,0,0.3);
+            animation: pulse-gold 1.5s infinite;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 161, 71, 0.5), 0 4px 15px rgba(0,0,0,0.3); }
+            50% { box-shadow: 0 0 35px rgba(212, 161, 71, 0.8), 0 4px 20px rgba(0,0,0,0.4); }
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card-item.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-item.completed .card-inner {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* 未翻开时隐藏 card-back，避免 backface-visibility 不生效 */
+        .card-item:not(.flipped) .card-back {
+            visibility: hidden;
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #D4A147, #F4C86A, #D4A147);
+            color: #141E30;
+            border: 2px solid #B88A3C;
+        }
+
+        .card-back {
+            background: linear-gradient(180deg, #1a2332 0%, #141E30 100%);
+            color: var(--text);
+            transform: rotateY(180deg);
+            border: 2px solid var(--primary);
+            padding: 10px;
+        }
+
+        .card-player-num {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #141E30;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.2);
+        }
+
+        .card-hint {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            color: #141E30;
+            font-weight: 600;
+        }
+
+        .card-word {
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 10px 18px;
+            background: rgba(212, 161, 71, 0.2);
+            border-radius: 10px;
+            margin: 10px 0;
+            border: 1px solid rgba(212, 161, 71, 0.3);
+            color: var(--primary);
+            word-break: break-all;
+        }
+
+        .card-confirm-btn {
+            padding: 8px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #141E30;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            box-shadow: 0 2px 8px rgba(212, 161, 71, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .card-confirm-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* 卡牌内拍照样式 */
+        .card-video {
+            width: calc(100% - 20px);
+            height: 140px;
+            background: #000;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-top: 8px;
+            transform: scaleX(-1); /* 镜像翻转，更符合自拍习惯 */
+        }
+
+        .card-canvas {
+            display: none;
+        }
+
+        .card-photo-preview {
+            width: calc(100% - 20px);
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .card-camera-buttons {
+            display: none;
+        }
+
+        .card-btn-capture {
+            display: none;
+        }
+
+        .card-photo-confirm {
+            display: none;
+        }
+
+        .card-btn-retake {
+            display: none;
+        }
+
+        .card-btn-confirm {
+            display: none;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* 底部导航 */
+        .bottom-nav {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .bottom-nav .btn {
+            flex: 1;
+            padding: 14px;
+            font-size: 1rem;
+        }
+
+        /* 进度条 */
+        .progress-section {
+            text-align: center;
+            margin: 16px 0;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* 提示信息 */
+        .tip {
+            background: var(--primary-bg);
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 360px) {
+            .counter-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            .counter-value {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 日夜切换按钮 -->
+        <button class="theme-toggle" onclick="toggleTheme()" title="切换日夜模式">
+            <span id="theme-icon">🌙</span>
+        </button>
+
+        <!-- 首页 -->
+        <div id="home-page" class="page active">
+            <h1 class="page-title">🎭 谁是卧底</h1>
+
+            <div class="card">
+                <div class="card-title">👥 玩家人数</div>
+                <div class="counter">
+                    <div>
+                        <div class="counter-label">总人数</div>
+                        <div class="counter-value" id="total-count">6</div>
+                    </div>
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <button class="counter-btn" onclick="adjustCount(-1)">−</button>
+                        <button class="counter-btn" onclick="adjustCount(1)">+</button>
+                    </div>
+                </div>
+                <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--primary-bg); font-size: 0.9rem; opacity: 0.8;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>🕵️ 卧底：<strong id="preview-undercover" style="color: var(--primary);">1</strong> 人</span>
+                        <span>👨‍🌾 平民：<strong id="preview-civilian" style="color: var(--primary);">2</strong> 人</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="startGame()">
+                🎮 开始游戏
+            </button>
+        </div>
+
+        <!-- 词语传递页 -->
+        <div id="transfer-page" class="page">
+            <h1 class="page-title">📱 词语传递</h1>
+
+            <div class="card">
+                <div class="game-status">
+                    <p>请将手机传给</p>
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary); margin: 20px 0;">
+                        第 <span id="transfer-player-num">1</span> 号玩家
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="showWord()">
+                👁️ 查看词语
+            </button>
+        </div>
+
+        <!-- 卡牌式看词页 -->
+        <div id="card-transfer-page" class="page">
+            <h1 class="page-title">📱 请玩家依序传递手机看词</h1>
+
+            <div class="card">
+                <p style="text-align: center; margin-bottom: 16px; opacity: 0.7;">
+                    点击卡牌查看词语，然后拍摄头像
+                </p>
+                <div class="card-grid" id="card-grid-container">
+                    <!-- JS 填充 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 词语显示页 -->
+        <div id="word-page" class="page">
+            <h1 class="page-title">🤫 记住你的词语</h1>
+
+            <div class="card">
+                <div class="player-role" id="player-word">
+                    🍎 苹果 🍎
+                </div>
+                <p style="text-align: center; opacity: 0.7;">
+                    不要让别人看到哦～
+                </p>
+            </div>
+
+            <div class="tip">
+                💡 可以用相似的词描述，但不要说得太明显
+            </div>
+
+            <button class="btn btn-primary" onclick="goToCamera()">
+                📸 拍摄头像
+            </button>
+
+            <div class="progress-section">
+                玩家 <span id="word-progress-current">1</span> / <span id="word-progress-total">6</span>
+            </div>
+        </div>
+
+        <!-- 淘汰记录页 -->
+        <div id="eliminate-page" class="page">
+            <h1 class="page-title">🎮 游戏进行中</h1>
+
+            <div class="card">
+                <p style="text-align: center; margin-bottom: 16px;">
+                    🎤 线下发言 + 投票后<br>点击淘汰的玩家
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">👥 点击淘汰玩家</div>
+                <div class="vote-options" id="eliminate-options">
+                    <!-- JS 填充 -->
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-danger" onclick="showReviewWord()" id="forget-word-btn" disabled style="opacity: 0.5; cursor: not-allowed;">
+                    📖 忘词
+                </button>
+                <button class="btn btn-success" onclick="checkGameOver()" id="eliminate-confirm-btn" disabled style="opacity: 0.5; cursor: not-allowed;">
+                    ⚔️ 处决
+                </button>
+            </div>
+        </div>
+
+        <!-- 淘汰结果页 -->
+        <div id="eliminate-result-page" class="page">
+            <h1 class="page-title">📊 淘汰结果</h1>
+
+            <div class="card">
+                <div class="result-detail" style="text-align: center;">
+                    <p>被淘汰的是</p>
+                    <div style="font-size: 3rem; margin: 20px 0;">
+                        <span id="eliminated-emoji">😱</span>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">
+                        <span id="eliminated-player">3</span> 号玩家
+                    </div>
+                    <img id="eliminated-avatar" class="avatar-preview" style="display: none; margin: 10px auto;" />
+                </div>
+
+                <div class="result-detail">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span>身份：</span>
+                        <span id="eliminated-role" style="font-weight: 700;">卧底</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>词语：</span>
+                        <span id="eliminated-word" style="font-weight: 700;">香蕉</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="continueGame()">
+                继续游戏
+            </button>
+        </div>
+
+        <!-- 忘词提示页 -->
+        <div id="review-word-page" class="page">
+            <h1 class="page-title">📖 忘词提示</h1>
+            <div class="card">
+                <div class="result-detail" style="text-align: center;">
+                    <p>请 <span id="review-word-player" style="font-weight: 700; color: var(--primary);">3</span> 号玩家查看词语</p>
+                    <div class="player-role" id="review-word-text">
+                        📝 词语 📝
+                    </div>
+                    <p style="margin-top: 16px; opacity: 0.8; font-size: 0.9rem;">3 秒后自动返回...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 拍照页面 -->
+        <div id="camera-page" class="page">
+            <h1 class="page-title">📸 拍摄头像</h1>
+
+            <div class="card">
+                <p style="text-align: center; margin-bottom: 16px;">
+                    请玩家 <span id="camera-player-num" style="font-weight: 700; color: var(--primary);">1</span> 拍摄头像
+                </p>
+            </div>
+
+            <div class="camera-container" style="position: relative; border-radius: 16px; overflow: hidden;">
+                <video id="camera-video" class="camera-video" autoplay playsinline></video>
+                <canvas id="camera-canvas" class="camera-canvas"></canvas>
+                <img id="camera-preview" class="avatar-preview" style="display: none;" />
+
+                <div class="camera-buttons" id="camera-capture-btns">
+                    <button class="camera-btn camera-btn-capture" onclick="capturePhoto()" title="拍照">
+                        📷
+                    </button>
+                </div>
+
+                <div class="camera-buttons" id="camera-confirm-btns" style="display: none;">
+                    <button class="camera-btn" onclick="retakePhoto()" title="重拍">
+                        🔄
+                    </button>
+                    <button class="camera-btn camera-btn-capture" onclick="confirmPhoto()" title="确认">
+                        ✓
+                    </button>
+                </div>
+            </div>
+
+            <div class="tip" style="margin-top: 16px;">
+                💡 请确保光线充足，正面拍摄
+            </div>
+        </div>
+
+        <!-- 结算页 -->
+        <div id="result-page" class="page">
+            <div class="result-emoji" id="result-emoji">🎉</div>
+            <h1 class="result-title" id="result-title">平民获胜！</h1>
+
+            <div class="card">
+                <div class="result-detail" style="text-align: center; padding: 20px;">
+                    <div style="font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 15px;">
+                        🏆 获胜信息
+                    </div>
+                    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <div id="winner-info-box" style="background: var(--primary-bg); border-radius: 12px; padding: 15px; min-width: 150px; text-align: center; border: 2px solid var(--primary);">
+                            <!-- JS 填充获胜者信息 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="result-detail" style="text-align: center; padding: 20px;">
+                    <div style="font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 15px;">
+                        📋 所有玩家身份
+                    </div>
+                    <div id="all-players-identity" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px;">
+                        <!-- JS 填充所有玩家身份信息 -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="startNewGame()">🎮 再来一局</button>
+                <button class="btn btn-secondary" onclick="showPage('home-page')">🏠 返回首页</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== 默认词库 ====================
+        const defaultWords = [
+            { w1: '苹果', w2: '香蕉' },
+            { w1: '咖啡', w2: '茶' },
+            { w1: '火锅', w2: '烧烤' },
+            { w1: '篮球', w2: '足球' },
+            { w1: '电影', w2: '电视剧' },
+            { w1: '吉他', w2: '钢琴' },
+            { w1: '游泳', w2: '跑步' },
+            { w1: '地铁', w2: '公交' },
+            { w1: '微信', w2: 'QQ' },
+            { w1: '淘宝', w2: '京东' },
+            { w1: '可乐', w2: '雪碧' },
+            { w1: '薯条', w2: '薯片' },
+            { w1: '包子', w2: '饺子' },
+            { w1: '眼镜', w2: '隐形眼镜' },
+            { w1: '手表', w2: '手环' },
+            { w1: '雨伞', w2: '雨衣' },
+            { w1: '牙刷', w2: '牙膏' },
+            { w1: '洗发水', w2: '沐浴露' },
+            { w1: '手机', w2: '平板' },
+            { w1: '电脑', w2: '笔记本' },
+            { w1: '空调', w2: '风扇' },
+            { w1: '冰箱', w2: '冰柜' },
+            { w1: '面包', w2: '蛋糕' },
+            { w1: '牛奶', w2: '酸奶' },
+            { w1: '火车', w2: '高铁' },
+            { w1: '飞机', w2: '直升机' },
+            { w1: '自行车', w2: '电动车' },
+            { w1: '长城', w2: '故宫' },
+            { w1: '黄河', w2: '长江' },
+            { w1: '泰山', w2: '华山' },
+            { w1: '熊猫', w2: '考拉' },
+            { w1: '老虎', w2: '狮子' },
+            { w1: '大象', w2: '长颈鹿' },
+            { w1: '企鹅', w2: '北极熊' },
+            { w1: '蝴蝶', w2: '蜜蜂' },
+            { w1: '玫瑰', w2: '月季' },
+            { w1: '荷花', w2: '莲花' },
+            { w1: '松树', w2: '柏树' },
+            { w1: '西瓜', w2: '南瓜' },
+            { w1: '土豆', w2: '红薯' },
+            { w1: '西红柿', w2: '柿子' },
+            { w1: '黄瓜', w2: '丝瓜' },
+            { w1: '医生', w2: '护士' },
+            { w1: '老师', w2: '教授' },
+            { w1: '警察', w2: '保安' },
+            { w1: '厨师', w2: '面包师' },
+            { w1: '律师', w2: '法官' },
+            { w1: '记者', w2: '编辑' },
+            { w1: '歌手', w2: '演员' },
+            { w1: '画家', w2: '摄影师' }
+        ];
+
+        // ==================== 游戏状态 ====================
+        let gameState = {
+            totalPlayers: 3,
+            undercoverCount: 1,
+            players: [],
+            currentPlayerIndex: 0,
+            currentRound: 1,
+            eliminated: [],
+            gameStarted: false
+        };
+
+        // ==================== 摄像头相关 ====================
+        let currentStream = null;
+        let currentPhotoData = null;
+        let cameraPlayerIndex = 0;
+
+        // ==================== 初始化 ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            // 自动日夜切换
+            updateTheme();
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+
+            // 更新显示
+            updateCounts();
+        });
+
+        // ==================== 主题切换 ====================
+        function updateTheme() {
+            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const manualTheme = localStorage.getItem('theme');
+            const theme = manualTheme || (isDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeIcon(theme);
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateThemeIcon(next);
+        }
+
+        function updateThemeIcon(theme) {
+            document.getElementById('theme-icon').textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // ==================== 页面切换 ====================
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // ==================== 计数器 ====================
+        function adjustCount(delta) {
+            gameState.totalPlayers = Math.max(3, Math.min(12, gameState.totalPlayers + delta));
+            // 固定 1 个卧底，0 个白板
+            gameState.undercoverCount = 1;
+            gameState.blankCount = 0;
+            updateCounts();
+        }
+
+        function updateCounts() {
+            document.getElementById('total-count').textContent = gameState.totalPlayers;
+            document.getElementById('preview-undercover').textContent = gameState.undercoverCount;
+            document.getElementById('preview-civilian').textContent = gameState.totalPlayers - gameState.undercoverCount;
+        }
+
+        // ==================== 游戏流程 ====================
+        function startGame() {
+            const total = gameState.totalPlayers;
+            const undercover = gameState.undercoverCount;
+
+            // 从默认词库中随机选择一对词语
+            const randomIndex = Math.floor(Math.random() * defaultWords.length);
+            const pair = defaultWords[randomIndex];
+
+            // 分配角色
+            let roles = [];
+            for (let i = 0; i < undercover; i++) roles.push({ type: 'undercover', word: pair.w2 });
+            while (roles.length < total) roles.push({ type: 'civilian', word: pair.w1 });
+
+            // 洗牌
+            for (let i = roles.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [roles[i], roles[j]] = [roles[j], roles[i]];
+            }
+
+            // 初始化玩家
+            gameState.players = roles.map((r, i) => ({
+                number: i + 1,
+                ...r,
+                eliminated: false,
+                descDone: false,
+                avatar: null
+            }));
+            gameState.currentPlayerIndex = 0;
+            gameState.currentRound = 1;
+            gameState.descDone = [];
+            gameState.eliminated = [];
+            gameState.voteTarget = null;
+            gameState.gameStarted = true;
+            viewedPlayers = [];
+            nextViewIndex = 0;
+            currentCameraIndex = -1;
+            cardPhotoData = null;
+            cardGameStarted = false;  // 重置卡牌游戏状态
+
+            // 进入卡牌式看词页面
+            renderCardTransferPage();
+            showPage('card-transfer-page');
+
+            // 预先请求摄像头权限（避免后续拍照时打断流程）
+            requestCameraPermission();
+
+            // 请求保持屏幕常亮
+            requestWakeLock();
+        }
+
+        // 预先请求摄像头权限
+        async function requestCameraPermission() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'user' },
+                    audio: false
+                });
+                // 立即停止，只是获取权限
+                stream.getTracks().forEach(track => track.stop());
+                console.log('摄像头权限已获取');
+            } catch (err) {
+                console.log('摄像头权限请求失败:', err);
+            }
+        }
+
+        let wakeLock = null;
+        async function requestWakeLock() {
+            try {
+                if ('wakeLock' in navigator) {
+                    wakeLock = await navigator.wakeLock.request('screen');
+                }
+            } catch (e) {
+                console.log('Wake Lock not supported');
+            }
+        }
+
+        function updateTransferPage() {
+            const player = gameState.players[gameState.currentPlayerIndex];
+            document.getElementById('transfer-player-num').textContent = player.number;
+        }
+
+        // ==================== 卡牌式看词 ====================
+        let viewedPlayers = [];
+        let nextViewIndex = 0;  // 下一个应该查看的玩家索引，控制顺序
+        let currentCameraIndex = -1;  // 当前正在拍照的玩家索引
+        let cameraStarted = false;  // 摄像头是否已启动
+        let cardGameStarted = false;  // 卡牌游戏是否已开始（是否已经点击过卡牌）
+        let flippedCards = [];  // 已经翻开过的卡牌索引
+
+        function renderCardTransferPage() {
+            const container = document.getElementById('card-grid-container');
+            // 反向渲染：让玩家号码小的在顶层，号码大的在底层
+            // 这样 1 号牌会显示在最前面，2 号、3 号等依次在后面露出一点
+            const reversedPlayers = [...gameState.players].reverse();
+
+            container.innerHTML = reversedPlayers.map((p, index) => {
+                // 反转后的索引需要转换回原始索引
+                const i = gameState.players.length - 1 - index;
+                const player = gameState.players[i];
+                const isCompleted = viewedPlayers.includes(i);
+                const isNext = i === nextViewIndex;
+                const isTakingPhoto = i === currentCameraIndex;
+                const isFlippedManually = flippedCards.includes(i);  // 已经手动翻开过的
+                // 只有正在拍照的卡牌才显示翻开状态（词语 + 摄像头）
+                const isFlipped = isTakingPhoto;
+
+                return `
+                <div class="card-item ${isCompleted ? 'completed' : ''} ${isNext && !isFlippedManually ? 'active' : ''} ${isFlipped ? 'flipped' : ''}"
+                     onclick="flipCard(${i})" id="card-${i}">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-player-num">${player.number}号</div>
+                            <div class="card-hint">${isCompleted ? '已完成' : (isNext && !isFlippedManually ? '点击揭开' : '等待中...')}</div>
+                        </div>
+                        <div class="card-back">
+                            <div class="card-word">${player.word ? `📝 ${player.word} 📝` : '🃏 白板'}</div>
+                            ${isTakingPhoto ? `
+                                <video id="card-video-${i}" class="card-video" autoplay playsinline></video>
+                                <canvas id="card-canvas-${i}" class="card-canvas"></canvas>
+                                <img id="card-preview-${i}" class="card-photo-preview" style="display: none;" />
+                                <button class="card-confirm-btn" onclick="event.stopPropagation(); captureAndConfirm(${i})">
+                                    ✓ 我记住了
+                                </button>
+                            ` : `
+                                <button class="card-confirm-btn" onclick="event.stopPropagation(); startCardCamera(${i})" style="display: none;">
+                                    📸 拍照
+                                </button>
+                            `}
+                        </div>
+                    </div>
+                </div>
+            `}).join('');
+        }
+
+        function flipCard(playerIndex) {
+            // 只能按顺序翻开
+            if (playerIndex !== nextViewIndex) {
+                return;
+            }
+            const card = document.getElementById(`card-${playerIndex}`);
+            if (card) {
+                // 第一次点击卡牌，标记游戏开始
+                cardGameStarted = true;
+                card.classList.add('flipped');
+                // 翻开后直接启动摄像头
+                setTimeout(() => {
+                    startCardCamera(playerIndex);
+                }, 300);
+            }
+        }
+
+        // ==================== 卡牌内拍照功能 ====================
+        let cardPhotoData = null;  // 临时存储卡牌拍照数据
+
+        function startCardCamera(playerIndex) {
+            currentCameraIndex = playerIndex;
+            cameraStarted = true;
+            renderCardTransferPage();
+
+            // 启动摄像头
+            const video = document.getElementById(`card-video-${playerIndex}`);
+            if (video) {
+                navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'user' },
+                    audio: false
+                }).then(stream => {
+                    currentStream = stream;
+                    video.srcObject = stream;
+                }).catch(err => {
+                    console.error('摄像头启动失败:', err);
+                    alert('无法启动摄像头，请确保已授权相机权限。');
+                    currentCameraIndex = -1;
+                    cameraStarted = false;
+                    renderCardTransferPage();
+                });
+            }
+        }
+
+        function captureAndConfirm(playerIndex) {
+            // 拍照
+            const video = document.getElementById(`card-video-${playerIndex}`);
+            const canvas = document.getElementById(`card-canvas-${playerIndex}`);
+
+            if (video && canvas) {
+                // 设置画布尺寸
+                canvas.width = video.videoWidth || 320;
+                canvas.height = video.videoHeight || 240;
+
+                // 捕获画面
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                // 转换为 base64
+                cardPhotoData = canvas.toDataURL('image/jpeg', 0.8);
+
+                // 保存照片到玩家对象
+                gameState.players[playerIndex].avatar = cardPhotoData;
+
+                // 停止摄像头
+                if (currentStream) {
+                    currentStream.getTracks().forEach(track => track.stop());
+                    currentStream = null;
+                }
+
+                // 重置状态
+                cardPhotoData = null;
+                currentCameraIndex = -1;
+                cameraStarted = false;
+
+                // 标记为已完成
+                viewedPlayers.push(playerIndex);
+                nextViewIndex++;
+
+                // 判断是否所有玩家都已查看
+                if (nextViewIndex >= gameState.totalPlayers) {
+                    // 所有玩家完成，进入淘汰记录页面
+                    setTimeout(() => {
+                        showPage('eliminate-page');
+                        renderEliminatePage();
+                    }, 300);
+                } else {
+                    // 重新渲染卡牌，下一张卡牌变为可点击
+                    renderCardTransferPage();
+                }
+            }
+        }
+
+        function showWord() {
+            const player = gameState.players[gameState.currentPlayerIndex];
+            const wordDisplay = player.word ? `📝 ${player.word} 📝` : '🃏 白板（没有词语）🃏';
+            document.getElementById('player-word').textContent = wordDisplay;
+            document.getElementById('word-progress-current').textContent = player.number;
+            document.getElementById('word-progress-total').textContent = gameState.totalPlayers;
+            showPage('word-page');
+        }
+
+        function confirmWord() {
+            gameState.currentPlayerIndex++;
+
+            if (gameState.currentPlayerIndex >= gameState.totalPlayers) {
+                // 所有玩家都看过词语，进入淘汰记录页面
+                showPage('eliminate-page');
+                renderEliminatePage();
+            } else {
+                updateTransferPage();
+                showPage('transfer-page');
+            }
+        }
+
+        // ==================== 摄像头拍照功能 ====================
+        function goToCamera() {
+            cameraPlayerIndex = gameState.currentPlayerIndex;
+            const player = gameState.players[cameraPlayerIndex];
+            document.getElementById('camera-player-num').textContent = player.number;
+            document.getElementById('camera-capture-btns').style.display = 'flex';
+            document.getElementById('camera-confirm-btns').style.display = 'none';
+            document.getElementById('camera-video').style.display = 'block';
+            document.getElementById('camera-preview').style.display = 'none';
+            currentPhotoData = null;
+            showPage('camera-page');
+            startCamera();
+        }
+
+        async function startCamera() {
+            try {
+                const video = document.getElementById('camera-video');
+                currentStream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'user' },
+                    audio: false
+                });
+                video.srcObject = currentStream;
+            } catch (err) {
+                console.error('摄像头启动失败:', err);
+                alert('无法启动摄像头，请确保已授权相机权限。将使用默认头像。');
+                // 使用默认头像继续
+                gameState.players[cameraPlayerIndex].avatar = null;
+                confirmPhoto();
+            }
+        }
+
+        function capturePhoto() {
+            const video = document.getElementById('camera-video');
+            const canvas = document.getElementById('camera-canvas');
+            const preview = document.getElementById('camera-preview');
+
+            // 设置画布尺寸与视频一致
+            canvas.width = video.videoWidth || 400;
+            canvas.height = video.videoHeight || 300;
+
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // 转换为 base64 图片
+            currentPhotoData = canvas.toDataURL('image/jpeg', 0.8);
+
+            // 显示预览，隐藏视频
+            preview.src = currentPhotoData;
+            preview.style.display = 'block';
+            video.style.display = 'none';
+
+            // 切换按钮
+            document.getElementById('camera-capture-btns').style.display = 'none';
+            document.getElementById('camera-confirm-btns').style.display = 'flex';
+        }
+
+        function retakePhoto() {
+            stopCamera();
+            document.getElementById('camera-video').style.display = 'block';
+            document.getElementById('camera-preview').style.display = 'none';
+            document.getElementById('camera-capture-btns').style.display = 'flex';
+            document.getElementById('camera-confirm-btns').style.display = 'none';
+            currentPhotoData = null;
+            startCamera();
+        }
+
+        function confirmPhoto() {
+            // 保存照片到玩家对象
+            gameState.players[cameraPlayerIndex].avatar = currentPhotoData;
+            stopCamera();
+
+            // 判断是否所有玩家都已拍照
+            const allDone = gameState.players.every(p => p.avatar !== null);
+            if (allDone) {
+                // 所有玩家都拍照完毕，进入淘汰记录页面
+                showPage('eliminate-page');
+                renderEliminatePage();
+            } else {
+                // 还有玩家没拍照，返回卡牌页面
+                renderCardTransferPage();
+                showPage('card-transfer-page');
+            }
+        }
+
+        function stopCamera() {
+            if (currentStream) {
+                currentStream.getTracks().forEach(track => track.stop());
+                currentStream = null;
+            }
+        }
+
+        // 页面离开时停止摄像头
+        window.addEventListener('beforeunload', stopCamera);
+
+        function getRoleName(type) {
+            switch(type) {
+                case 'undercover': return '🕵️ 卧底';
+                case 'blank': return '🃏 白板';
+                default: return '👨‍🌾 平民';
+            }
+        }
+
+        function getEliminatedEmoji(type) {
+            switch(type) {
+                case 'undercover': return '😱';
+                case 'blank': return '🃏';
+                default: return '😢';
+            }
+        }
+
+        // ==================== 淘汰记录页面 ====================
+        function renderEliminatePage() {
+            const alivePlayers = gameState.players.filter(p => !p.eliminated);
+            const options = document.getElementById('eliminate-options');
+
+            if (alivePlayers.length === 0) {
+                checkGameOver();
+                return;
+            }
+
+            options.innerHTML = alivePlayers.map(p => `
+                <div class="player-item-with-avatar vote-option" onclick="selectEliminate(${p.number})" data-number="${p.number}">
+                    <div style="position: relative;">
+                        <span class="player-number-badge">${p.number}</span>
+                        ${p.avatar ? `<img src="${p.avatar}" class="player-avatar" alt="头像">` : `<div class="player-number" style="width:80px;height:80px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#141E30;">${p.number}</div>`}
+                    </div>
+                    <span style="font-weight: 600; color: var(--text);">${p.number}号玩家</span>
+                </div>
+            `).join('');
+
+            // 清除选中状态
+            options.classList.remove('has-selected');
+        }
+
+        let eliminateTarget = null;
+        let reviewWordTarget = null;
+
+        function selectEliminate(number) {
+            const options = document.getElementById('eliminate-options');
+            const allOptions = document.querySelectorAll('#eliminate-options .vote-option');
+
+            allOptions.forEach(opt => {
+                opt.classList.toggle('selected', opt.dataset.number == number);
+            });
+
+            // 添加 class 让未选中的变暗
+            options.classList.add('has-selected');
+
+            eliminateTarget = number;
+            reviewWordTarget = number;
+
+            // 激活按钮
+            const forgetBtn = document.getElementById('forget-word-btn');
+            const eliminateBtn = document.getElementById('eliminate-confirm-btn');
+            forgetBtn.disabled = false;
+            eliminateBtn.disabled = false;
+            forgetBtn.style.opacity = '1';
+            eliminateBtn.style.opacity = '1';
+            forgetBtn.style.cursor = 'pointer';
+            eliminateBtn.style.cursor = 'pointer';
+        }
+
+        function clearSelection() {
+            eliminateTarget = null;
+            reviewWordTarget = null;
+            const allOptions = document.querySelectorAll('#eliminate-options .vote-option');
+            allOptions.forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            document.getElementById('eliminate-options').classList.remove('has-selected');
+
+            // 禁用按钮
+            const forgetBtn = document.getElementById('forget-word-btn');
+            const eliminateBtn = document.getElementById('eliminate-confirm-btn');
+            forgetBtn.disabled = true;
+            eliminateBtn.disabled = true;
+            forgetBtn.style.opacity = '0.5';
+            eliminateBtn.style.opacity = '0.5';
+            forgetBtn.style.cursor = 'not-allowed';
+            eliminateBtn.style.cursor = 'not-allowed';
+        }
+
+        function showReviewWord() {
+            if (reviewWordTarget) {
+                const player = gameState.players.find(p => p.number === reviewWordTarget);
+                if (player) {
+                    const wordDisplay = player.word ? `📝 ${player.word} 📝` : '🃏 白板（没有词语）🃏';
+                    document.getElementById('review-word-text').textContent = wordDisplay;
+                    document.getElementById('review-word-player').textContent = player.number;
+                    showPage('review-word-page');
+
+                    // 3 秒后自动返回淘汰页面并取消选中状态
+                    setTimeout(() => {
+                        showPage('eliminate-page');
+                        clearSelection();
+                    }, 3000);
+                }
+            }
+        }
+
+        function checkGameOver() {
+            if (eliminateTarget) {
+                // 处决选中的玩家
+                const eliminated = gameState.players.find(p => p.number === eliminateTarget);
+                if (eliminated) {
+                    eliminated.eliminated = true;
+                    gameState.eliminated.push(eliminated);
+
+                    // 标记该玩家为已淘汰状态，在头像上显示身份标签
+                    markPlayerAsEliminated(eliminated);
+
+                    // 重置选中状态
+                    eliminateTarget = null;
+                    clearSelection();
+
+                    // 检查游戏是否结束
+                    checkWinCondition();
+                }
+            } else {
+                // 没有选择玩家，手动结束游戏，检查胜负
+                endGameManual();
+            }
+        }
+
+        function markPlayerAsEliminated(player) {
+            // 在淘汰页面找到该玩家的头像元素，添加 eliminated 类和身份标签
+            const options = document.getElementById('eliminate-options');
+            const playerOption = options.querySelector(`.vote-option[data-number="${player.number}"]`);
+            if (playerOption) {
+                playerOption.classList.add('eliminated');
+
+                // 添加身份标签
+                const roleBadge = document.createElement('div');
+                roleBadge.className = 'eliminated-role-badge';
+                roleBadge.textContent = getRoleName(player.type);
+                roleBadge.style.backgroundColor = player.type === 'undercover' ? 'var(--danger)' : 'var(--primary)';
+                playerOption.appendChild(roleBadge);
+            }
+        }
+
+        function checkWinCondition() {
+            const alive = gameState.players.filter(p => !p.eliminated);
+            const aliveUndercover = alive.filter(p => p.type === 'undercover');
+            const aliveCivilian = alive.filter(p => p.type === 'civilian');
+
+            let winner = null;
+
+            // 判断胜负
+            if (aliveUndercover.length === 0) {
+                // 没有卧底了，平民获胜
+                winner = 'civilian';
+            } else if (aliveCivilian.length === 0) {
+                // 没有平民了，卧底获胜
+                winner = 'undercover';
+            }
+
+            if (winner) {
+                setTimeout(() => {
+                    endGame(winner);
+                }, 500);
+            }
+        }
+
+        function endGameManual() {
+            const alive = gameState.players.filter(p => !p.eliminated);
+            const aliveUndercover = alive.filter(p => p.type === 'undercover');
+            const aliveBlank = alive.filter(p => p.type === 'blank');
+            const aliveCivilian = alive.filter(p => p.type === 'civilian');
+
+            let winner = null;
+
+            // 判断胜负
+            if (aliveUndercover.length === 0) {
+                winner = 'civilian';
+            } else if (aliveCivilian.length === 0) {
+                winner = 'undercover';
+            } else if (aliveBlank.length > 0 && aliveUndercover.length === 0) {
+                winner = 'blank';
+            }
+
+            if (winner) {
+                endGame(winner);
+            } else {
+                alert('游戏尚未结束，请继续淘汰玩家或确认胜负已分');
+            }
+        }
+
+        function continueGame() {
+            eliminateTarget = null;
+            // 检查游戏是否结束
+            const alive = gameState.players.filter(p => !p.eliminated);
+            const aliveUndercover = alive.filter(p => p.type === 'undercover');
+            const aliveBlank = alive.filter(p => p.type === 'blank');
+            const aliveCivilian = alive.filter(p => p.type === 'civilian');
+
+            let winner = null;
+
+            // 判断胜负
+            if (aliveUndercover.length === 0) {
+                if (aliveBlank.length === 1 && aliveCivilian.length >= 1) {
+                    winner = 'blank';
+                } else {
+                    winner = 'civilian';
+                }
+            } else if (aliveCivilian.length === 0) {
+                winner = 'undercover';
+            }
+
+            if (winner) {
+                endGame(winner);
+            } else {
+                renderEliminatePage();
+                showPage('eliminate-page');
+            }
+        }
+
+        function endGame(winner) {
+            // 保存战绩
+            saveGameResult(winner);
+
+            // 更新结算页面
+            const undercover = gameState.players.filter(p => p.type === 'undercover');
+            const civilian = gameState.players.filter(p => p.type === 'civilian');
+
+            document.getElementById('result-emoji').textContent = getWinnerEmoji(winner);
+            document.getElementById('result-title').textContent = getWinnerTitle(winner);
+
+            // 显示获胜者信息
+            let winnerInfo = '';
+            if (winner === 'civilian') {
+                winnerInfo = `
+                    <div style="font-size: 3rem; margin-bottom: 10px;">👨‍🌾</div>
+                    <div style="font-weight: 700; color: var(--primary); margin-bottom: 8px;">平民获胜</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">所有平民玩家</div>
+                    <div style="margin-top: 5px; font-size: 1.1rem;">词语：${civilian[0]?.word || 'N/A'}</div>
+                `;
+            } else if (winner === 'undercover') {
+                const undercoverPlayer = undercover[0];
+                winnerInfo = `
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🕵️</div>
+                    <div style="font-weight: 700; color: var(--primary); margin-bottom: 8px;">卧底获胜</div>
+                    ${undercoverPlayer?.avatar ? `<img src="${undercoverPlayer.avatar}" style="width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary); margin: 8px auto;">` : ''}
+                    <div style="margin-top: 5px; font-size: 1.1rem;">${undercoverPlayer?.number}号 (卧底)</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">词语：${undercoverPlayer?.word || 'N/A'}</div>
+                `;
+            }
+            document.getElementById('winner-info-box').innerHTML = winnerInfo;
+
+            // 显示所有玩家身份信息
+            const allPlayersHtml = gameState.players.map(p => {
+                let roleIcon = p.type === 'undercover' ? '🕵️' : (p.type === 'blank' ? '🃏' : '👨‍🌾');
+                let roleName = p.type === 'undercover' ? '卧底' : (p.type === 'blank' ? '白板' : '平民');
+                return `
+                    <div style="background: var(--card-bg); border-radius: 10px; padding: 12px; border: 1px solid rgba(212, 161, 71, 0.3);">
+                        ${p.avatar ? `<img src="${p.avatar}" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary); display: block; margin: 0 auto 8px;">` : `<div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-weight: 700; color: #141E30;">${p.number}</div>`}
+                        <div style="text-align: center; font-weight: 600; color: var(--text);">${p.number}号</div>
+                        <div style="text-align: center; font-size: 0.85rem; opacity: 0.8; margin-top: 4px;">${roleIcon} ${roleName}</div>
+                        <div style="text-align: center; font-size: 0.8rem; opacity: 0.6; margin-top: 4px;">${p.word || '无'}</div>
+                    </div>
+                `;
+            }).join('');
+            document.getElementById('all-players-identity').innerHTML = allPlayersHtml;
+
+            showPage('result-page');
+        }
+
+        function getWinnerEmoji(winner) {
+            switch(winner) {
+                case 'civilian': return '🎉';
+                case 'undercover': return '😈';
+                default: return '🏆';
+            }
+        }
+
+        function getWinnerTitle(winner) {
+            switch(winner) {
+                case 'civilian': return '👨‍🌾 平民获胜！';
+                case 'undercover': return '🕵️ 卧底获胜！';
+                default: return '游戏结束';
+            }
+        }
+
+        function getLosers(winner) {
+            switch(winner) {
+                case 'civilian':
+                    return gameState.players.filter(p => p.type !== 'civilian');
+                case 'undercover':
+                    return gameState.players.filter(p => p.type === 'civilian');
+                default:
+                    return [];
+            }
+        }
+
+        function startNewGame() {
+            // 保持当前设置，直接开始新游戏
+            startGame();
+        }
+
+    </script>
+</body>
+</html>

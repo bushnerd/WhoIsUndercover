@@ -127,7 +127,7 @@
         .page-title {
             font-size: 1.5rem;
             text-align: center;
-            margin: 20px 0;
+            margin: 12px 0;
             color: var(--primary);
             font-weight: 700;
         }
@@ -136,8 +136,8 @@
         .card {
             background: var(--card-bg);
             border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
             box-shadow: 0 4px 20px var(--card-shadow);
             border: 1px solid var(--card-border);
             transition: all 0.3s ease;
@@ -146,7 +146,7 @@
         .card-title {
             font-size: 1.05rem;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -158,7 +158,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 0;
+            padding: 8px 0;
             border-bottom: 1px solid var(--card-border);
         }
 
@@ -169,28 +169,28 @@
         .counter-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .counter-value {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
         }
 
         .counter-label {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
         }
 
         .counter-btn {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: none;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: var(--bg);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -543,12 +543,16 @@
             color: var(--danger-text);
         }
 
-        /* 词库选择复选框 */
+        /* 词库选择复选框 - 改为两列布局 */
         .word-bank-checkboxes {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
             margin-top: 12px;
+        }
+
+        .word-bank-checkboxes .checkbox-item {
+            margin: 0;
         }
 
         .checkbox-item {
@@ -556,10 +560,11 @@
             align-items: center;
             gap: 10px;
             cursor: pointer;
-            padding: 8px 12px;
+            padding: 10px 12px;
             border-radius: 8px;
             background: var(--bg);
             transition: background 0.2s;
+            margin: 0;
         }
 
         .checkbox-item:hover {
@@ -1166,12 +1171,16 @@
         /* 响应式调整 */
         @media (max-width: 360px) {
             .counter-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
             }
             .counter-value {
                 font-size: 1.5rem;
+            }
+            /* 在超小屏幕上词库选择器变为单列 */
+            .word-bank-checkboxes {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1180,7 +1189,7 @@
     <div class="container">
         <!-- 日夜切换按钮 -->
         <button class="theme-toggle" onclick="toggleTheme()" title="切换日夜模式">
-            <span id="theme-icon">🌙</span>
+            <span id="theme-icon"></span>
         </button>
 
         <!-- 首页 -->
@@ -1188,7 +1197,7 @@
             <h1 class="page-title">🎭 谁是卧底</h1>
 
             <div class="card">
-                <div class="card-title">👥 玩家人数</div>
+                <div class="card-title">👥 游戏设置</div>
 
                 <!-- 总人数计数器 -->
                 <div class="counter">
@@ -1196,14 +1205,14 @@
                         <div class="counter-value" id="total-count">6</div>
                         <div class="counter-label">👥 总人数</div>
                     </div>
-                    <div style="display: flex; gap: 12px; align-items: center;">
+                    <div style="display: flex; gap: 8px; align-items: center;">
                         <button class="counter-btn" onclick="adjustCount(-1)">−</button>
                         <button class="counter-btn" onclick="adjustCount(1)">+</button>
                     </div>
                 </div>
 
                 <!-- 角色分配区域 -->
-                <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--primary-bg);">
+                <div style="margin-top: 8px;">
 
                     <!-- 卧底计数器 -->
                     <div class="counter">
@@ -1211,7 +1220,7 @@
                             <div class="counter-value" id="preview-undercover">2</div>
                             <div class="counter-label">🕵️ 卧底</div>
                         </div>
-                        <div style="display: flex; gap: 12px; align-items: center;">
+                        <div style="display: flex; gap: 8px; align-items: center;">
                             <button class="counter-btn" onclick="adjustUndercover(-1)">−</button>
                             <button class="counter-btn" onclick="adjustUndercover(1)">+</button>
                         </div>
@@ -1223,7 +1232,7 @@
                             <div class="counter-value" id="preview-civilian">4</div>
                             <div class="counter-label">👨‍🌾 平民</div>
                         </div>
-                        <div style="display: flex; gap: 12px; align-items: center;">
+                        <div style="display: flex; gap: 8px; align-items: center;">
                             <span style="font-size: 0.85rem; opacity: 0.6;">(自动计算)</span>
                         </div>
                     </div>
@@ -1234,7 +1243,7 @@
                             <div class="counter-value" id="preview-blank">0</div>
                             <div class="counter-label">🃏 白板</div>
                         </div>
-                        <div style="display: flex; gap: 12px; align-items: center;">
+                        <div style="display: flex; gap: 8px; align-items: center;">
                             <button class="counter-btn" onclick="adjustBlank(-1)">−</button>
                             <button class="counter-btn" onclick="adjustBlank(1)">+</button>
                         </div>
@@ -1249,33 +1258,24 @@
                 <div class="word-bank-checkboxes">
                     <label class="checkbox-item">
                         <input type="checkbox" value="classic" checked onchange="toggleWordBank('classic')">
-                        <span>🎲 经典（50 组）</span>
-                        <span class="checkbox-count">50</span>
+                        <span>🎲 经典</span>
                     </label>
                     <label class="checkbox-item">
                         <input type="checkbox" value="outdoor" checked onchange="toggleWordBank('outdoor')">
-                        <span>🏕️ 户外运动（48 组）</span>
-                        <span class="checkbox-count">48</span>
+                        <span>🏕️ 户外运动</span>
                     </label>
                     <label class="checkbox-item">
                         <input type="checkbox" value="team" checked onchange="toggleWordBank('team')">
-                        <span>🔥 团建活动（48 组）</span>
-                        <span class="checkbox-count">48</span>
+                        <span>🔥 团建活动</span>
                     </label>
                     <label class="checkbox-item">
                         <input type="checkbox" value="food" checked onchange="toggleWordBank('food')">
-                        <span>🍖 户外美食（45 组）</span>
-                        <span class="checkbox-count">45</span>
+                        <span>🍖 户外美食</span>
                     </label>
                     <label class="checkbox-item">
                         <input type="checkbox" value="entertainment" checked onchange="toggleWordBank('entertainment')">
-                        <span>🎵 娱乐装备（46 组）</span>
-                        <span class="checkbox-count">46</span>
+                        <span>🎵 娱乐装备</span>
                     </label>
-                </div>
-                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--primary-bg); display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.9rem; opacity: 0.7;">当前词库总数</span>
-                    <span style="font-size: 1.2rem; font-weight: 700; color: var(--primary);" id="total-words-count">237 组</span>
                 </div>
             </div>
 
@@ -1822,9 +1822,21 @@
         document.addEventListener('DOMContentLoaded', () => {
             // 从 localStorage 恢复主题
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
+            const icon = document.getElementById('theme-icon');
+            const isDark = savedTheme === 'dark';
+
+            if (isDark) {
                 document.body.classList.add('dark-theme');
+                icon.textContent = '☀️';  // 暗色模式下显示太阳图标
+            } else {
+                icon.textContent = '🌙';  // 亮色模式下显示月亮图标
             }
+
+            // 更新所有 footer logo
+            const logos = document.querySelectorAll('.footer-logo');
+            logos.forEach(logo => {
+                logo.src = isDark ? 'assets/logo_dark.png' : 'assets/logo_light.png';
+            });
 
             // 更新显示
             updateCounts();

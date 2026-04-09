@@ -162,10 +162,10 @@
         }
 
         .counter-value {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary);
-            text-shadow: 0 0 10px rgba(212, 161, 71, 0.3);
+            text-shadow: 0 0 15px rgba(212, 161, 71, 0.5);
         }
 
         .counter-label {
@@ -714,6 +714,95 @@
             padding: 0;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 卡牌背面 - 左上角序号 */
+        .card-number-back {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--primary-light);
+            z-index: 10;
+        }
+
+        /* 卡牌背面 - 右上角身份（隐藏，不显示给玩家看） */
+        .card-role-badge-back {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            background: rgba(161, 46, 49, 0.9);
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: white;
+            z-index: 10;
+            /* 不显示身份 */
+            display: none;
+        }
+
+        .card-role-badge-back.civilian {
+            background: rgba(212, 161, 71, 0.9);
+            color: #141E30;
+        }
+
+        .card-role-badge-back.undercover {
+            background: rgba(161, 46, 49, 0.9);
+        }
+
+        .card-role-badge-back.blank {
+            background: rgba(100, 100, 100, 0.9);
+        }
+
+        /* 卡牌背面 - 头像区域 (80%) */
+        .card-avatar-area {
+            flex: 0 0 80%;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(212, 161, 71, 0.1), rgba(20, 30, 48, 0.3));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* 卡牌背面 - 底部区域 (20%) */
+        .card-bottom-area {
+            flex: 0 0 20%;
+            display: flex;
+            border-top: 1px solid rgba(212, 161, 71, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        /* 卡牌背面 - 词语区域 (底部左侧) */
+        .card-word-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+            border-right: 1px solid rgba(212, 161, 71, 0.2);
+        }
+
+        /* 卡牌背面 - 按钮区域 (底部右侧) */
+        .card-button-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
         }
 
         .card-player-num {
@@ -919,28 +1008,57 @@
 
             <div class="card">
                 <div class="card-title">👥 玩家人数</div>
+
+                <!-- 总人数计数器 -->
                 <div class="counter">
-                    <div>
-                        <div class="counter-label">总人数</div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
                         <div class="counter-value" id="total-count">6</div>
+                        <div class="counter-label">👥 总人数</div>
                     </div>
                     <div style="display: flex; gap: 12px; align-items: center;">
                         <button class="counter-btn" onclick="adjustCount(-1)">−</button>
                         <button class="counter-btn" onclick="adjustCount(1)">+</button>
                     </div>
                 </div>
-                <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--primary-bg); font-size: 0.9rem; opacity: 0.8;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                        <span>🕵️ 卧底：<strong id="preview-undercover" style="color: var(--primary);">2</strong> 人</span>
-                        <span>👨‍🌾 平民：<strong id="preview-civilian" style="color: var(--primary);">4</strong> 人</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>🃏 白板：</span>
-                        <div style="display: flex; gap: 8px;">
-                            <button class="counter-btn" id="blank-btn-0" onclick="setBlankCount(0)" style="width: 36px; height: 36px;">0</button>
-                            <button class="counter-btn" id="blank-btn-1" onclick="setBlankCount(1)" style="width: 36px; height: 36px;">1</button>
+
+                <!-- 角色分配区域 -->
+                <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--primary-bg);">
+
+                    <!-- 卧底计数器 -->
+                    <div class="counter">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div class="counter-value" id="preview-undercover">2</div>
+                            <div class="counter-label">🕵️ 卧底</div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <button class="counter-btn" onclick="adjustUndercover(-1)">−</button>
+                            <button class="counter-btn" onclick="adjustUndercover(1)">+</button>
                         </div>
                     </div>
+
+                    <!-- 平民计数器（只读） -->
+                    <div class="counter">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div class="counter-value" id="preview-civilian">4</div>
+                            <div class="counter-label">👨‍🌾 平民</div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <span style="font-size: 0.85rem; opacity: 0.6;">(自动计算)</span>
+                        </div>
+                    </div>
+
+                    <!-- 白板计数器 -->
+                    <div class="counter">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div class="counter-value" id="preview-blank">0</div>
+                            <div class="counter-label">🃏 白板</div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <button class="counter-btn" onclick="adjustBlank(-1)">−</button>
+                            <button class="counter-btn" onclick="adjustBlank(1)">+</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -1236,9 +1354,6 @@
             updateTheme();
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
 
-            // 初始化白板按钮
-            initBlankButtons();
-
             // 更新显示
             updateCounts();
 
@@ -1282,35 +1397,53 @@
 
         // ==================== 计数器 ====================
         function adjustCount(delta) {
+            const oldTotal = gameState.totalPlayers;
             gameState.totalPlayers = Math.max(3, Math.min(12, gameState.totalPlayers + delta));
-            // 根据总人数自动调整卧底数量
-            if (gameState.totalPlayers <= 5) {
-                gameState.undercoverCount = 1;
-            } else if (gameState.totalPlayers <= 8) {
-                gameState.undercoverCount = 2;
-            } else {
-                gameState.undercoverCount = 3;
+
+            // 验证并调整卧底和白板数量，确保至少有 1 个平民
+            const maxRoles = gameState.totalPlayers - 1;
+
+            if (gameState.undercoverCount + gameState.blankCount > maxRoles) {
+                if (gameState.undercoverCount > maxRoles) {
+                    gameState.undercoverCount = Math.max(1, maxRoles - gameState.blankCount);
+                }
+                gameState.blankCount = Math.max(0, maxRoles - gameState.undercoverCount);
             }
+
             updateCounts();
         }
 
-        function setBlankCount(count) {
-            gameState.blankCount = count;
-            // 更新按钮样式
-            document.getElementById('blank-btn-0').classList.toggle('selected', count === 0);
-            document.getElementById('blank-btn-1').classList.toggle('selected', count === 1);
-            updateCounts();
+        // 调整卧底数量
+        function adjustUndercover(delta) {
+            const maxUndercover = Math.min(3, gameState.totalPlayers - gameState.blankCount - 1);
+            const minUndercover = 1;
+
+            const newValue = gameState.undercoverCount + delta;
+
+            if (newValue >= minUndercover && newValue <= maxUndercover) {
+                gameState.undercoverCount = newValue;
+                updateCounts();
+            }
+        }
+
+        // 调整白板数量
+        function adjustBlank(delta) {
+            const maxBlank = Math.min(1, gameState.totalPlayers - gameState.undercoverCount - 1);
+            const minBlank = 0;
+
+            const newValue = gameState.blankCount + delta;
+
+            if (newValue >= minBlank && newValue <= maxBlank) {
+                gameState.blankCount = newValue;
+                updateCounts();
+            }
         }
 
         function updateCounts() {
             document.getElementById('total-count').textContent = gameState.totalPlayers;
             document.getElementById('preview-undercover').textContent = gameState.undercoverCount;
             document.getElementById('preview-civilian').textContent = gameState.totalPlayers - gameState.undercoverCount - gameState.blankCount;
-        }
-
-        // 初始化白板按钮状态
-        function initBlankButtons() {
-            document.getElementById('blank-btn-0').classList.add('selected');
+            document.getElementById('preview-blank').textContent = gameState.blankCount;
         }
 
         // ==================== 游戏流程 ====================
@@ -1456,6 +1589,7 @@
         function flipCard(playerIndex) {
             // 只能按顺序翻开
             if (playerIndex !== nextViewIndex) {
+                console.log(`跳过：当前应该翻开 ${nextViewIndex}号牌，但点击了${playerIndex}号牌`);
                 return;
             }
             const card = document.getElementById(`card-${playerIndex}`);
@@ -1463,6 +1597,8 @@
                 // 第一次点击卡牌，标记游戏开始
                 cardGameStarted = true;
                 card.classList.add('flipped');
+                // 记录已翻开的卡牌
+                flippedCards.push(playerIndex);
                 // 翻开后直接启动摄像头
                 setTimeout(() => {
                     startCardCamera(playerIndex);

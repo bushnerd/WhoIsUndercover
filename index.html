@@ -698,6 +698,9 @@
             width: 100%;
             height: 100%;
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .card-front {
@@ -821,25 +824,18 @@
         }
 
         .card-word {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            padding: 4px 10px;
+            padding: 4px 8px;
             background: rgba(212, 161, 71, 0.25);
             border-radius: 8px;
-            margin: 6px 0;
             border: 1px solid rgba(212, 161, 71, 0.3);
-            color: var(--primary);
+            color: var(--primary-light);
             word-break: break-all;
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            max-width: 90%;
             text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
-        /* 角色标签叠加在头像上 */
+        /* 角色标签叠加在头像上（card-front 使用） */
         .card-role-badge {
             position: absolute;
             bottom: 50px;
@@ -870,23 +866,17 @@
         }
 
         .card-confirm-btn {
-            padding: 8px 20px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: #141E30;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
             border: none;
-            border-radius: 20px;
+            border-radius: 10px;
             font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
-            margin-top: auto;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 8px rgba(212, 161, 71, 0.4);
+            box-shadow: 0 2px 8px rgba(212, 161, 71, 0.3);
             transition: transform 0.2s;
-            z-index: 10;
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            white-space: nowrap;
         }
 
         .card-confirm-btn:active {
@@ -1568,17 +1558,25 @@
                             <div class="card-hint">${isCompleted ? '已完成' : (isNext && !isFlippedManually ? '点击揭开' : '等待中...')}</div>
                         </div>
                         <div class="card-back">
-                            <div class="card-word">${player.word || '🃏 白板'}</div>
+                            <div class="card-number-back">${player.number}</div>
                             ${isTakingPhoto ? `
-                                <div class="card-video-container">
-                                    <video id="card-video-${i}" class="card-video" autoplay playsinline></video>
-                                    <canvas id="card-canvas-${i}" class="card-canvas"></canvas>
-                                    <img id="card-preview-${i}" class="card-photo-preview" style="display: none;" />
+                                <div class="card-avatar-area">
+                                    <div class="card-video-container">
+                                        <video id="card-video-${i}" class="card-video" autoplay playsinline></video>
+                                        <canvas id="card-canvas-${i}" class="card-canvas"></canvas>
+                                        <img id="card-preview-${i}" class="card-photo-preview" style="display: none;" />
+                                    </div>
                                 </div>
-                                <div class="card-role-badge ${roleClass}">${roleName}</div>
-                                <button class="card-confirm-btn" onclick="event.stopPropagation(); captureAndConfirm(${i})">
-                                    ✓ 我记住了
-                                </button>
+                                <div class="card-bottom-area">
+                                    <div class="card-word-area">
+                                        <div class="card-word">${player.word || '🃏 白板'}</div>
+                                    </div>
+                                    <div class="card-button-area">
+                                        <button class="card-confirm-btn" onclick="event.stopPropagation(); captureAndConfirm(${i})">
+                                            ✓ 我记住了
+                                        </button>
+                                    </div>
+                                </div>
                             ` : ''}
                         </div>
                     </div>

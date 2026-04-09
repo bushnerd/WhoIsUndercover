@@ -476,6 +476,48 @@
             color: var(--danger);
         }
 
+        /* 词库选择复选框 */
+        .word-bank-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: var(--bg);
+            transition: background 0.2s;
+        }
+
+        .checkbox-item:hover {
+            background: var(--primary-bg);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .checkbox-item label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .checkbox-count {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-left: auto;
+        }
+
         /* 拍照界面 */
         .camera-container {
             position: fixed;
@@ -1057,6 +1099,42 @@
                 </div>
             </div>
 
+            <!-- 词库选择卡片 -->
+            <div class="card">
+                <div class="card-title">📚 词库选择</div>
+                <div class="word-bank-checkboxes">
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="classic" checked onchange="toggleWordBank('classic')">
+                        <span>🎲 经典（50 组）</span>
+                        <span class="checkbox-count">50</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="outdoor" checked onchange="toggleWordBank('outdoor')">
+                        <span>🏕️ 户外运动（48 组）</span>
+                        <span class="checkbox-count">48</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="team" checked onchange="toggleWordBank('team')">
+                        <span>🔥 团建活动（48 组）</span>
+                        <span class="checkbox-count">48</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="food" checked onchange="toggleWordBank('food')">
+                        <span>🍖 户外美食（45 组）</span>
+                        <span class="checkbox-count">45</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="entertainment" checked onchange="toggleWordBank('entertainment')">
+                        <span>🎵 娱乐装备（46 组）</span>
+                        <span class="checkbox-count">46</span>
+                    </label>
+                </div>
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--primary-bg); display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.9rem; opacity: 0.7;">当前词库总数</span>
+                    <span style="font-size: 1.2rem; font-weight: 700; color: var(--primary);" id="total-words-count">237 组</span>
+                </div>
+            </div>
+
             <button class="btn btn-primary" onclick="startGame()">
                 🎮 开始游戏
             </button>
@@ -1272,8 +1350,9 @@
     </div>
 
     <script>
-        // ==================== 默认词库 ====================
-        const defaultWords = [
+        // ==================== 词库系统 ====================
+        // 经典词库（50 组）
+        const wordBankClassic = [
             { w1: '苹果', w2: '香蕉' },
             { w1: '咖啡', w2: '茶' },
             { w1: '火锅', w2: '烧烤' },
@@ -1325,6 +1404,234 @@
             { w1: '歌手', w2: '演员' },
             { w1: '画家', w2: '摄影师' }
         ];
+
+        // 🏕️ 户外运动词库（48 组）
+        const wordBankOutdoor = [
+            { w1: '露营', w2: '野餐' },
+            { w1: '登山', w2: '徒步' },
+            { w1: '攀岩', w2: '速降' },
+            { w1: '滑雪', w2: '单板' },
+            { w1: '冲浪', w2: '帆板' },
+            { w1: '潜水', w2: '浮潜' },
+            { w1: '骑行', w2: '公路车' },
+            { w1: '越野跑', w2: '马拉松' },
+            { w1: '溯溪', w2: '漂流' },
+            { w1: '跳伞', w2: '滑翔伞' },
+            { w1: '蹦极', w2: '秋千' },
+            { w1: '滑板', w2: '轮滑' },
+            { w1: '皮划艇', w2: '独木舟' },
+            { w1: '帆船', w2: '游艇' },
+            { w1: '钓鱼', w2: '路亚' },
+            { w1: '射箭', w2: '飞镖' },
+            { w1: '飞盘', w2: '风筝' },
+            { w1: '帐篷', w2: '天幕' },
+            { w1: '睡袋', w2: '防潮垫' },
+            { w1: '头灯', w2: '手电筒' },
+            { w1: '指南针', w2: 'GPS' },
+            { w1: '登山杖', w2: '护膝' },
+            { w1: '冲锋衣', w2: '软壳衣' },
+            { w1: '速干衣', w2: '运动衣' },
+            { w1: '登山鞋', w2: '徒步鞋' },
+            { w1: '攀岩鞋', w2: '运动鞋' },
+            { w1: '救生衣', w2: '潜水服' },
+            { w1: '滑雪镜', w2: '护目镜' },
+            { w1: '滑雪板', w2: '雪鞋' },
+            { w1: '头盔', w2: '护具' },
+            { w1: '手套', w2: '帽子' },
+            { w1: '背包', w2: '挎包' },
+            { w1: '腰包', w2: '胸包' },
+            { w1: '水袋', w2: '水壶' },
+            { w1: '炉头', w2: '气罐' },
+            { w1: '套锅', w2: '餐具' },
+            { w1: '吊床', w2: '折叠椅' },
+            { w1: '篝火', w2: '篝火晚会' },
+            { w1: '观星', w2: '看日出' },
+            { w1: '摄影', w2: '摄像' },
+            { w1: '无人机', w2: '航拍' },
+            { w1: '对讲机', w2: '收音机' },
+            { w1: '充电宝', w2: '太阳能板' },
+            { w1: '急救包', w2: '创可贴' },
+            { w1: '驱蚊水', w2: '防晒霜' },
+            { w1: '毛巾', w2: '湿巾' },
+            { w1: '绳索', w2: '卡扣' },
+            { w1: '地图', w2: '路书' }
+        ];
+
+        // 🔥 团建活动词库（48 组）
+        const wordBankTeam = [
+            { w1: '狼人杀', w2: '阿瓦隆' },
+            { w1: '剧本杀', w2: '密室逃脱' },
+            { w1: '血染钟楼', w2: '一夜狼' },
+            { w1: '谁是卧底', w2: '你画我猜' },
+            { w1: '真心话', w2: '大冒险' },
+            { w1: '国王游戏', w2: '杀人游戏' },
+            { w1: '桌游', w2: '棋牌' },
+            { w1: '麻将', w2: '扑克' },
+            { w1: '骰子', w2: '猜拳' },
+            { w1: '猜歌', w2: '猜词' },
+            { w1: '接力赛', w2: '拔河' },
+            { w1: '三人四足', w2: '袋鼠跳' },
+            { w1: '踩气球', w2: '传声筒' },
+            { w1: '撕名牌', w2: '躲猫猫' },
+            { w1: '定向越野', w2: '寻宝游戏' },
+            { w1: '烧烤', w2: '野炊' },
+            { w1: '篝火晚会', w2: '篝火舞会' },
+            { w1: 'K 歌', w2: '合唱' },
+            { w1: '吉他', w2: '尤克里里' },
+            { w1: '音响', w2: '麦克风' },
+            { w1: '投影仪', w2: '幕布' },
+            { w1: '彩灯', w2: '灯串' },
+            { w1: '旗帜', w2: '横幅' },
+            { w1: '奖品', w2: '奖杯' },
+            { w1: '证书', w2: '奖牌' },
+            { w1: '纪念品', w2: '伴手礼' },
+            { w1: '合影', w2: '大合照' },
+            { w1: '录像', w2: '直播' },
+            { w1: '拍照', w2: '自拍' },
+            { w1: '自拍杆', w2: '三脚架' },
+            { w1: '破冰游戏', w2: '热身活动' },
+            { w1: '团队挑战', w2: '协作任务' },
+            { w1: '信任背摔', w2: '盲人方阵' },
+            { w1: '沙漠掘金', w2: '极速前进' },
+            { w1: '鱿鱼游戏', w2: '障碍赛' },
+            { w1: '水球大战', w2: '泡泡足球' },
+            { w1: '彩虹跑', w2: '泥地跑' },
+            { w1: '荧光夜跑', w2: '灯光秀' },
+            { w1: '烟花', w2: '仙女棒' },
+            { w1: '许愿', w2: '放飞' },
+            { w1: '拼图', w2: '积木' },
+            { w1: '你比我猜', w2: '动作接龙' },
+            { w1: '故事接龙', w2: '词语接龙' },
+            { w1: '角色扮演', w2: '变装派对' },
+            { w1: '主题派对', w2: '化妆舞会' },
+            { w1: '生日会', w2: '庆祝会' },
+            { w1: '颁奖礼', w2: '总结会' },
+            { w1: '分享会', w2: '座谈会' }
+        ];
+
+        // 🍖 户外美食词库（45 组）
+        const wordBankFood = [
+            { w1: '烤肉', w2: '烧烤' },
+            { w1: '牛排', w2: '羊排' },
+            { w1: '五花肉', w2: '培根' },
+            { w1: '鸡翅', w2: '鸡腿' },
+            { w1: '热狗', w2: '香肠' },
+            { w1: '汉堡', w2: '三明治' },
+            { w1: '饭团', w2: '寿司' },
+            { w1: '泡面', w2: '米粉' },
+            { w1: '面条', w2: '米线' },
+            { w1: '饺子', w2: '馄饨' },
+            { w1: '啤酒', w2: '红酒' },
+            { w1: '白酒', w2: '鸡尾酒' },
+            { w1: '可乐', w2: '雪碧' },
+            { w1: '果汁', w2: '气泡水' },
+            { w1: '手冲咖啡', w2: '挂耳咖啡' },
+            { w1: '拿铁', w2: '美式' },
+            { w1: '奶茶', w2: '柠檬茶' },
+            { w1: '棉花糖', w2: '巧克力' },
+            { w1: '饼干', w2: '薯片' },
+            { w1: '坚果', w2: '果干' },
+            { w1: '西瓜', w2: '葡萄' },
+            { w1: '橙子', w2: '苹果' },
+            { w1: '香蕉', w2: '草莓' },
+            { w1: '面包', w2: '蛋糕' },
+            { w1: '披萨', w2: '意面' },
+            { w1: '蛋挞', w2: '布丁' },
+            { w1: '冰淇淋', w2: '雪糕' },
+            { w1: '火锅', w2: '麻辣烫' },
+            { w1: '关东煮', w2: '串串' },
+            { w1: '炸串', w2: '炸鸡' },
+            { w1: '烤炉', w2: '烤架' },
+            { w1: '气罐', w2: '卡式炉' },
+            { w1: '套锅', w2: '煎锅' },
+            { w1: '水壶', w2: '保温杯' },
+            { w1: '餐具', w2: '筷子' },
+            { w1: '勺子', w2: '叉子' },
+            { w1: '盘子', w2: '碗' },
+            { w1: '杯子', w2: '酒杯' },
+            { w1: '调料', w2: '盐' },
+            { w1: '胡椒', w2: '辣椒酱' },
+            { w1: '孜然', w2: '蜂蜜' },
+            { w1: '油', w2: '酱油' },
+            { w1: '醋', w2: '料酒' },
+            { w1: '大蒜', w2: '生姜' },
+            { w1: '洋葱', w2: '香菜' }
+        ];
+
+        // 🎵 娱乐装备词库（46 组）
+        const wordBankEntertainment = [
+            { w1: '民谣', w2: '摇滚' },
+            { w1: '说唱', w2: '电音' },
+            { w1: '爵士', w2: '古典' },
+            { w1: '流行', w2: '金属' },
+            { w1: '吉他', w2: '贝斯' },
+            { w1: '架子鼓', w2: '键盘' },
+            { w1: '钢琴', w2: '小提琴' },
+            { w1: '尤克里里', w2: '口琴' },
+            { w1: '笛子', w2: '箫' },
+            { w1: '音箱', w2: '音响' },
+            { w1: '耳机', w2: '耳塞' },
+            { w1: '麦克风', w2: '声卡' },
+            { w1: '吉他谱', w2: '歌单' },
+            { w1: '播放列表', w2: '收藏夹' },
+            { w1: '网易云', w2: 'QQ 音乐' },
+            { w1: '抖音', w2: '快手' },
+            { w1: 'B 站', w2: '小红书' },
+            { w1: '朋友圈', w2: '微博' },
+            { w1: '自拍', w2: '他拍' },
+            { w1: '合影', w2: '合照' },
+            { w1: '滤镜', w2: '美颜' },
+            { w1: '相机', w2: '微单' },
+            { w1: '单反', w2: '卡片机' },
+            { w1: 'GoPro', w2: '运动相机' },
+            { w1: '大疆', w2: '无人机' },
+            { w1: '三脚架', w2: '云台' },
+            { w1: '自拍杆', w2: '稳定器' },
+            { w1: '补光灯', w2: '反光板' },
+            { w1: '双肩包', w2: '旅行包' },
+            { w1: '单肩包', w2: '腰包' },
+            { w1: '挎包', w2: '胸包' },
+            { w1: '登山包', w2: '电脑包' },
+            { w1: '相机包', w2: '镜头包' },
+            { w1: '充电宝', w2: '移动电源' },
+            { w1: '数据线', w2: '充电线' },
+            { w1: '耳机线', w2: '转换器' },
+            { w1: '手机', w2: '平板' },
+            { w1: '笔记本', w2: '电脑' },
+            { w1: '头灯', w2: '营地灯' },
+            { w1: '手电筒', w2: '串灯' },
+            { w1: '移动 WiFi', w2: '路由器' },
+            { w1: 'SIM 卡', w2: '流量卡' },
+            { w1: '蓝牙', w2: 'WiFi' },
+            { w1: '投影仪', w2: '投屏器' },
+            { w1: '麻将', w2: '扑克牌' },
+            { w1: '桌游', w2: '卡牌' }
+        ];
+
+        // 默认勾选所有词库
+        let selectedWordBanks = ['classic', 'outdoor', 'team', 'food', 'entertainment'];
+
+        // 获取合并后的词库
+        function getMergedWordBank() {
+            let merged = [];
+            if (selectedWordBanks.includes('classic')) merged = merged.concat(wordBankClassic);
+            if (selectedWordBanks.includes('outdoor')) merged = merged.concat(wordBankOutdoor);
+            if (selectedWordBanks.includes('team')) merged = merged.concat(wordBankTeam);
+            if (selectedWordBanks.includes('food')) merged = merged.concat(wordBankFood);
+            if (selectedWordBanks.includes('entertainment')) merged = merged.concat(wordBankEntertainment);
+            return merged.length === 0 ? wordBankClassic : merged;
+        }
+
+        // 获取词库统计信息
+        function getWordBankStats() {
+            return {
+                classic: wordBankClassic.length,
+                outdoor: wordBankOutdoor.length,
+                team: wordBankTeam.length,
+                food: wordBankFood.length,
+                entertainment: wordBankEntertainment.length
+            };
+        }
 
         // ==================== 游戏状态 ====================
         let gameState = {
@@ -1441,15 +1748,49 @@
             document.getElementById('preview-blank').textContent = gameState.blankCount;
         }
 
+        // 切换词库
+        function toggleWordBank(bankName) {
+            const index = selectedWordBanks.indexOf(bankName);
+            const checkbox = document.querySelector(`input[type="checkbox"][value="${bankName}"]`);
+
+            if (checkbox.checked && index === -1) {
+                selectedWordBanks.push(bankName);
+            } else if (!checkbox.checked && index !== -1) {
+                // 至少保留一个词库
+                if (selectedWordBanks.length > 1) {
+                    selectedWordBanks.splice(index, 1);
+                } else {
+                    // 如果只剩一个，不允许取消
+                    checkbox.checked = true;
+                    alert('至少需要选择一个词库');
+                    return;
+                }
+            }
+            updateTotalWordsCount();
+        }
+
+        // 更新词库总数显示
+        function updateTotalWordsCount() {
+            const stats = getWordBankStats();
+            let total = 0;
+            if (selectedWordBanks.includes('classic')) total += stats.classic;
+            if (selectedWordBanks.includes('outdoor')) total += stats.outdoor;
+            if (selectedWordBanks.includes('team')) total += stats.team;
+            if (selectedWordBanks.includes('food')) total += stats.food;
+            if (selectedWordBanks.includes('entertainment')) total += stats.entertainment;
+            document.getElementById('total-words-count').textContent = total + ' 组';
+        }
+
         // ==================== 游戏流程 ====================
         function startGame() {
             const total = gameState.totalPlayers;
             const undercover = gameState.undercoverCount;
             const blank = gameState.blankCount;
 
-            // 从默认词库中随机选择一对词语
-            const randomIndex = Math.floor(Math.random() * defaultWords.length);
-            const pair = defaultWords[randomIndex];
+            // 从合并后的词库中随机选择一对词语
+            const wordBank = getMergedWordBank();
+            const randomIndex = Math.floor(Math.random() * wordBank.length);
+            const pair = wordBank[randomIndex];
 
             // 分配角色
             let roles = [];

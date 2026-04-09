@@ -14,6 +14,7 @@ baidu_*.png
 test-screenshots/
 ui-demo/
 ui-demo.html
+ui-demos/
 
 # 临时文件
 *.log

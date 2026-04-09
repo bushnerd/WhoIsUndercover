@@ -5,28 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>谁是卧底 - 无境探险</title>
     <style>
+        /* ==================== 亮色主题（默认 - 蓝色系） ==================== */
         :root {
-            /* 品牌配色 - 深蓝色背景 + 金色主色调 */
-            --bg: #141E30;             /* 深蓝背景 */
-            --primary: #D4A147;        /* 金色主色调 */
-            --primary-light: #E8C87A;  /* 浅金色 */
-            --primary-dark: #B88A3C;   /* 深金色 */
-            --primary-bg: rgba(212, 161, 71, 0.15);  /* 金色半透明背景 */
-            --text: #FFFFFF;           /* 白色文字 */
-            --card-bg: rgba(255, 255, 255, 0.08);    /* 半透明卡片背景 */
-            --accent: #F4A460;         /* 暖色强调 */
-            --success: #4CAF50;
-            --danger: #A12E31;         /* 暗红色 */
-            --card-gold: linear-gradient(135deg, #D4A147, #F4C86A, #D4A147);
+            --bg: #F5F7FA;
+            --bg-gradient: linear-gradient(180deg, #F0F2F5 0%, #FFFFFF 100%);
+            --primary: #2E4A7C;                     /* 深蓝，提高对比度 */
+            --primary-light: #4A6FA5;               /* 中蓝 */
+            --primary-dark: #1A2F4D;                /* 更深蓝 */
+            --primary-bg: rgba(46, 74, 124, 0.08);
+            --text: #1A1A1A;
+            --text-secondary: #4A4A4A;              /* 更深的次要文字 */
+            --card-bg: #FFFFFF;
+            --card-border: #D0D8E0;
+            --card-shadow: rgba(46, 74, 124, 0.15);
+            /* Web 2.0 柔和色 */
+            --danger: #E57373;
+            --danger-bg: #FFEBEE;
+            --danger-text: #C62828;
+            --success: #81C784;
+            --success-bg: #E8F5E9;
+            --success-text: #2E7D32;
+            --avatar-bg: #2E4A7C;                   /* 头像背景 - 深蓝 */
+            --avatar-text: #FFFFFF;                 /* 头像文字 - 白色 */
         }
 
-        [data-theme="light"] {
-            --bg: #F5F7FA;
-            --primary: #B88A3C;
-            --primary-light: #D4A147;
-            --primary-bg: rgba(184, 138, 60, 0.1);
-            --text: #1A1A1A;
-            --card-bg: #FFFFFF;
+        /* ==================== 暗色主题（深蓝 + 浅色文字） ==================== */
+        body.dark-theme {
+            --bg: #3B5F9E;                          /* 和 LOGO 背景一致 */
+            --bg-gradient: linear-gradient(180deg, #2A4A8E 0%, #3B5F9E 40%, #2A4A8E 100%);
+            --primary: #FFFFFF;                     /* 纯白色，最高对比度 */
+            --primary-light: #F0F4F8;
+            --primary-dark: #E0E8F0;
+            --primary-bg: rgba(255, 255, 255, 0.1);
+            --text: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.75);
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --card-shadow: rgba(0, 0, 0, 0.3);
+            /* Web 2.0 柔和色 - 暗色版本 */
+            --danger: #FFCDD2;
+            --danger-bg: rgba(255, 235, 238, 0.15);
+            --danger-text: #FFCDD2;
+            --success: #C8E6C9;
+            --success-bg: rgba(232, 245, 233, 0.15);
+            --success-text: #C8E6C9;
+            --avatar-bg: #FFFFFF;                   /* 头像背景 - 白色 */
+            --avatar-text: #2A4A8E;                 /* 头像文字 - 深蓝 */
         }
 
         * {
@@ -38,11 +62,10 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--bg);
-            background: linear-gradient(180deg, #0F1623 0%, #141E30 50%, #0A1020 100%);
+            background: var(--bg-gradient);
             color: var(--text);
             min-height: 100vh;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.4s ease, color 0.4s ease;
             overflow-x: hidden;
         }
 
@@ -56,29 +79,37 @@
         }
 
         /* 日夜切换按钮 */
-        /* 日夜切换按钮 */
         .theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             border: 2px solid var(--primary);
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: #141E30;
-            font-size: 1.3rem;
+            background: var(--primary);
+            color: var(--bg);
+            font-size: 1.4rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.1s, box-shadow 0.2s;
-            box-shadow: 0 2px 8px rgba(212, 161, 71, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             z-index: 1000;
         }
 
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+
         .theme-toggle:active {
-            transform: scale(0.9);
+            transform: scale(0.95);
+        }
+
+        body.dark-theme .theme-toggle {
+            background: #FFFFFF;
+            color: #2A4A8E;
         }
 
         /* 页面切换 */
@@ -107,14 +138,15 @@
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 16px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-            border: 1px solid rgba(212, 161, 71, 0.2);
+            box-shadow: 0 4px 20px var(--card-shadow);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
         }
 
         .card-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -126,24 +158,50 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .counter:last-child {
+            border-bottom: none;
+        }
+
+        .counter-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .counter-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .counter-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
         }
 
         .counter-btn {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: none;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: #141E30;
-            font-size: 1.5rem;
+            color: var(--bg);
+            font-size: 1.3rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.1s, box-shadow 0.2s;
-            box-shadow: 0 2px 8px rgba(212, 161, 71, 0.4);
-            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: transform 0.1s;
+        }
+
+        body.dark-theme .counter-btn {
+            background: linear-gradient(135deg, #FFFFFF, #F0F4F8);
+            color: #2A4A8E;
         }
 
         .counter-btn:active {
@@ -151,37 +209,23 @@
         }
 
         .counter-btn:disabled {
-            background: #555;
+            background: #ccc;
             cursor: not-allowed;
             box-shadow: none;
         }
 
-        .counter-btn.selected {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            box-shadow: 0 0 15px rgba(212, 161, 71, 0.6);
-        }
-
-        .counter-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-shadow: 0 0 15px rgba(212, 161, 71, 0.5);
-        }
-
-        .counter-label {
-            font-size: 0.9rem;
-            color: var(--text);
-            opacity: 0.7;
+        body.dark-theme .counter-btn:disabled {
+            background: rgba(255, 255, 255, 0.3);
         }
 
         /* 大按钮 */
         .btn {
             display: block;
             width: 100%;
-            padding: 18px 24px;
+            padding: 16px 24px;
             border: none;
-            border-radius: 16px;
-            font-size: 1.2rem;
+            border-radius: 14px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.1s, box-shadow 0.2s;
@@ -194,9 +238,14 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: #141E30;
-            box-shadow: 0 4px 12px rgba(212, 161, 71, 0.4);
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+        }
+
+        body.dark-theme .btn-primary {
+            background: #FFFFFF;
+            color: #2A4A8E;
         }
 
         .btn-secondary {
@@ -205,14 +254,18 @@
             border: 2px solid var(--primary);
         }
 
+        /* 忘词按钮 */
         .btn-danger {
-            background: var(--danger);
-            color: white;
+            background: var(--danger-bg);
+            color: var(--danger-text);
+            border: 1px solid var(--danger);
         }
 
+        /* 处决按钮 */
         .btn-success {
-            background: var(--success);
-            color: white;
+            background: var(--success-bg);
+            color: var(--success-text);
+            border: 1px solid var(--success);
         }
 
         .btn-group {
@@ -254,8 +307,8 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: var(--primary);
-            color: white;
+            background: var(--avatar-bg);
+            color: var(--avatar-text);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -320,7 +373,7 @@
             justify-content: center;
             padding: 20px 16px;
             background: var(--card-bg);
-            border: 2px solid rgba(212, 161, 71, 0.3);
+            border: 2px solid var(--card-border);
             border-radius: 16px;
             cursor: pointer;
             transition: all 0.3s;
@@ -328,14 +381,12 @@
         }
 
         .vote-option:hover {
-            border-color: rgba(212, 161, 71, 0.6);
-            background: rgba(212, 161, 71, 0.1);
+            border-color: var(--primary);
         }
 
         .vote-option.selected {
             border-color: var(--primary);
-            background: rgba(212, 161, 71, 0.2);
-            box-shadow: 0 0 20px rgba(212, 161, 71, 0.4);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             transform: scale(1.02);
         }
 
@@ -388,6 +439,27 @@
             background: rgba(0,0,0,0.7);
         }
 
+        /* 投票选项头像 */
+        .vote-option .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--avatar-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--avatar-text);
+            margin-bottom: 8px;
+        }
+
+        .vote-option .number {
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
         .vote-radio {
             width: 24px;
             height: 24px;
@@ -430,17 +502,12 @@
         }
 
         .loser-box {
-            background: linear-gradient(135deg, #FFE5E5, #FFF0F0);
+            background: var(--danger-bg);
             border: 2px solid var(--danger);
             border-radius: 16px;
             padding: 20px;
             text-align: center;
             margin: 20px 0;
-        }
-
-        [data-theme="dark"] .loser-box {
-            background: linear-gradient(135deg, #3D1A1A, #2D1A1A);
-            border-color: #E74C3C;
         }
 
         /* 词库管理 */
@@ -472,8 +539,8 @@
         }
 
         .btn-delete {
-            background: #FFE5E5;
-            color: var(--danger);
+            background: var(--danger-bg);
+            color: var(--danger-text);
         }
 
         /* 词库选择复选框 */
@@ -514,7 +581,7 @@
 
         .checkbox-count {
             font-size: 0.8rem;
-            opacity: 0.6;
+            color: var(--text-secondary);
             margin-left: auto;
         }
 
@@ -572,7 +639,12 @@
 
         .camera-btn-capture {
             background: var(--primary);
-            color: white;
+            color: var(--bg);
+        }
+
+        body.dark-theme .camera-btn-capture {
+            background: #FFFFFF;
+            color: #2A4A8E;
         }
 
         .avatar-preview {
@@ -582,6 +654,10 @@
             object-fit: cover;
             border: 4px solid var(--primary);
             margin: 10px 0;
+        }
+
+        body.dark-theme .avatar-preview {
+            border-color: #FFFFFF;
         }
 
         .player-avatar {
@@ -594,7 +670,7 @@
             position: relative;
             padding: 0;
             background: var(--card-bg);
-            border: 2px solid rgba(212, 161, 71, 0.3);
+            border: 2px solid var(--card-border);
             border-radius: 12px;
             cursor: pointer;
             overflow: hidden;
@@ -603,13 +679,13 @@
         }
 
         .player-item-with-avatar:hover {
-            border-color: rgba(212, 161, 71, 0.6);
+            border-color: var(--primary);
             transform: scale(1.02);
         }
 
         .player-item-with-avatar.selected {
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(212, 161, 71, 0.4);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
         .player-number-badge {
@@ -619,8 +695,8 @@
             min-width: 28px;
             height: 28px;
             border-radius: 6px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: #141E30;
+            background: var(--avatar-bg);
+            color: var(--avatar-text);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -628,6 +704,11 @@
             font-size: 0.95rem;
             z-index: 10;
             box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        body.dark-theme .player-number-badge {
+            background: #FFFFFF;
+            color: #2A4A8E;
         }
 
 
@@ -681,19 +762,19 @@
         .card-item.active {
             z-index: 100;
             /* 保持扇形位置，只添加高亮效果 */
-            box-shadow: 0 0 30px rgba(212, 161, 71, 0.8), 0 4px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 0 30px var(--card-shadow), 0 4px 20px rgba(0,0,0,0.4);
             filter: brightness(1.15);
         }
 
         .card-item.active .card-front {
             border: 3px solid var(--primary);
-            box-shadow: 0 0 25px rgba(212, 161, 71, 0.6), 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 0 25px var(--card-shadow), 0 4px 15px rgba(0,0,0,0.3);
             animation: pulse-gold 1.5s infinite;
         }
 
         @keyframes pulse-gold {
-            0%, 100% { box-shadow: 0 0 20px rgba(212, 161, 71, 0.5), 0 4px 15px rgba(0,0,0,0.3); }
-            50% { box-shadow: 0 0 35px rgba(212, 161, 71, 0.8), 0 4px 20px rgba(0,0,0,0.4); }
+            0%, 100% { box-shadow: 0 0 20px var(--card-shadow), 0 4px 15px rgba(0,0,0,0.3); }
+            50% { box-shadow: 0 0 35px var(--card-shadow), 0 4px 20px rgba(0,0,0,0.4); }
         }
 
         .card-inner {
@@ -736,6 +817,25 @@
             overflow: hidden;
         }
 
+        /* 卡牌背面 - 玩家号码 */
+        .card-number-back {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 32px;
+            height: 32px;
+            background: var(--avatar-bg);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--avatar-text);
+            z-index: 10;
+        }
+
         .card-video-container {
             width: 100%;
             height: 100%;
@@ -746,13 +846,19 @@
         }
 
         .card-front {
-            background: linear-gradient(135deg, #D4A147, #F4C86A, #D4A147);
-            color: #141E30;
-            border: 2px solid #B88A3C;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--bg);
+            border: 2px solid var(--primary-dark);
+        }
+
+        body.dark-theme .card-front {
+            background: #FFFFFF;
+            color: #2A4A8E;
+            border: 2px solid #E0E8F0;
         }
 
         .card-back {
-            background: linear-gradient(180deg, #1a2332 0%, #141E30 100%);
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg) 100%);
             color: var(--text);
             transform: rotateY(180deg);
             border: 2px solid var(--primary);
@@ -761,25 +867,6 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-        }
-
-        /* 卡牌背面 - 左上角序号 */
-        .card-number-back {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            width: 32px;
-            height: 32px;
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: var(--primary-light);
-            z-index: 10;
         }
 
         /* 卡牌背面 - 右上角身份（隐藏，不显示给玩家看） */
@@ -799,23 +886,25 @@
         }
 
         .card-role-badge-back.civilian {
-            background: rgba(212, 161, 71, 0.9);
-            color: #141E30;
+            background: var(--primary);
+            color: var(--bg);
         }
 
         .card-role-badge-back.undercover {
-            background: rgba(161, 46, 49, 0.9);
+            background: var(--danger);
+            color: white;
         }
 
         .card-role-badge-back.blank {
-            background: rgba(100, 100, 100, 0.9);
+            background: #666;
+            color: white;
         }
 
         /* 卡牌背面 - 头像区域 (80%) */
         .card-avatar-area {
             flex: 0 0 80%;
             width: 100%;
-            background: linear-gradient(180deg, rgba(212, 161, 71, 0.1), rgba(20, 30, 48, 0.3));
+            background: var(--primary-bg);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -826,8 +915,8 @@
         .card-bottom-area {
             flex: 0 0 20%;
             display: flex;
-            border-top: 1px solid rgba(212, 161, 71, 0.3);
-            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid var(--card-border);
+            background: rgba(0, 0, 0, 0.1);
             width: 100%;
         }
 
@@ -837,7 +926,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-right: 1px solid rgba(212, 161, 71, 0.2);
+            border-right: 1px solid var(--card-border);
         }
 
         /* 卡牌背面 - 按钮区域 (底部右侧) */
@@ -852,22 +941,28 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #141E30;
-            text-shadow: 0 1px 2px rgba(255,255,255,0.2);
+            color: var(--bg);
+        }
+
+        body.dark-theme .card-player-num {
+            color: #2A4A8E;
         }
 
         .card-hint {
             font-size: 0.85rem;
             opacity: 0.9;
-            color: #141E30;
+            color: var(--bg);
             font-weight: 600;
+        }
+
+        body.dark-theme .card-hint {
+            color: #2A4A8E;
         }
 
         .card-word {
             font-size: 1.2rem;
             font-weight: 700;
-            color: var(--primary-light);
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            color: var(--primary);
             width: 100%;
             text-align: center;
         }
@@ -890,23 +985,28 @@
         }
 
         .card-role-badge.civilian {
-            background: linear-gradient(135deg, #D4A147, #F4C86A);
-            color: #141E30;
+            background: var(--primary);
+            color: var(--bg);
+        }
+
+        body.dark-theme .card-role-badge.civilian {
+            background: #2A4A8E;
+            color: #FFFFFF;
         }
 
         .card-role-badge.undercover {
-            background: linear-gradient(135deg, #A12E31, #C84548);
+            background: var(--danger);
         }
 
         .card-role-badge.blank {
-            background: linear-gradient(135deg, #666, #888);
+            background: #666;
         }
 
         .card-confirm-btn {
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #fff;
+            color: var(--bg);
             border: none;
             font-size: 0.85rem;
             font-weight: 600;
@@ -917,12 +1017,17 @@
             animation: glow 1.5s ease-in-out infinite;
         }
 
+        body.dark-theme .card-confirm-btn {
+            background: linear-gradient(135deg, #FFFFFF, #E0E8F0);
+            color: #2A4A8E;
+        }
+
         @keyframes glow {
             0%, 100% {
-                box-shadow: 0 0 5px rgba(212, 161, 71, 0.3);
+                box-shadow: 0 0 5px var(--card-shadow);
             }
             50% {
-                box-shadow: 0 0 20px rgba(212, 161, 71, 0.8), 0 0 30px rgba(212, 161, 71, 0.4);
+                box-shadow: 0 0 20px var(--card-shadow), 0 0 30px rgba(0, 0, 0, 0.2);
             }
         }
 
@@ -1017,6 +1122,45 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        /* 页脚 LOGO 和版权 */
+        .footer {
+            text-align: center;
+            padding: 20px 20px 10px;
+            margin-top: 10px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .footer-logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 8px;
+        }
+
+        /* 亮色主题下给 LOGO 加白色底 */
+        body:not(.dark-theme) .footer-logo {
+            background: #FFFFFF;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        /* 暗色主题下 LOGO 无背景 */
+        body.dark-theme .footer-logo {
+            background: transparent;
+            padding: 0;
+        }
+
+        /* 版权信息 - 统一格式 */
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .copyright .highlight {
+            color: var(--primary);
+            font-weight: 600;
         }
 
         /* 响应式调整 */
@@ -1138,6 +1282,14 @@
             <button class="btn btn-primary" onclick="startGame()">
                 🎮 开始游戏
             </button>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-home" />
+                <div class="copyright">
+                    <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
+                </div>
+            </div>
         </div>
 
         <!-- 词语传递页 -->
@@ -1228,6 +1380,14 @@
             <button class="btn btn-secondary" onclick="endGame('civilian')" id="test-end-btn" style="margin-top: 12px; font-size: 0.9rem; padding: 12px; display: none;">
                 🧪 直接结算（测试用）
             </button>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-eliminate" />
+                <div class="copyright">
+                    <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
+                </div>
+            </div>
         </div>
 
         <!-- 淘汰结果页 -->
@@ -1345,6 +1505,14 @@
             <div class="btn-group">
                 <button class="btn btn-primary" onclick="startNewGame()">🔄 重开一局</button>
                 <button class="btn btn-secondary" onclick="showPage('home-page')">🏠 重新设置</button>
+            </div>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-result" />
+                <div class="copyright">
+                    <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
+                </div>
             </div>
         </div>
     </div>
@@ -1652,9 +1820,11 @@
 
         // ==================== 初始化 ====================
         document.addEventListener('DOMContentLoaded', () => {
-            // 自动日夜切换
-            updateTheme();
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+            // 从 localStorage 恢复主题
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
 
             // 更新显示
             updateCounts();
@@ -1671,24 +1841,20 @@
         });
 
         // ==================== 主题切换 ====================
-        function updateTheme() {
-            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const manualTheme = localStorage.getItem('theme');
-            const theme = manualTheme || (isDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-            updateThemeIcon(theme);
-        }
-
         function toggleTheme() {
-            const current = document.documentElement.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            updateThemeIcon(next);
-        }
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            const icon = document.getElementById('theme-icon');
+            icon.textContent = isDark ? '☀️' : '🌙';
 
-        function updateThemeIcon(theme) {
-            document.getElementById('theme-icon').textContent = theme === 'dark' ? '☀️' : '🌙';
+            // 保存到 localStorage
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+            // 切换 LOGO
+            const logos = document.querySelectorAll('.footer-logo');
+            logos.forEach(logo => {
+                logo.src = isDark ? 'assets/logo_dark.png' : 'assets/logo_light.png';
+            });
         }
 
         // ==================== 页面切换 ====================

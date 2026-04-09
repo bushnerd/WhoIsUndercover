@@ -10,6 +10,11 @@ full-test.html
 baidu_*.png
 *_screenshot.png
 
+# 测试截图和 UI Demo（中间态文件）
+test-screenshots/
+ui-demo/
+ui-demo.html
+
 # 临时文件
 *.log
 *.tmp

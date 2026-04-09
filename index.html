@@ -795,7 +795,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 10px;
             border-right: 1px solid rgba(212, 161, 71, 0.2);
         }
 
@@ -805,7 +804,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 10px;
         }
 
         .card-player-num {
@@ -824,15 +822,12 @@
         }
 
         .card-word {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            padding: 4px 8px;
-            background: rgba(212, 161, 71, 0.25);
-            border-radius: 8px;
-            border: 1px solid rgba(212, 161, 71, 0.3);
             color: var(--primary-light);
-            word-break: break-all;
             text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            width: 100%;
+            text-align: center;
         }
 
         /* 角色标签叠加在头像上（card-front 使用） */
@@ -866,21 +861,31 @@
         }
 
         .card-confirm-btn {
-            padding: 8px 16px;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
             border: none;
-            border-radius: 10px;
             font-size: 0.85rem;
             font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(212, 161, 71, 0.3);
-            transition: transform 0.2s;
-            white-space: nowrap;
+            animation: glow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(212, 161, 71, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(212, 161, 71, 0.8), 0 0 30px rgba(212, 161, 71, 0.4);
+            }
         }
 
         .card-confirm-btn:active {
-            transform: scale(0.95);
+            transform: scale(0.98);
         }
 
         /* 卡牌内拍照样式 */

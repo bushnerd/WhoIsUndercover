@@ -1032,6 +1032,11 @@
                     ⚔️ 处决
                 </button>
             </div>
+
+            <!-- 测试按钮：直接结束游戏 -->
+            <button class="btn btn-secondary" onclick="endGame('civilian')" id="test-end-btn" style="margin-top: 12px; font-size: 0.9rem; padding: 12px; display: none;">
+                🧪 直接结算（测试用）
+            </button>
         </div>
 
         <!-- 淘汰结果页 -->
@@ -1147,8 +1152,8 @@
             </div>
 
             <div class="btn-group">
-                <button class="btn btn-primary" onclick="startNewGame()">🎮 再来一局</button>
-                <button class="btn btn-secondary" onclick="showPage('home-page')">🏠 返回首页</button>
+                <button class="btn btn-primary" onclick="startNewGame()">🔄 重开一局</button>
+                <button class="btn btn-secondary" onclick="showPage('home-page')">🏠 重新设置</button>
             </div>
         </div>
     </div>
@@ -1210,8 +1215,8 @@
 
         // ==================== 游戏状态 ====================
         let gameState = {
-            totalPlayers: 6,
-            undercoverCount: 2,
+            totalPlayers: 3,
+            undercoverCount: 1,
             blankCount: 0,
             players: [],
             currentPlayerIndex: 0,
@@ -1236,6 +1241,16 @@
 
             // 更新显示
             updateCounts();
+
+            // 键盘快捷键：按 T 键直接结束游戏（测试用）
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 't' || e.key === 'T') {
+                    // 在游戏进行中按 T 键直接结束游戏
+                    if (gameState.gameStarted && document.getElementById('eliminate-page').classList.contains('active')) {
+                        endGame('civilian');
+                    }
+                }
+            });
         });
 
         // ==================== 主题切换 ====================
@@ -1868,6 +1883,11 @@
                 renderEliminatePage();
                 showPage('eliminate-page');
             }
+        }
+
+        // 保存战绩（暂未实现）
+        function saveGameResult(winner) {
+            // TODO: 实现战绩保存功能
         }
 
         function endGame(winner) {

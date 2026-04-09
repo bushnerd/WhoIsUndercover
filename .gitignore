@@ -27,3 +27,9 @@ Thumbs.db
 
 # Claude Code 本地配置（包含个人设置和 token）
 .claude/
+
+# 参考资料（开发参考用，不需要提交）
+assets/reference/
+
+# 项目文档
+CLAUDE.md

@@ -78,6 +78,19 @@
             flex-direction: column;
         }
 
+        /* 页面内容区域 - 占据剩余空间，内容贴顶，LOGO 贴底 */
+        .page.active {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: flex-start;
+        }
+
+        /* 页脚始终在页面底部 */
+        .footer {
+            margin-top: auto;
+        }
+
         /* 日夜切换按钮 */
         .theme-toggle {
             position: fixed;
@@ -543,12 +556,12 @@
             color: var(--danger-text);
         }
 
-        /* 词库选择复选框 - 改为两列布局 */
+        /* 词库选择复选框 - 改为 5 列布局 */
         .word-bank-checkboxes {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 12px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            margin-top: 8px;
         }
 
         .word-bank-checkboxes .checkbox-item {
@@ -558,10 +571,10 @@
         .checkbox-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 6px;
             cursor: pointer;
-            padding: 10px 12px;
-            border-radius: 8px;
+            padding: 6px 8px;
+            border-radius: 6px;
             background: var(--bg);
             transition: background 0.2s;
             margin: 0;
@@ -572,8 +585,8 @@
         }
 
         .checkbox-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             cursor: pointer;
             accent-color: var(--primary);
         }
@@ -581,7 +594,7 @@
         .checkbox-item label {
             flex: 1;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .checkbox-count {
@@ -1132,25 +1145,24 @@
         /* 页脚 LOGO 和版权 */
         .footer {
             text-align: center;
-            padding: 20px 20px 10px;
-            margin-top: 10px;
+            padding: 12px 20px 6px;
+            margin-top: 8px;
             border-top: 1px solid var(--card-border);
         }
 
         .footer-logo {
-            width: 100px;
+            width: 60px;
             height: auto;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
-        /* 亮色主题下给 LOGO 加白色底 */
+        /* 亮色主题下 LOGO 无背景，与页面渐变融为一体 */
         body:not(.dark-theme) .footer-logo {
-            background: #FFFFFF;
-            padding: 8px;
-            border-radius: 8px;
+            background: transparent;
+            padding: 0;
         }
 
-        /* 暗色主题下 LOGO 无背景 */
+        /* 暗色主题下 LOGO 无背景，与页面渐变融为一体 */
         body.dark-theme .footer-logo {
             background: transparent;
             padding: 0;
@@ -1178,9 +1190,62 @@
             .counter-value {
                 font-size: 1.5rem;
             }
-            /* 在超小屏幕上词库选择器变为单列 */
+            /* 在超小屏幕上词库选择器变为 2 列 */
             .word-bank-checkboxes {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 针对高度有限设备的优化 - 压缩垂直空间 */
+        @media (max-height: 850px) {
+            .container {
+                padding: 10px;
+            }
+            .page-title {
+                font-size: 1.2rem;
+                margin: 6px 0;
+            }
+            .card {
+                padding: 10px;
+                margin-bottom: 8px;
+            }
+            .card-title {
+                font-size: 0.9rem;
+                margin-bottom: 6px;
+            }
+            .counter {
+                padding: 4px 0;
+            }
+            .btn {
+                padding: 10px 16px;
+                font-size: 0.95rem;
+            }
+            .footer {
+                padding: 8px 12px 4px;
+                margin-top: 4px;
+            }
+            .footer-logo {
+                width: 50px;
+                margin-bottom: 3px;
+            }
+            .copyright {
+                font-size: 0.6rem;
+            }
+            .theme-toggle {
+                width: 36px;
+                height: 36px;
+                top: 10px;
+                right: 10px;
+                font-size: 1rem;
+            }
+            .vote-option {
+                min-height: 100px;
+                padding: 12px 8px;
+            }
+            .vote-option .avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -1308,6 +1373,14 @@
             <button class="btn btn-primary" onclick="showWord()">
                 👁️ 查看词语
             </button>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-transfer" />
+                <div class="copyright">
+                    <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
+                </div>
+            </div>
         </div>
 
         <!-- 卡牌式看词页 -->
@@ -1320,6 +1393,14 @@
                 </p>
                 <div class="card-grid" id="card-grid-container">
                     <!-- JS 填充 -->
+                </div>
+            </div>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-card" />
+                <div class="copyright">
+                    <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
             </div>
         </div>
@@ -1348,17 +1429,23 @@
             <div class="progress-section">
                 玩家 <span id="word-progress-current">1</span> / <span id="word-progress-total">6</span>
             </div>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-word" />
+                <div class="copyright">
+                    <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
+                </div>
+            </div>
         </div>
 
         <!-- 淘汰记录页 -->
         <div id="eliminate-page" class="page">
             <h1 class="page-title">🎮 游戏进行中</h1>
 
-            <div class="card">
-                <p style="text-align: center; margin-bottom: 16px;">
-                    🎤 线下发言 + 投票后<br>点击淘汰的玩家
-                </p>
-            </div>
+            <p style="text-align: center; margin: 8px 0; opacity: 0.7; font-size: 0.9rem;">
+                🎤 线下发言 + 投票后，点击淘汰的玩家
+            </p>
 
             <div class="card">
                 <div class="card-title">👥 点击淘汰玩家</div>
@@ -1421,6 +1508,14 @@
             <button class="btn btn-primary" onclick="continueGame()">
                 继续游戏
             </button>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-eliminate-result" />
+                <div class="copyright">
+                    <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
+                </div>
+            </div>
         </div>
 
         <!-- 忘词提示页 -->
@@ -1433,6 +1528,14 @@
                         📝 词语 📝
                     </div>
                     <p style="margin-top: 16px; opacity: 0.8; font-size: 0.9rem;">3 秒后自动返回...</p>
+                </div>
+            </div>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-review" />
+                <div class="copyright">
+                    <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
             </div>
         </div>
@@ -1470,6 +1573,14 @@
 
             <div class="tip" style="margin-top: 16px;">
                 💡 请确保光线充足，正面拍摄
+            </div>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-camera" />
+                <div class="copyright">
+                    <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
+                </div>
             </div>
         </div>
 

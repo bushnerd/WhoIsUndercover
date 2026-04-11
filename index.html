@@ -644,14 +644,22 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            padding-top: 10vh;
             z-index: 1000;
+            overflow: hidden;
+        }
+
+        .camera-container .camera-video-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
         }
 
         .camera-video {
             width: 100%;
             max-width: 400px;
-            height: 300px;
+            aspect-ratio: 3 / 4;
+            max-height: 60vh;
             background: #000;
             border-radius: 16px;
             object-fit: cover;
@@ -1628,7 +1636,7 @@
                 </p>
             </div>
 
-            <div class="camera-container" style="position: relative; border-radius: 16px; overflow: hidden;">
+            <div class="camera-container">
                 <video id="camera-video" class="camera-video" autoplay playsinline></video>
                 <canvas id="camera-canvas" class="camera-canvas"></canvas>
                 <img id="camera-preview" class="avatar-preview" style="display: none;" />

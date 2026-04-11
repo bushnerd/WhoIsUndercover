@@ -585,10 +585,38 @@
         }
 
         .checkbox-item input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             cursor: pointer;
             accent-color: var(--primary);
+            /* 兼容性方案：针对不支持 accent-color 的浏览器 */
+            -webkit-appearance: none;
+            appearance: none;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            background: transparent;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .checkbox-item input[type="checkbox"]:checked {
+            background: var(--primary);
+        }
+
+        .checkbox-item input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+        }
+
+        .checkbox-item input[type="checkbox"]:focus {
+            outline: 2px solid var(--primary-light);
+            outline-offset: 2px;
         }
 
         .checkbox-item label {
@@ -676,6 +704,19 @@
 
         body.dark-theme .avatar-preview {
             border-color: #FFFFFF;
+        }
+
+        /* 暗色模式下复选框样式 */
+        body.dark-theme .checkbox-item input[type="checkbox"] {
+            border-color: #FFFFFF;
+        }
+
+        body.dark-theme .checkbox-item input[type="checkbox"]:checked {
+            background: #FFFFFF;
+        }
+
+        body.dark-theme .checkbox-item input[type="checkbox"]:checked::after {
+            color: #2A4A8E;
         }
 
         .player-avatar {

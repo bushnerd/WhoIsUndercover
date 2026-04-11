@@ -644,26 +644,39 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding-top: 10vh;
             z-index: 1000;
             overflow: hidden;
         }
 
-        .camera-container .camera-video-wrapper {
-            border-radius: 16px;
+        /* 视频区域：占据剩余空间 */
+        .camera-video-container {
+            flex: 1 1 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+            padding: 10px;
         }
 
         .camera-video {
             width: 100%;
             max-width: 400px;
-            aspect-ratio: 3 / 4;
-            max-height: 60vh;
+            height: 100%;
+            max-height: 100%;
             background: #000;
             border-radius: 16px;
-            object-fit: cover;
-            margin-bottom: 20px;
+            object-fit: contain;
+        }
+
+        /* 按钮区域：固定高度 100px */
+        .camera-buttons-wrapper {
+            flex: 0 0 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 10px;
         }
 
         .camera-canvas {
@@ -1637,23 +1650,27 @@
             </div>
 
             <div class="camera-container">
-                <video id="camera-video" class="camera-video" autoplay playsinline></video>
+                <div class="camera-video-container">
+                    <video id="camera-video" class="camera-video" autoplay playsinline></video>
+                </div>
                 <canvas id="camera-canvas" class="camera-canvas"></canvas>
                 <img id="camera-preview" class="avatar-preview" style="display: none;" />
 
-                <div class="camera-buttons" id="camera-capture-btns">
-                    <button class="camera-btn camera-btn-capture" onclick="capturePhoto()" title="拍照">
-                        📷
-                    </button>
-                </div>
+                <div class="camera-buttons-wrapper">
+                    <div class="camera-buttons" id="camera-capture-btns">
+                        <button class="camera-btn camera-btn-capture" onclick="capturePhoto()" title="拍照">
+                            📷
+                        </button>
+                    </div>
 
-                <div class="camera-buttons" id="camera-confirm-btns" style="display: none;">
-                    <button class="camera-btn" onclick="retakePhoto()" title="重拍">
-                        🔄
-                    </button>
-                    <button class="camera-btn camera-btn-capture" onclick="confirmPhoto()" title="确认">
-                        ✓
-                    </button>
+                    <div class="camera-buttons" id="camera-confirm-btns" style="display: none;">
+                        <button class="camera-btn" onclick="retakePhoto()" title="重拍">
+                            🔄
+                        </button>
+                        <button class="camera-btn camera-btn-capture" onclick="confirmPhoto()" title="确认">
+                            ✓
+                        </button>
+                    </div>
                 </div>
             </div>
 

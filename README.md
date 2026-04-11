@@ -1,5 +1,7 @@
 # 谁是卧底 - 无境探险
 
+> **🎮 立即游玩：** [https://bushnerd.github.io/WhoIsUndercover/](https://bushnerd.github.io/WhoIsUndercover/)
+
 一款基于网页的线下聚会游戏，支持手机浏览器直接打开游玩。
 
 ## 🎮 游戏玩法

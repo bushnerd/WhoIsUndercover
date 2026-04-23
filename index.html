@@ -5,32 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>谁是卧底 - 无境探险</title>
     <style>
-        /* ==================== 亮色主题（默认 - 蓝色系） ==================== */
-        :root {
-            --bg: #F5F7FA;
-            --bg-gradient: linear-gradient(180deg, #F0F2F5 0%, #FFFFFF 100%);
-            --primary: #2E4A7C;                     /* 深蓝，提高对比度 */
-            --primary-light: #4A6FA5;               /* 中蓝 */
-            --primary-dark: #1A2F4D;                /* 更深蓝 */
-            --primary-bg: rgba(46, 74, 124, 0.08);
-            --text: #1A1A1A;
-            --text-secondary: #4A4A4A;              /* 更深的次要文字 */
-            --card-bg: #FFFFFF;
-            --card-border: #D0D8E0;
-            --card-shadow: rgba(46, 74, 124, 0.15);
-            /* Web 2.0 柔和色 */
-            --danger: #E57373;
-            --danger-bg: #FFEBEE;
-            --danger-text: #C62828;
-            --success: #81C784;
-            --success-bg: #E8F5E9;
-            --success-text: #2E7D32;
-            --avatar-bg: #2E4A7C;                   /* 头像背景 - 深蓝 */
-            --avatar-text: #FFFFFF;                 /* 头像文字 - 白色 */
-        }
-
         /* ==================== 暗色主题（深蓝 + 浅色文字） ==================== */
-        body.dark-theme {
+        :root {
             --bg: #3B5F9E;                          /* 和 LOGO 背景一致 */
             --bg-gradient: linear-gradient(180deg, #2A4A8E 0%, #3B5F9E 40%, #2A4A8E 100%);
             --primary: #FFFFFF;                     /* 纯白色，最高对比度 */
@@ -89,40 +65,6 @@
         /* 页脚始终在页面底部 */
         .footer {
             margin-top: auto;
-        }
-
-        /* 日夜切换按钮 */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            background: var(--primary);
-            color: var(--bg);
-            font-size: 1.4rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.05);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.95);
-        }
-
-        body.dark-theme .theme-toggle {
-            background: #FFFFFF;
-            color: #2A4A8E;
         }
 
         /* 页面切换 */
@@ -214,7 +156,7 @@
             transition: transform 0.1s;
         }
 
-        body.dark-theme .counter-btn {
+        body .counter-btn {
             background: linear-gradient(135deg, #FFFFFF, #F0F4F8);
             color: #2A4A8E;
         }
@@ -229,7 +171,7 @@
             box-shadow: none;
         }
 
-        body.dark-theme .counter-btn:disabled {
+        body .counter-btn:disabled {
             background: rgba(255, 255, 255, 0.3);
         }
 
@@ -258,7 +200,7 @@
             box-shadow: 0 4px 16px rgba(0,0,0,0.25);
         }
 
-        body.dark-theme .btn-primary {
+        body .btn-primary {
             background: #FFFFFF;
             color: #2A4A8E;
         }
@@ -711,7 +653,7 @@
             color: var(--bg);
         }
 
-        body.dark-theme .camera-btn-capture {
+        body .camera-btn-capture {
             background: #FFFFFF;
             color: #2A4A8E;
         }
@@ -725,20 +667,20 @@
             margin: 10px 0;
         }
 
-        body.dark-theme .avatar-preview {
+        body .avatar-preview {
             border-color: #FFFFFF;
         }
 
         /* 暗色模式下复选框样式 */
-        body.dark-theme .checkbox-item input[type="checkbox"] {
+        body .checkbox-item input[type="checkbox"] {
             border-color: #FFFFFF;
         }
 
-        body.dark-theme .checkbox-item input[type="checkbox"]:checked {
+        body .checkbox-item input[type="checkbox"]:checked {
             background: #FFFFFF;
         }
 
-        body.dark-theme .checkbox-item input[type="checkbox"]:checked::after {
+        body .checkbox-item input[type="checkbox"]:checked::after {
             color: #2A4A8E;
         }
 
@@ -788,7 +730,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
-        body.dark-theme .player-number-badge {
+        body .player-number-badge {
             background: #FFFFFF;
             color: #2A4A8E;
         }
@@ -927,7 +869,7 @@
             border: 2px solid var(--primary-dark);
         }
 
-        body.dark-theme .card-front {
+        body .card-front {
             background: #FFFFFF;
             color: #2A4A8E;
             border: 2px solid #E0E8F0;
@@ -1028,7 +970,7 @@
             color: var(--bg);
         }
 
-        body.dark-theme .card-player-num {
+        body .card-player-num {
             color: #2A4A8E;
         }
 
@@ -1039,7 +981,7 @@
             font-weight: 600;
         }
 
-        body.dark-theme .card-hint {
+        body .card-hint {
             color: #2A4A8E;
         }
 
@@ -1073,7 +1015,7 @@
             color: var(--bg);
         }
 
-        body.dark-theme .card-role-badge.civilian {
+        body .card-role-badge.civilian {
             background: #2A4A8E;
             color: #FFFFFF;
         }
@@ -1132,7 +1074,7 @@
             z-index: 2;
         }
 
-        body.dark-theme .card-confirm-btn {
+        body .card-confirm-btn {
             background: transparent;
             color: #FFFFFF;
         }
@@ -1249,14 +1191,7 @@
             margin-bottom: 4px;
         }
 
-        /* 亮色主题下 LOGO 无背景，与页面渐变融为一体 */
-        body:not(.dark-theme) .footer-logo {
-            background: transparent;
-            padding: 0;
-        }
-
-        /* 暗色主题下 LOGO 无背景，与页面渐变融为一体 */
-        body.dark-theme .footer-logo {
+        body .footer-logo {
             background: transparent;
             padding: 0;
         }
@@ -1339,13 +1274,6 @@
             .copyright {
                 font-size: 0.6rem;
             }
-            .theme-toggle {
-                width: 36px;
-                height: 36px;
-                top: 10px;
-                right: 10px;
-                font-size: 1rem;
-            }
             .vote-option {
                 min-height: 100px;
                 padding: 12px 8px;
@@ -1360,11 +1288,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- 日夜切换按钮 -->
-        <button class="theme-toggle" onclick="toggleTheme()" title="切换日夜模式">
-            <span id="theme-icon"></span>
-        </button>
-
         <!-- 首页 -->
         <div id="home-page" class="page active">
             <h1 class="page-title">🎭 谁是卧底</h1>
@@ -1461,7 +1384,7 @@
 
             <!-- 页脚 -->
             <div class="footer">
-                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-home" />
+                <img src="assets/logo_dark.png" alt="无境探险" class="footer-logo" id="footer-logo-home" />
                 <div class="copyright">
                     <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
@@ -1487,7 +1410,7 @@
 
             <!-- 页脚 -->
             <div class="footer">
-                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-transfer" />
+                <img src="assets/logo_dark.png" alt="无境探险" class="footer-logo" id="footer-logo-transfer" />
                 <div class="copyright">
                     <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
@@ -1509,7 +1432,7 @@
 
             <!-- 页脚 -->
             <div class="footer">
-                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-card" />
+                <img src="assets/logo_dark.png" alt="无境探险" class="footer-logo" id="footer-logo-card" />
                 <div class="copyright">
                     <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
@@ -1543,7 +1466,7 @@
 
             <!-- 页脚 -->
             <div class="footer">
-                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-word" />
+                <img src="assets/logo_dark.png" alt="无境探险" class="footer-logo" id="footer-logo-word" />
                 <div class="copyright">
                     <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
@@ -1581,7 +1504,7 @@
 
             <!-- 页脚 -->
             <div class="footer">
-                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-eliminate" />
+                <img src="assets/logo_dark.png" alt="无境探险" class="footer-logo" id="footer-logo-eliminate" />
                 <div class="copyright">
                     <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
@@ -1622,7 +1545,7 @@
 
             <!-- 页脚 -->
             <div class="footer">
-                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-eliminate-result" />
+                <img src="assets/logo_dark.png" alt="无境探险" class="footer-logo" id="footer-logo-eliminate-result" />
                 <div class="copyright">
                     <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
@@ -1644,7 +1567,7 @@
 
             <!-- 页脚 -->
             <div class="footer">
-                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-review" />
+                <img src="assets/logo_dark.png" alt="无境探险" class="footer-logo" id="footer-logo-review" />
                 <div class="copyright">
                     <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
@@ -1692,7 +1615,7 @@
 
             <!-- 页脚 -->
             <div class="footer">
-                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-camera" />
+                <img src="assets/logo_dark.png" alt="无境探险" class="footer-logo" id="footer-logo-camera" />
                 <div class="copyright">
                     <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
@@ -1735,7 +1658,7 @@
 
             <!-- 页脚 -->
             <div class="footer">
-                <img src="assets/logo_light.png" alt="无境探险" class="footer-logo" id="footer-logo-result" />
+                <img src="assets/logo_dark.png" alt="无境探险" class="footer-logo" id="footer-logo-result" />
                 <div class="copyright">
                     <p>© 2026 无境探险俱乐部 · Developed by <span class="highlight">山野</span> · Inspired by <span class="highlight">阿钟</span>、<span class="highlight">小明</span>、<span class="highlight">菜菜子</span>、<span class="highlight">風清</span>、<span class="highlight">端端</span></p>
                 </div>
@@ -2928,24 +2851,6 @@
 
         // ==================== 初始化 ====================
         document.addEventListener('DOMContentLoaded', () => {
-            // 从 localStorage 恢复主题
-            const savedTheme = localStorage.getItem('theme');
-            const icon = document.getElementById('theme-icon');
-            const isDark = savedTheme === 'dark';
-
-            if (isDark) {
-                document.body.classList.add('dark-theme');
-                icon.textContent = '☀️';  // 暗色模式下显示太阳图标
-            } else {
-                icon.textContent = '🌙';  // 亮色模式下显示月亮图标
-            }
-
-            // 更新所有 footer logo
-            const logos = document.querySelectorAll('.footer-logo');
-            logos.forEach(logo => {
-                logo.src = isDark ? 'assets/logo_dark.png' : 'assets/logo_light.png';
-            });
-
             // 更新显示
             updateCounts();
             updateTotalWordsCount();
@@ -2960,23 +2865,6 @@
                 }
             });
         });
-
-        // ==================== 主题切换 ====================
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-            const isDark = document.body.classList.contains('dark-theme');
-            const icon = document.getElementById('theme-icon');
-            icon.textContent = isDark ? '☀️' : '🌙';
-
-            // 保存到 localStorage
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
-            // 切换 LOGO
-            const logos = document.querySelectorAll('.footer-logo');
-            logos.forEach(logo => {
-                logo.src = isDark ? 'assets/logo_dark.png' : 'assets/logo_light.png';
-            });
-        }
 
         // ==================== 页面切换 ====================
         function showPage(pageId) {

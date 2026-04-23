@@ -902,6 +902,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
         .card-front {
@@ -968,6 +969,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            overflow: hidden;
         }
 
         /* 卡牌背面 - 底部区域 (20%) */
@@ -977,6 +979,8 @@
             border-top: 1px solid var(--card-border);
             background: rgba(0, 0, 0, 0.1);
             width: 100%;
+            z-index: 10;
+            position: relative;
         }
 
         /* 卡牌背面 - 词语区域 (底部左侧) */
@@ -986,6 +990,8 @@
             justify-content: center;
             align-items: center;
             border-right: 1px solid var(--card-border);
+            z-index: 10;
+            position: relative;
         }
 
         /* 卡牌背面 - 按钮区域 (底部右侧) */
@@ -994,6 +1000,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 10;
+            position: relative;
         }
 
         .card-player-num {
@@ -1098,9 +1106,11 @@
         .card-video {
             width: 100%;
             height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             background: #000;
-            object-fit: cover;
-            transform: scaleX(-1); /* 镜像翻转，更符合自拍习惯 */
+            object-fit: contain;
+            transform: scaleX(-1);
         }
 
         .card-canvas {
@@ -1110,7 +1120,8 @@
         .card-photo-preview {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            max-width: 100%;
+            object-fit: contain;
             transform: scaleX(-1);
             display: none;
         }
@@ -1120,6 +1131,8 @@
             justify-content: center;
             align-items: center;
             height: 100%;
+            z-index: 10;
+            position: relative;
         }
 
         .card-btn-capture {

@@ -776,46 +776,38 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 280px;
+            height: 320px; /* 调整高度以适应卡牌高度 */
             position: relative;
             perspective: 1000px;
             margin: 20px 0;
             width: 100%;
-            max-width: 340px;
+            max-width: 380px; /* 增加最大宽度以适应更宽的卡牌 */
         }
 
         .card-item {
             position: absolute;
-            width: 160px;
-            height: 220px;
+            width: 200px;  /* 增加宽度，接近扑克牌比例 */
+            height: 280px; /* 高度约是宽度的 1.4 倍，像扑克牌 */
             cursor: pointer;
             transition: transform 0.4s ease, opacity 0.3s, box-shadow 0.3s;
             transform-style: preserve-3d;
             left: 50%;
             top: 50%;
-            margin-left: -80px; /* 居中 */
-            margin-top: -110px;
+            margin-left: -100px;  /* 居中，宽度的一半 */
+            margin-top: -140px;   /* 调整为高度的一半 */
+            overflow: visible; /* 允许溢出内容显示 */
         }
 
         .card-grid {
-            height: 240px;
+            height: 280px; /* 调整高度以适应卡牌高度 */
         }
 
-        /* 扇形叠放效果 - 所有卡牌都可见，从左到右展开 */
-        /* 移除 translateZ 避免近大远小，所有卡牌大小一致 */
-        .card-item:nth-child(1) { transform: translateX(-50px) rotateY(10deg); }
-        .card-item:nth-child(2) { transform: translateX(-30px) rotateY(5deg); }
-        .card-item:nth-child(3) { transform: translateX(-10px) rotateY(0deg); }
-        .card-item:nth-child(4) { transform: translateX(10px) rotateY(-5deg); }
-        .card-item:nth-child(5) { transform: translateX(30px) rotateY(-10deg); }
-        .card-item:nth-child(6) { transform: translateX(50px) rotateY(-15deg); }
-        .card-item:nth-child(7) { transform: translateX(70px) rotateY(-20deg); }
-        .card-item:nth-child(8) { transform: translateX(90px) rotateY(-25deg); }
+        /* 扑克牌式横向展开效果 - 位置由 JS 动态计算 */
 
         .card-item.completed {
             opacity: 0;
             pointer-events: none;
-            transform: translateX(-200px) rotateY(-90deg);
+            /* transform 由 JS 动态计算 */
         }
 
         .card-item.active {
@@ -873,7 +865,8 @@
 
         .card-back {
             position: relative;
-            overflow: hidden;
+            overflow: visible; /* 改为 visible，让手指动画可以显示在卡牌外面 */
+            justify-content: flex-start;
         }
 
         /* 卡牌背面 - 玩家号码 */
@@ -960,9 +953,9 @@
             color: white;
         }
 
-        /* 卡牌背面 - 头像区域 (80%) */
+        /* 卡牌背面 - 头像区域 (70%) */
         .card-avatar-area {
-            flex: 0 0 80%;
+            flex: 0 0 70%;
             width: 100%;
             background: var(--primary-bg);
             display: flex;
@@ -972,13 +965,14 @@
             overflow: hidden;
         }
 
-        /* 卡牌背面 - 底部区域 (20%) */
+        /* 卡牌背面 - 底部区域 (30%) */
         .card-bottom-area {
-            flex: 0 0 20%;
+            flex: 0 0 30%;
             display: flex;
             border-top: 1px solid var(--card-border);
             background: rgba(0, 0, 0, 0.1);
             width: 100%;
+            min-height: 60px;
             z-index: 10;
             position: relative;
         }
@@ -1072,30 +1066,52 @@
         .card-confirm-btn {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--bg);
-            border: none;
-            font-size: 0.85rem;
-            font-weight: 600;
+            background: transparent;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 4px;
             cursor: pointer;
-            animation: glow 1.5s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            border: none;
+            box-shadow: none;
+        }
+
+        /* 中心光晕扩散效果 - 从中心向外扩散的涟漪 */
+        .card-confirm-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: center-ripple 2s ease-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes center-ripple {
+            0% { width: 0; height: 0; opacity: 0.6; }
+            100% { width: 350px; height: 350px; opacity: 0; }
+        }
+
+        /* 按钮文字内容 */
+        .card-confirm-btn span {
+            position: relative;
+            z-index: 2;
         }
 
         body.dark-theme .card-confirm-btn {
-            background: linear-gradient(135deg, #FFFFFF, #E0E8F0);
-            color: #2A4A8E;
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 5px var(--card-shadow);
-            }
-            50% {
-                box-shadow: 0 0 20px var(--card-shadow), 0 0 30px rgba(0, 0, 0, 0.2);
-            }
+            background: transparent;
+            color: #FFFFFF;
         }
 
         .card-confirm-btn:active {
@@ -1109,8 +1125,8 @@
             max-width: 100%;
             max-height: 100%;
             background: #000;
-            object-fit: contain;
-            transform: scaleX(-1);
+            object-fit: contain; /* 改为 contain，避免视频溢出容器 */
+            transform: scaleX(-1); /* 镜像翻转，更符合自拍习惯 */
         }
 
         .card-canvas {
@@ -1247,6 +1263,21 @@
             /* 在超小屏幕上词库选择器变为 2 列 */
             .word-bank-checkboxes {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            /* 移动端卡牌底部区域调整，避免空间浪费 */
+            .card-bottom-area {
+                min-height: 60px;
+                flex: 0 0 25%;
+            }
+            .card-avatar-area {
+                flex: 0 0 75%;
+            }
+            .card-confirm-btn {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+            .card-word {
+                font-size: 1rem;
             }
         }
 
@@ -2853,7 +2884,7 @@
 
         // ==================== 游戏状态 ====================
         let gameState = {
-            totalPlayers: 3,
+            totalPlayers: 12,  // 默认 12 人，方便测试
             undercoverCount: 1,
             blankCount: 0,
             players: [],
@@ -3126,7 +3157,8 @@
 
                 return `
                 <div class="card-item ${isCompleted ? 'completed' : ''} ${isNext && !isFlippedManually ? 'active' : ''} ${isFlipped ? 'flipped' : ''}"
-                     onclick="flipCard(${i})" id="card-${i}">
+                     onclick="flipCard(${i})" id="card-${i}"
+                     data-player-index="${i}">
                     <div class="card-inner">
                         <div class="card-front">
                             <div class="card-player-num">${player.number}号</div>
@@ -3148,7 +3180,8 @@
                                     </div>
                                     <div class="card-button-area">
                                         <button class="card-confirm-btn" onclick="event.stopPropagation(); captureAndConfirm(${i})">
-                                            ✓ 我记住了
+                                            <span style="font-size: 0.95rem; font-weight: 700;">记住了</span>
+                                            <span style="font-size: 0.8rem; opacity: 0.8;">点击这里 →</span>
                                         </button>
                                     </div>
                                 </div>
@@ -3157,6 +3190,43 @@
                     </div>
                 </div>
             `}).join('');
+
+            // 动态计算卡牌位置
+            updateCardPositions();
+        }
+
+        // 动态计算卡牌横向位置，根据人数自动调整间距
+        function updateCardPositions() {
+            const totalPlayers = gameState.players.length;
+            const cards = document.querySelectorAll('.card-item');
+
+            // 根据卡牌数量动态计算展开宽度
+            // 3 人时展开约 30px，12 人时展开约 50px（间距很小，只露出一点边缘）
+            const minSpreadWidth = 30;   // 最少人数时的最小展开宽度
+            const maxSpreadWidth = 50;   // 最多人时的最大展开宽度
+
+            // 根据人数线性计算展开宽度
+            const spreadWidth = minSpreadWidth + (maxSpreadWidth - minSpreadWidth) *
+                               (totalPlayers - 3) / (12 - 3);
+
+            // 计算间距
+            const spacing = totalPlayers > 1 ? spreadWidth / (totalPlayers - 1) : 0;
+
+            cards.forEach((card) => {
+                // 获取实际的玩家索引（因为渲染是反向的）
+                const playerIndex = parseInt(card.dataset.playerIndex);
+
+                // 计算中心偏移：从中间向两边展开
+                const centerIndex = (totalPlayers - 1) / 2;
+                const offsetX = (playerIndex - centerIndex) * spacing;
+
+                // 如果卡牌已完成，应用额外的偏移
+                if (card.classList.contains('completed')) {
+                    card.style.transform = `translateX(${offsetX - 100}px) rotateY(-90deg)`;
+                } else {
+                    card.style.transform = `translateX(${offsetX}px)`;
+                }
+            });
         }
 
         function flipCard(playerIndex) {

@@ -6,19 +6,36 @@ const certPath = path.join(__dirname, 'localhost.pem');
 const keyPath = path.join(__dirname, 'localhost-key.pem');
 
 const PORT = 8443;
+const BASE_DIR = __dirname;
+
+const MIME_TYPES = {
+    '.html': 'text/html; charset=utf-8',
+    '.js': 'application/javascript; charset=utf-8',
+    '.css': 'text/css; charset=utf-8',
+    '.json': 'application/json; charset=utf-8',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.gif': 'image/gif',
+    '.svg': 'image/svg+xml'
+};
 
 https.createServer({
     key: fs.readFileSync(keyPath),
     cert: fs.readFileSync(certPath)
 }, (req, res) => {
-    const filePath = path.join(__dirname, 'index.html');
+    let filePath = path.join(BASE_DIR, req.url === '/' ? 'index.html' : req.url);
+
+    const ext = path.extname(filePath).toLowerCase();
+    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+
     fs.readFile(filePath, (err, data) => {
         if (err) {
             res.writeHead(404);
             res.end('Not Found');
             return;
         }
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.writeHead(200, { 'Content-Type': contentType });
         res.end(data);
     });
 }).listen(PORT, '0.0.0.0', () => {

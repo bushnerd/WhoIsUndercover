@@ -82,25 +82,22 @@
 
 ## 🚀 快速开始
 
-### 本地运行
-```bash
-# 直接打开
-open index.html
+### 启动服务器
 
-# 或使用本地服务器
-python -m http.server 8000
-# 访问 http://localhost:8000
+```bash
+# 1. 生成 HTTPS 证书（首次只需执行一次）
+mkcert -install
+mkcert 0.0.0.0
+
+# 2. 启动服务器
+node https-server.js
+
+# 3. 启动后会显示访问地址：
+#    桌面浏览器：https://localhost:8443
+#    手机测试：   https://<电脑IP>:8443
 ```
 
-### 手机测试（同一 WiFi）
-```bash
-# 查看电脑 IP
-ipconfig  # Windows
-ifconfig  # Mac/Linux
-
-# 手机浏览器访问
-http://<你的IP地址>:8000
-```
+> **提示**：HTTPS 证书由 mkcert 生成本地信任的 CA，证书存储在 `localhost.pem` 和 `localhost-key.pem`。如果手机访问时提示不安全，请先运行 `mkcert -install`。
 
 ### 部署到 GitHub Pages
 

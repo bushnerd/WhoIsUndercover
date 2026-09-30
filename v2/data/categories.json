@@ -1,0 +1,207 @@
+[
+  {
+    "id": "study-work",
+    "parentId": null,
+    "name": "学习与职场"
+  },
+  {
+    "id": "stationery",
+    "parentId": "study-work",
+    "name": "文具教室"
+  },
+  {
+    "id": "campus",
+    "parentId": "study-work",
+    "name": "校园生活"
+  },
+  {
+    "id": "workplace",
+    "parentId": "study-work",
+    "name": "职场日常"
+  },
+  {
+    "id": "digital-world",
+    "parentId": null,
+    "name": "数码与网络"
+  },
+  {
+    "id": "gaming",
+    "parentId": "digital-world",
+    "name": "游戏世界"
+  },
+  {
+    "id": "platforms",
+    "parentId": "digital-world",
+    "name": "网络平台"
+  },
+  {
+    "id": "digital-life",
+    "parentId": "digital-world",
+    "name": "数字生活"
+  },
+  {
+    "id": "food-drink",
+    "parentId": null,
+    "name": "美食与饮品"
+  },
+  {
+    "id": "street-food",
+    "parentId": "food-drink",
+    "name": "小吃餐饮"
+  },
+  {
+    "id": "desserts",
+    "parentId": "food-drink",
+    "name": "甜品饮品"
+  },
+  {
+    "id": "ingredients",
+    "parentId": "food-drink",
+    "name": "食材调料"
+  },
+  {
+    "id": "screen-entertainment",
+    "parentId": null,
+    "name": "影视与文娱"
+  },
+  {
+    "id": "variety",
+    "parentId": "screen-entertainment",
+    "name": "综艺节目"
+  },
+  {
+    "id": "screen",
+    "parentId": "screen-entertainment",
+    "name": "影视剧集"
+  },
+  {
+    "id": "anime-books",
+    "parentId": "screen-entertainment",
+    "name": "动漫小说"
+  },
+  {
+    "id": "outdoor-travel",
+    "parentId": null,
+    "name": "户外与旅行"
+  },
+  {
+    "id": "outdoor-sports",
+    "parentId": "outdoor-travel",
+    "name": "户外运动"
+  },
+  {
+    "id": "camping",
+    "parentId": "outdoor-travel",
+    "name": "露营装备"
+  },
+  {
+    "id": "gathering-travel",
+    "parentId": "outdoor-travel",
+    "name": "聚会旅行"
+  },
+  {
+    "id": "animals",
+    "parentId": null,
+    "name": "动物世界"
+  },
+  {
+    "id": "mammals",
+    "parentId": "animals",
+    "name": "哺乳动物"
+  },
+  {
+    "id": "birds-insects",
+    "parentId": "animals",
+    "name": "鸟类昆虫"
+  },
+  {
+    "id": "aquatic-life",
+    "parentId": "animals",
+    "name": "水生动物"
+  },
+  {
+    "id": "nature",
+    "parentId": null,
+    "name": "自然地理"
+  },
+  {
+    "id": "landforms",
+    "parentId": "nature",
+    "name": "山川地貌"
+  },
+  {
+    "id": "weather",
+    "parentId": "nature",
+    "name": "天气天象"
+  },
+  {
+    "id": "plants",
+    "parentId": "nature",
+    "name": "花草树木"
+  },
+  {
+    "id": "home-life",
+    "parentId": null,
+    "name": "居家生活"
+  },
+  {
+    "id": "kitchenware",
+    "parentId": "home-life",
+    "name": "厨房餐具"
+  },
+  {
+    "id": "home-goods",
+    "parentId": "home-life",
+    "name": "家居用品"
+  },
+  {
+    "id": "daily-life",
+    "parentId": "home-life",
+    "name": "居家日常"
+  },
+  {
+    "id": "clothing",
+    "parentId": "home-life",
+    "name": "服饰配件"
+  },
+  {
+    "id": "city-travel",
+    "parentId": null,
+    "name": "城市出行"
+  },
+  {
+    "id": "transport",
+    "parentId": "city-travel",
+    "name": "道路交通"
+  },
+  {
+    "id": "city-spaces",
+    "parentId": "city-travel",
+    "name": "城市出行"
+  },
+  {
+    "id": "travel-stays",
+    "parentId": "city-travel",
+    "name": "旅行住宿"
+  },
+  {
+    "id": "sports-festivals",
+    "parentId": null,
+    "name": "运动与节庆"
+  },
+  {
+    "id": "sports",
+    "parentId": "sports-festivals",
+    "name": "运动项目"
+  },
+  {
+    "id": "festivals",
+    "parentId": "sports-festivals",
+    "name": "节日庆典"
+  },
+  {
+    "id": "jobs-school",
+    "parentId": "sports-festivals",
+    "name": "职业校园"
+  }
+]

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff8e8">
+  <meta name="description" content="谁是卧底 · 无境探险，多级主题词库的线下派对游戏。">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/mascot.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>谁是卧底 · 无境探险</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="brand"><img src="assets/mascot.svg" alt="探险小侦探"><div><p>无境探险</p><h1>谁是卧底</h1></div><span class="brand-spark">✦</span></header>
+    <div class="stepper" id="stepper" aria-label="游戏步骤"><span class="active">设置</span><i></i><span>看词</span><i></i><span>开局</span><i></i><span>结算</span></div>
+
+    <section class="screen active" id="setup-screen">
+      <div class="intro"><p class="eyebrow">PARTY GAME · 探险开始</p><h2>朋友们，准备好了吗？</h2><p>选好主题与人数，把手机传给下一位玩家。</p></div>
+      <article class="panel setup-panel">
+        <div class="section-heading"><div><span class="kicker">01 / PLAYERS</span><h3>玩家与身份</h3></div><span class="tiny-illustration">🧭</span></div>
+        <div class="counter-row"><div><b>玩家人数</b><small>3–12 位玩家</small></div><div class="counter"><button data-adjust="players" data-delta="-1" aria-label="减少玩家">−</button><strong id="player-count">5</strong><button data-adjust="players" data-delta="1" aria-label="增加玩家">＋</button></div></div>
+        <div class="role-control"><span>🕵️ 卧底人数</span><div class="mini-counter"><button data-adjust="undercover" data-delta="-1" aria-label="减少卧底">−</button><b id="undercover-count">1</b><button data-adjust="undercover" data-delta="1" aria-label="增加卧底">＋</button></div></div>
+        <div class="role-summary"><span>🃏 白板人数 <b id="blank-count">0</b></span><span class="role-switch"><label for="blank-toggle">加入白板</label><input id="blank-toggle" type="checkbox"><i></i></span></div>
+        <p class="hint">可设置 1–3 位卧底和 0–1 位白板，场上始终至少保留 1 位平民。</p>
+      </article>
+
+      <article class="panel categories-panel">
+        <div class="section-heading"><div><span class="kicker">02 / WORD BANK</span><h3>挑选主题词库</h3></div><span class="tiny-illustration">📚</span></div>
+        <label class="search-box"><span>⌕</span><input id="category-search" type="search" placeholder="搜索主题或细分类" autocomplete="off"><button id="clear-search" type="button" aria-label="清除搜索">×</button></label>
+        <div class="category-actions"><button id="select-all" type="button">全选</button><button id="clear-all" type="button">清空</button><span id="pair-count">已选 0 组</span></div>
+        <div id="category-tree" class="category-tree" aria-live="polite"><p class="loading">正在打开探险地图…</p></div>
+      </article>
+      <button class="primary-button" id="start-button" disabled>开始游戏 <span>→</span></button>
+      <p class="bottom-note">离线也能玩 · 你的游戏身份只保存在当前页面</p>
+    </section>
+
+    <section class="screen" id="reveal-screen">
+      <div class="screen-title"><span class="kicker">PASS THE PHONE</span><h2 id="reveal-heading">请 1 号玩家查看</h2><p>确认只有自己看到屏幕，再轻触卡片。</p></div>
+      <button class="secret-card" id="secret-card" type="button" aria-label="轻触显示你的词语"><span class="card-stars">✦　✦</span><img src="assets/mascot.svg" alt=""><b id="secret-word">轻触查看词语</b><small id="secret-role">这是你的秘密任务</small></button>
+      <div class="reveal-controls"><button class="secondary-button" id="camera-button" type="button" disabled>📷 拍张头像</button><button class="primary-button" id="seen-button" type="button" disabled>我记住了，传给下一位 <span>→</span></button></div>
+      <div class="progress-dots" id="reveal-progress"></div>
+    </section>
+
+    <section class="screen" id="play-screen">
+      <div class="screen-title"><span class="kicker">ROUND <b id="round-number">1</b></span><h2>轮流描述，找出卧底</h2><p>选中玩家可查看词语或记录淘汰。</p></div>
+      <div class="players-grid" id="players-grid"></div>
+      <div class="selection-label" id="selection-label">先点选一位玩家</div>
+      <div class="action-row"><button class="secondary-button" id="forget-button" disabled>👀 忘词了</button><button class="danger-button" id="eliminate-button" disabled>⚡ 记录淘汰</button></div>
+      <button class="text-button" id="finish-button">结束游戏并查看身份</button>
+    </section>
+
+    <section class="screen" id="result-screen">
+      <div class="result-hero"><span id="result-emoji">🎉</span><p class="kicker">GAME COMPLETE</p><h2 id="result-title">游戏结束</h2><p id="result-message"></p></div>
+      <article class="panel"><div class="section-heading"><div><span class="kicker">THE REVEAL</span><h3>大家的身份</h3></div><span class="tiny-illustration">🎭</span></div><div class="result-players" id="result-players"></div><p class="word-reveal" id="word-reveal"></p></article>
+      <button class="primary-button" id="new-game-button">再玩一局 <span>↻</span></button>
+    </section>
+    <footer class="footer-brand">谁是卧底 <span>✦</span> 无境探险</footer>
+  </main>
+
+  <dialog id="peek-dialog" class="peek-dialog"><button class="dialog-close" data-close aria-label="关闭">×</button><span>🤫 偷偷看一眼</span><h2 id="peek-word"></h2><p id="peek-player"></p><small>3 秒后自动收起</small></dialog>
+  <dialog id="camera-dialog" class="camera-dialog"><button class="dialog-close" data-close aria-label="关闭">×</button><h2>拍张头像</h2><video id="camera-video" autoplay playsinline></video><canvas id="camera-canvas" hidden></canvas><img id="camera-preview" alt="头像预览" hidden><div class="camera-actions"><button class="secondary-button" id="capture-button">拍照</button><button class="primary-button" id="save-photo-button" disabled>保存头像</button></div><p id="camera-message">允许相机权限即可拍照，也可以直接关闭跳过。</p></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

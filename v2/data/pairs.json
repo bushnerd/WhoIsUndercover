@@ -1,0 +1,3602 @@
+[
+  {
+    "id": "pair-001",
+    "categoryId": "stationery",
+    "w1": "中性笔",
+    "w2": "圆珠笔"
+  },
+  {
+    "id": "pair-002",
+    "categoryId": "stationery",
+    "w1": "修正带",
+    "w2": "涂改液"
+  },
+  {
+    "id": "pair-003",
+    "categoryId": "stationery",
+    "w1": "错题本",
+    "w2": "笔记本"
+  },
+  {
+    "id": "pair-004",
+    "categoryId": "stationery",
+    "w1": "月考",
+    "w2": "期中"
+  },
+  {
+    "id": "pair-005",
+    "categoryId": "stationery",
+    "w1": "会考",
+    "w2": "高考"
+  },
+  {
+    "id": "pair-006",
+    "categoryId": "stationery",
+    "w1": "辣条",
+    "w2": "魔芋爽"
+  },
+  {
+    "id": "pair-007",
+    "categoryId": "stationery",
+    "w1": "干脆面",
+    "w2": "小饼干"
+  },
+  {
+    "id": "pair-008",
+    "categoryId": "stationery",
+    "w1": "冰红茶",
+    "w2": "冰绿茶"
+  },
+  {
+    "id": "pair-009",
+    "categoryId": "stationery",
+    "w1": "跳绳",
+    "w2": "踢毽子"
+  },
+  {
+    "id": "pair-010",
+    "categoryId": "stationery",
+    "w1": "传纸条",
+    "w2": "丢纸团"
+  },
+  {
+    "id": "pair-011",
+    "categoryId": "stationery",
+    "w1": "班长",
+    "w2": "学委"
+  },
+  {
+    "id": "pair-012",
+    "categoryId": "stationery",
+    "w1": "课代表",
+    "w2": "组长"
+  },
+  {
+    "id": "pair-013",
+    "categoryId": "stationery",
+    "w1": "食堂",
+    "w2": "小卖部"
+  },
+  {
+    "id": "pair-014",
+    "categoryId": "stationery",
+    "w1": "操场",
+    "w2": "球场"
+  },
+  {
+    "id": "pair-015",
+    "categoryId": "stationery",
+    "w1": "图书馆",
+    "w2": "自习室"
+  },
+  {
+    "id": "pair-016",
+    "categoryId": "stationery",
+    "w1": "班主任",
+    "w2": "老师"
+  },
+  {
+    "id": "pair-017",
+    "categoryId": "stationery",
+    "w1": "语文",
+    "w2": "数学"
+  },
+  {
+    "id": "pair-018",
+    "categoryId": "stationery",
+    "w1": "同桌",
+    "w2": "前后桌"
+  },
+  {
+    "id": "pair-019",
+    "categoryId": "stationery",
+    "w1": "校服",
+    "w2": "班服"
+  },
+  {
+    "id": "pair-020",
+    "categoryId": "stationery",
+    "w1": "红领巾",
+    "w2": "校徽"
+  },
+  {
+    "id": "pair-021",
+    "categoryId": "campus",
+    "w1": "早自习",
+    "w2": "晚自习"
+  },
+  {
+    "id": "pair-022",
+    "categoryId": "campus",
+    "w1": "值日生",
+    "w2": "劳动委"
+  },
+  {
+    "id": "pair-023",
+    "categoryId": "campus",
+    "w1": "黑板",
+    "w2": "白板"
+  },
+  {
+    "id": "pair-024",
+    "categoryId": "campus",
+    "w1": "粉笔",
+    "w2": "板擦"
+  },
+  {
+    "id": "pair-025",
+    "categoryId": "campus",
+    "w1": "试卷",
+    "w2": "答题卡"
+  },
+  {
+    "id": "pair-026",
+    "categoryId": "campus",
+    "w1": "铅笔",
+    "w2": "钢笔"
+  },
+  {
+    "id": "pair-027",
+    "categoryId": "campus",
+    "w1": "文具盒",
+    "w2": "笔袋"
+  },
+  {
+    "id": "pair-028",
+    "categoryId": "campus",
+    "w1": "书包",
+    "w2": "双肩包"
+  },
+  {
+    "id": "pair-029",
+    "categoryId": "campus",
+    "w1": "课本",
+    "w2": "练习册"
+  },
+  {
+    "id": "pair-030",
+    "categoryId": "campus",
+    "w1": "补习班",
+    "w2": "兴趣班"
+  },
+  {
+    "id": "pair-031",
+    "categoryId": "campus",
+    "w1": "画画",
+    "w2": "书法"
+  },
+  {
+    "id": "pair-032",
+    "categoryId": "campus",
+    "w1": "舞蹈",
+    "w2": "声乐"
+  },
+  {
+    "id": "pair-033",
+    "categoryId": "campus",
+    "w1": "春游",
+    "w2": "秋游"
+  },
+  {
+    "id": "pair-034",
+    "categoryId": "campus",
+    "w1": "运动会",
+    "w2": "艺术节"
+  },
+  {
+    "id": "pair-035",
+    "categoryId": "campus",
+    "w1": "三好生",
+    "w2": "优秀生"
+  },
+  {
+    "id": "pair-036",
+    "categoryId": "campus",
+    "w1": "奖状",
+    "w2": "证书"
+  },
+  {
+    "id": "pair-037",
+    "categoryId": "campus",
+    "w1": "罚站",
+    "w2": "罚抄"
+  },
+  {
+    "id": "pair-038",
+    "categoryId": "campus",
+    "w1": "请家长",
+    "w2": "家访"
+  },
+  {
+    "id": "pair-039",
+    "categoryId": "campus",
+    "w1": "校长",
+    "w2": "主任"
+  },
+  {
+    "id": "pair-040",
+    "categoryId": "campus",
+    "w1": "一本",
+    "w2": "二本"
+  },
+  {
+    "id": "pair-041",
+    "categoryId": "workplace",
+    "w1": "考研",
+    "w2": "考公"
+  },
+  {
+    "id": "pair-042",
+    "categoryId": "workplace",
+    "w1": "学霸",
+    "w2": "学渣"
+  },
+  {
+    "id": "pair-043",
+    "categoryId": "workplace",
+    "w1": "逃课",
+    "w2": "旷课"
+  },
+  {
+    "id": "pair-044",
+    "categoryId": "workplace",
+    "w1": "挂科",
+    "w2": "补考"
+  },
+  {
+    "id": "pair-045",
+    "categoryId": "workplace",
+    "w1": "毕业",
+    "w2": "结业"
+  },
+  {
+    "id": "pair-046",
+    "categoryId": "workplace",
+    "w1": "论文",
+    "w2": "答辩"
+  },
+  {
+    "id": "pair-047",
+    "categoryId": "workplace",
+    "w1": "实习",
+    "w2": "实训"
+  },
+  {
+    "id": "pair-048",
+    "categoryId": "workplace",
+    "w1": "校招",
+    "w2": "社招"
+  },
+  {
+    "id": "pair-049",
+    "categoryId": "workplace",
+    "w1": "简历",
+    "w2": "面试"
+  },
+  {
+    "id": "pair-050",
+    "categoryId": "workplace",
+    "w1": "加班",
+    "w2": "出差"
+  },
+  {
+    "id": "pair-051",
+    "categoryId": "workplace",
+    "w1": "团建",
+    "w2": "聚会"
+  },
+  {
+    "id": "pair-052",
+    "categoryId": "workplace",
+    "w1": "老板",
+    "w2": "上司"
+  },
+  {
+    "id": "pair-053",
+    "categoryId": "workplace",
+    "w1": "工资",
+    "w2": "奖金"
+  },
+  {
+    "id": "pair-054",
+    "categoryId": "workplace",
+    "w1": "跳槽",
+    "w2": "离职"
+  },
+  {
+    "id": "pair-055",
+    "categoryId": "workplace",
+    "w1": "创业",
+    "w2": "打工"
+  },
+  {
+    "id": "pair-056",
+    "categoryId": "workplace",
+    "w1": "周末",
+    "w2": "假日"
+  },
+  {
+    "id": "pair-057",
+    "categoryId": "workplace",
+    "w1": "午休",
+    "w2": "下午茶"
+  },
+  {
+    "id": "pair-058",
+    "categoryId": "workplace",
+    "w1": "打卡",
+    "w2": "签到"
+  },
+  {
+    "id": "pair-059",
+    "categoryId": "workplace",
+    "w1": "年终奖",
+    "w2": "双薪"
+  },
+  {
+    "id": "pair-060",
+    "categoryId": "workplace",
+    "w1": "请假",
+    "w2": "调休"
+  },
+  {
+    "id": "pair-061",
+    "categoryId": "gaming",
+    "w1": "王者荣耀",
+    "w2": "英雄联盟"
+  },
+  {
+    "id": "pair-062",
+    "categoryId": "gaming",
+    "w1": "原神",
+    "w2": "崩坏"
+  },
+  {
+    "id": "pair-063",
+    "categoryId": "gaming",
+    "w1": "吃鸡",
+    "w2": "绝地求生"
+  },
+  {
+    "id": "pair-064",
+    "categoryId": "gaming",
+    "w1": "阴阳师",
+    "w2": "平安京"
+  },
+  {
+    "id": "pair-065",
+    "categoryId": "gaming",
+    "w1": "梦幻西游",
+    "w2": "大话西游"
+  },
+  {
+    "id": "pair-066",
+    "categoryId": "gaming",
+    "w1": "消消乐",
+    "w2": "羊了个羊"
+  },
+  {
+    "id": "pair-067",
+    "categoryId": "gaming",
+    "w1": "保卫萝卜",
+    "w2": "植物大战僵尸"
+  },
+  {
+    "id": "pair-068",
+    "categoryId": "gaming",
+    "w1": "跑酷",
+    "w2": "地铁跑酷"
+  },
+  {
+    "id": "pair-069",
+    "categoryId": "gaming",
+    "w1": "斗地主",
+    "w2": "麻将"
+  },
+  {
+    "id": "pair-070",
+    "categoryId": "gaming",
+    "w1": "第五人格",
+    "w2": "非人学园"
+  },
+  {
+    "id": "pair-071",
+    "categoryId": "gaming",
+    "w1": "明日方舟",
+    "w2": "黎明再现"
+  },
+  {
+    "id": "pair-072",
+    "categoryId": "gaming",
+    "w1": "碧蓝航线",
+    "w2": "战舰世界"
+  },
+  {
+    "id": "pair-073",
+    "categoryId": "gaming",
+    "w1": "方舟",
+    "w2": "星穹铁道"
+  },
+  {
+    "id": "pair-074",
+    "categoryId": "gaming",
+    "w1": "逆水寒",
+    "w2": "天涯明月刀"
+  },
+  {
+    "id": "pair-075",
+    "categoryId": "gaming",
+    "w1": "剑网三",
+    "w2": "剑侠情缘"
+  },
+  {
+    "id": "pair-076",
+    "categoryId": "gaming",
+    "w1": "热血传奇",
+    "w2": "传世传奇"
+  },
+  {
+    "id": "pair-077",
+    "categoryId": "gaming",
+    "w1": "穿越火线",
+    "w2": "逆战"
+  },
+  {
+    "id": "pair-078",
+    "categoryId": "gaming",
+    "w1": "QQ飞车",
+    "w2": "卡丁车"
+  },
+  {
+    "id": "pair-079",
+    "categoryId": "gaming",
+    "w1": "炫舞团",
+    "w2": "劲舞团"
+  },
+  {
+    "id": "pair-080",
+    "categoryId": "gaming",
+    "w1": "恋与制作人",
+    "w2": "光与夜之恋"
+  },
+  {
+    "id": "pair-081",
+    "categoryId": "platforms",
+    "w1": "江南百景图",
+    "w2": "桃源深处有人家"
+  },
+  {
+    "id": "pair-082",
+    "categoryId": "platforms",
+    "w1": "旅行青蛙",
+    "w2": "猫咪后院"
+  },
+  {
+    "id": "pair-083",
+    "categoryId": "platforms",
+    "w1": "拼多多",
+    "w2": "淘宝"
+  },
+  {
+    "id": "pair-084",
+    "categoryId": "platforms",
+    "w1": "京东",
+    "w2": "天猫"
+  },
+  {
+    "id": "pair-085",
+    "categoryId": "platforms",
+    "w1": "闲鱼",
+    "w2": "转转"
+  },
+  {
+    "id": "pair-086",
+    "categoryId": "platforms",
+    "w1": "美团",
+    "w2": "饿了么"
+  },
+  {
+    "id": "pair-087",
+    "categoryId": "platforms",
+    "w1": "滴滴出行",
+    "w2": "高德地图"
+  },
+  {
+    "id": "pair-088",
+    "categoryId": "platforms",
+    "w1": "知乎",
+    "w2": "豆瓣"
+  },
+  {
+    "id": "pair-089",
+    "categoryId": "platforms",
+    "w1": "贴吧",
+    "w2": "论坛"
+  },
+  {
+    "id": "pair-090",
+    "categoryId": "platforms",
+    "w1": "抖音",
+    "w2": "快手"
+  },
+  {
+    "id": "pair-091",
+    "categoryId": "platforms",
+    "w1": "哔哩哔哩",
+    "w2": "小红书"
+  },
+  {
+    "id": "pair-092",
+    "categoryId": "platforms",
+    "w1": "微信",
+    "w2": "QQ"
+  },
+  {
+    "id": "pair-093",
+    "categoryId": "platforms",
+    "w1": "朋友圈",
+    "w2": "微博"
+  },
+  {
+    "id": "pair-094",
+    "categoryId": "platforms",
+    "w1": "优酷",
+    "w2": "爱奇艺"
+  },
+  {
+    "id": "pair-095",
+    "categoryId": "platforms",
+    "w1": "腾讯视频",
+    "w2": "芒果TV"
+  },
+  {
+    "id": "pair-096",
+    "categoryId": "platforms",
+    "w1": "钉钉",
+    "w2": "飞书"
+  },
+  {
+    "id": "pair-097",
+    "categoryId": "platforms",
+    "w1": "百度",
+    "w2": "阿里巴巴"
+  },
+  {
+    "id": "pair-098",
+    "categoryId": "platforms",
+    "w1": "墨迹天气",
+    "w2": "彩云天气"
+  },
+  {
+    "id": "pair-099",
+    "categoryId": "platforms",
+    "w1": "携程",
+    "w2": "去哪儿"
+  },
+  {
+    "id": "pair-100",
+    "categoryId": "platforms",
+    "w1": "猫眼电影",
+    "w2": "淘票票"
+  },
+  {
+    "id": "pair-101",
+    "categoryId": "digital-life",
+    "w1": "花呗",
+    "w2": "白条"
+  },
+  {
+    "id": "pair-102",
+    "categoryId": "digital-life",
+    "w1": "信用卡",
+    "w2": "储蓄卡"
+  },
+  {
+    "id": "pair-103",
+    "categoryId": "digital-life",
+    "w1": "股票",
+    "w2": "基金"
+  },
+  {
+    "id": "pair-104",
+    "categoryId": "digital-life",
+    "w1": "网红",
+    "w2": "主播"
+  },
+  {
+    "id": "pair-105",
+    "categoryId": "digital-life",
+    "w1": "UP主",
+    "w2": "博主"
+  },
+  {
+    "id": "pair-106",
+    "categoryId": "digital-life",
+    "w1": "直播",
+    "w2": "录播"
+  },
+  {
+    "id": "pair-107",
+    "categoryId": "digital-life",
+    "w1": "弹幕",
+    "w2": "评论"
+  },
+  {
+    "id": "pair-108",
+    "categoryId": "digital-life",
+    "w1": "点赞",
+    "w2": "收藏"
+  },
+  {
+    "id": "pair-109",
+    "categoryId": "digital-life",
+    "w1": "关注",
+    "w2": "粉丝"
+  },
+  {
+    "id": "pair-110",
+    "categoryId": "digital-life",
+    "w1": "内卷",
+    "w2": "躺平"
+  },
+  {
+    "id": "pair-111",
+    "categoryId": "digital-life",
+    "w1": "社牛",
+    "w2": "社恐"
+  },
+  {
+    "id": "pair-112",
+    "categoryId": "digital-life",
+    "w1": "种草",
+    "w2": "拔草"
+  },
+  {
+    "id": "pair-113",
+    "categoryId": "digital-life",
+    "w1": "打卡",
+    "w2": "拍照"
+  },
+  {
+    "id": "pair-114",
+    "categoryId": "digital-life",
+    "w1": "外卖",
+    "w2": "堂食"
+  },
+  {
+    "id": "pair-115",
+    "categoryId": "digital-life",
+    "w1": "团购",
+    "w2": "拼单"
+  },
+  {
+    "id": "pair-116",
+    "categoryId": "digital-life",
+    "w1": "会员",
+    "w2": "原价"
+  },
+  {
+    "id": "pair-117",
+    "categoryId": "digital-life",
+    "w1": "新品",
+    "w2": "爆款"
+  },
+  {
+    "id": "pair-118",
+    "categoryId": "digital-life",
+    "w1": "好评",
+    "w2": "差评"
+  },
+  {
+    "id": "pair-119",
+    "categoryId": "digital-life",
+    "w1": "快递",
+    "w2": "外卖"
+  },
+  {
+    "id": "pair-120",
+    "categoryId": "digital-life",
+    "w1": "网购",
+    "w2": "电商"
+  },
+  {
+    "id": "pair-121",
+    "categoryId": "street-food",
+    "w1": "喜茶",
+    "w2": "奈雪"
+  },
+  {
+    "id": "pair-122",
+    "categoryId": "street-food",
+    "w1": "蜜雪冰城",
+    "w2": "古茗"
+  },
+  {
+    "id": "pair-123",
+    "categoryId": "street-food",
+    "w1": "茶百道",
+    "w2": "书亦烧仙草"
+  },
+  {
+    "id": "pair-124",
+    "categoryId": "street-food",
+    "w1": "一点点",
+    "w2": "都可"
+  },
+  {
+    "id": "pair-125",
+    "categoryId": "street-food",
+    "w1": "星巴克",
+    "w2": "瑞幸"
+  },
+  {
+    "id": "pair-126",
+    "categoryId": "street-food",
+    "w1": "臭豆腐",
+    "w2": "螺蛳粉"
+  },
+  {
+    "id": "pair-127",
+    "categoryId": "street-food",
+    "w1": "烤冷面",
+    "w2": "手抓饼"
+  },
+  {
+    "id": "pair-128",
+    "categoryId": "street-food",
+    "w1": "肉夹馍",
+    "w2": "凉皮"
+  },
+  {
+    "id": "pair-129",
+    "categoryId": "street-food",
+    "w1": "煎饼",
+    "w2": "鸡蛋灌饼"
+  },
+  {
+    "id": "pair-130",
+    "categoryId": "street-food",
+    "w1": "麻辣烫",
+    "w2": "冒菜"
+  },
+  {
+    "id": "pair-131",
+    "categoryId": "street-food",
+    "w1": "串串香",
+    "w2": "关东煮"
+  },
+  {
+    "id": "pair-132",
+    "categoryId": "street-food",
+    "w1": "炸鸡",
+    "w2": "炸串"
+  },
+  {
+    "id": "pair-133",
+    "categoryId": "street-food",
+    "w1": "麦当劳",
+    "w2": "肯德基"
+  },
+  {
+    "id": "pair-134",
+    "categoryId": "street-food",
+    "w1": "海底捞",
+    "w2": "呷哺呷哺"
+  },
+  {
+    "id": "pair-135",
+    "categoryId": "street-food",
+    "w1": "小龙坎",
+    "w2": "大龙燚"
+  },
+  {
+    "id": "pair-136",
+    "categoryId": "street-food",
+    "w1": "西贝莜面村",
+    "w2": "外婆家"
+  },
+  {
+    "id": "pair-137",
+    "categoryId": "street-food",
+    "w1": "太二酸菜鱼",
+    "w2": "江边城外"
+  },
+  {
+    "id": "pair-138",
+    "categoryId": "street-food",
+    "w1": "黄焖鸡",
+    "w2": "老乡鸡"
+  },
+  {
+    "id": "pair-139",
+    "categoryId": "street-food",
+    "w1": "功夫菜",
+    "w2": "永和豆浆"
+  },
+  {
+    "id": "pair-140",
+    "categoryId": "street-food",
+    "w1": "芝士蛋糕",
+    "w2": "慕斯蛋糕"
+  },
+  {
+    "id": "pair-141",
+    "categoryId": "desserts",
+    "w1": "蛋挞",
+    "w2": "泡芙"
+  },
+  {
+    "id": "pair-142",
+    "categoryId": "desserts",
+    "w1": "双皮奶",
+    "w2": "姜撞奶"
+  },
+  {
+    "id": "pair-143",
+    "categoryId": "desserts",
+    "w1": "杨枝甘露",
+    "w2": "芒果西米露"
+  },
+  {
+    "id": "pair-144",
+    "categoryId": "desserts",
+    "w1": "酸奶",
+    "w2": "乳酸菌"
+  },
+  {
+    "id": "pair-145",
+    "categoryId": "desserts",
+    "w1": "养乐多",
+    "w2": "优酸乳"
+  },
+  {
+    "id": "pair-146",
+    "categoryId": "desserts",
+    "w1": "安慕希",
+    "w2": "纯甄"
+  },
+  {
+    "id": "pair-147",
+    "categoryId": "desserts",
+    "w1": "伊利",
+    "w2": "蒙牛"
+  },
+  {
+    "id": "pair-148",
+    "categoryId": "desserts",
+    "w1": "哈根达斯",
+    "w2": "八喜"
+  },
+  {
+    "id": "pair-149",
+    "categoryId": "desserts",
+    "w1": "梦龙雪糕",
+    "w2": "可爱多"
+  },
+  {
+    "id": "pair-150",
+    "categoryId": "desserts",
+    "w1": "冰棍",
+    "w2": "冰工厂"
+  },
+  {
+    "id": "pair-151",
+    "categoryId": "desserts",
+    "w1": "西瓜",
+    "w2": "哈密瓜"
+  },
+  {
+    "id": "pair-152",
+    "categoryId": "desserts",
+    "w1": "葡萄",
+    "w2": "提子"
+  },
+  {
+    "id": "pair-153",
+    "categoryId": "desserts",
+    "w1": "草莓",
+    "w2": "树莓"
+  },
+  {
+    "id": "pair-154",
+    "categoryId": "desserts",
+    "w1": "樱桃",
+    "w2": "车厘子"
+  },
+  {
+    "id": "pair-155",
+    "categoryId": "desserts",
+    "w1": "榴莲",
+    "w2": "山竹"
+  },
+  {
+    "id": "pair-156",
+    "categoryId": "desserts",
+    "w1": "芒果",
+    "w2": "木瓜"
+  },
+  {
+    "id": "pair-157",
+    "categoryId": "desserts",
+    "w1": "火龙果",
+    "w2": "猕猴桃"
+  },
+  {
+    "id": "pair-158",
+    "categoryId": "desserts",
+    "w1": "菠萝",
+    "w2": "凤梨"
+  },
+  {
+    "id": "pair-159",
+    "categoryId": "desserts",
+    "w1": "香蕉",
+    "w2": "芭蕉"
+  },
+  {
+    "id": "pair-160",
+    "categoryId": "desserts",
+    "w1": "红薯",
+    "w2": "紫薯"
+  },
+  {
+    "id": "pair-161",
+    "categoryId": "ingredients",
+    "w1": "土豆",
+    "w2": "地瓜"
+  },
+  {
+    "id": "pair-162",
+    "categoryId": "ingredients",
+    "w1": "玉米",
+    "w2": "豌豆"
+  },
+  {
+    "id": "pair-163",
+    "categoryId": "ingredients",
+    "w1": "绿豆",
+    "w2": "红豆"
+  },
+  {
+    "id": "pair-164",
+    "categoryId": "ingredients",
+    "w1": "西兰花",
+    "w2": "花菜"
+  },
+  {
+    "id": "pair-165",
+    "categoryId": "ingredients",
+    "w1": "生菜",
+    "w2": "菠菜"
+  },
+  {
+    "id": "pair-166",
+    "categoryId": "ingredients",
+    "w1": "芹菜",
+    "w2": "韭菜"
+  },
+  {
+    "id": "pair-167",
+    "categoryId": "ingredients",
+    "w1": "大葱",
+    "w2": "小葱"
+  },
+  {
+    "id": "pair-168",
+    "categoryId": "ingredients",
+    "w1": "生姜",
+    "w2": "大蒜"
+  },
+  {
+    "id": "pair-169",
+    "categoryId": "ingredients",
+    "w1": "辣椒",
+    "w2": "青椒"
+  },
+  {
+    "id": "pair-170",
+    "categoryId": "ingredients",
+    "w1": "豆瓣酱",
+    "w2": "黄豆酱"
+  },
+  {
+    "id": "pair-171",
+    "categoryId": "ingredients",
+    "w1": "蚝油",
+    "w2": "酱油"
+  },
+  {
+    "id": "pair-172",
+    "categoryId": "ingredients",
+    "w1": "生抽",
+    "w2": "老抽"
+  },
+  {
+    "id": "pair-173",
+    "categoryId": "ingredients",
+    "w1": "陈醋",
+    "w2": "白醋"
+  },
+  {
+    "id": "pair-174",
+    "categoryId": "ingredients",
+    "w1": "料酒",
+    "w2": "黄酒"
+  },
+  {
+    "id": "pair-175",
+    "categoryId": "ingredients",
+    "w1": "白酒",
+    "w2": "啤酒"
+  },
+  {
+    "id": "pair-176",
+    "categoryId": "ingredients",
+    "w1": "红酒",
+    "w2": "白葡萄酒"
+  },
+  {
+    "id": "pair-177",
+    "categoryId": "ingredients",
+    "w1": "奶茶",
+    "w2": "果汁"
+  },
+  {
+    "id": "pair-178",
+    "categoryId": "ingredients",
+    "w1": "咖啡",
+    "w2": "茶饮"
+  },
+  {
+    "id": "pair-179",
+    "categoryId": "ingredients",
+    "w1": "可乐",
+    "w2": "雪碧"
+  },
+  {
+    "id": "pair-180",
+    "categoryId": "ingredients",
+    "w1": "火锅",
+    "w2": "烧烤"
+  },
+  {
+    "id": "pair-181",
+    "categoryId": "variety",
+    "w1": "奔跑吧",
+    "w2": "极限挑战"
+  },
+  {
+    "id": "pair-182",
+    "categoryId": "variety",
+    "w1": "向往的生活",
+    "w2": "中餐厅"
+  },
+  {
+    "id": "pair-183",
+    "categoryId": "variety",
+    "w1": "快本",
+    "w2": "天天向上"
+  },
+  {
+    "id": "pair-184",
+    "categoryId": "variety",
+    "w1": "王牌对王牌",
+    "w2": "喜剧之王"
+  },
+  {
+    "id": "pair-185",
+    "categoryId": "variety",
+    "w1": "歌手",
+    "w2": "中国好声音"
+  },
+  {
+    "id": "pair-186",
+    "categoryId": "variety",
+    "w1": "中国新说唱",
+    "w2": "说唱听我的"
+  },
+  {
+    "id": "pair-187",
+    "categoryId": "variety",
+    "w1": "乐队的夏天",
+    "w2": "热血街舞团"
+  },
+  {
+    "id": "pair-188",
+    "categoryId": "variety",
+    "w1": "乘风破浪",
+    "w2": "披荆斩棘"
+  },
+  {
+    "id": "pair-189",
+    "categoryId": "variety",
+    "w1": "创造营",
+    "w2": "青春有你"
+  },
+  {
+    "id": "pair-190",
+    "categoryId": "variety",
+    "w1": "明星大侦探",
+    "w2": "密室大逃脱"
+  },
+  {
+    "id": "pair-191",
+    "categoryId": "variety",
+    "w1": "拜托了冰箱",
+    "w2": "舌尖上的中国"
+  },
+  {
+    "id": "pair-192",
+    "categoryId": "variety",
+    "w1": "中餐厅",
+    "w2": "亲爱的客栈"
+  },
+  {
+    "id": "pair-193",
+    "categoryId": "variety",
+    "w1": "花儿与少年",
+    "w2": "妻子的旅行"
+  },
+  {
+    "id": "pair-194",
+    "categoryId": "variety",
+    "w1": "爸爸去哪儿",
+    "w2": "妈妈是超人"
+  },
+  {
+    "id": "pair-195",
+    "categoryId": "variety",
+    "w1": "时代少年团",
+    "w2": "TFBOYS"
+  },
+  {
+    "id": "pair-196",
+    "categoryId": "variety",
+    "w1": "甄嬛传",
+    "w2": "芈月传"
+  },
+  {
+    "id": "pair-197",
+    "categoryId": "variety",
+    "w1": "陈情令",
+    "w2": "山河令"
+  },
+  {
+    "id": "pair-198",
+    "categoryId": "variety",
+    "w1": "琅琊榜",
+    "w2": "庆余年"
+  },
+  {
+    "id": "pair-199",
+    "categoryId": "variety",
+    "w1": "清平乐",
+    "w2": "梦华录"
+  },
+  {
+    "id": "pair-200",
+    "categoryId": "variety",
+    "w1": "苍兰诀",
+    "w2": "长月烬明"
+  },
+  {
+    "id": "pair-201",
+    "categoryId": "screen",
+    "w1": "锦心似玉",
+    "w2": "知否知否"
+  },
+  {
+    "id": "pair-202",
+    "categoryId": "screen",
+    "w1": "乔家的儿女",
+    "w2": "一切都好"
+  },
+  {
+    "id": "pair-203",
+    "categoryId": "screen",
+    "w1": "欢喜密探",
+    "w2": "舍得舍不得"
+  },
+  {
+    "id": "pair-204",
+    "categoryId": "screen",
+    "w1": "少年派",
+    "w2": "家人闲坐"
+  },
+  {
+    "id": "pair-205",
+    "categoryId": "screen",
+    "w1": "相思令",
+    "w2": "沉香如屑"
+  },
+  {
+    "id": "pair-206",
+    "categoryId": "screen",
+    "w1": "斛珠夫人",
+    "w2": "三生三世"
+  },
+  {
+    "id": "pair-207",
+    "categoryId": "screen",
+    "w1": "香蜜沉沉",
+    "w2": "琉璃美人煞"
+  },
+  {
+    "id": "pair-208",
+    "categoryId": "screen",
+    "w1": "如懿传",
+    "w2": "金枝欲孽"
+  },
+  {
+    "id": "pair-209",
+    "categoryId": "screen",
+    "w1": "行者",
+    "w2": "飞虎队"
+  },
+  {
+    "id": "pair-210",
+    "categoryId": "screen",
+    "w1": "请回答1988",
+    "w2": "请回答1994"
+  },
+  {
+    "id": "pair-211",
+    "categoryId": "screen",
+    "w1": "鱿鱼游戏",
+    "w2": "王国"
+  },
+  {
+    "id": "pair-212",
+    "categoryId": "screen",
+    "w1": "鬼怪",
+    "w2": "太阳的后裔"
+  },
+  {
+    "id": "pair-213",
+    "categoryId": "screen",
+    "w1": "星星的同学们",
+    "w2": "顶楼"
+  },
+  {
+    "id": "pair-214",
+    "categoryId": "screen",
+    "w1": "探案笔记",
+    "w2": "误杀"
+  },
+  {
+    "id": "pair-215",
+    "categoryId": "screen",
+    "w1": "战狼",
+    "w2": "长津湖"
+  },
+  {
+    "id": "pair-216",
+    "categoryId": "screen",
+    "w1": "八佰",
+    "w2": "集结号"
+  },
+  {
+    "id": "pair-217",
+    "categoryId": "screen",
+    "w1": "子弹列车",
+    "w2": "邪不压正"
+  },
+  {
+    "id": "pair-218",
+    "categoryId": "screen",
+    "w1": "无证之罪",
+    "w2": "白夜追凶"
+  },
+  {
+    "id": "pair-219",
+    "categoryId": "screen",
+    "w1": "沉默的证人",
+    "w2": "隐秘的角落"
+  },
+  {
+    "id": "pair-220",
+    "categoryId": "screen",
+    "w1": "法医秦明",
+    "w2": "骨语"
+  },
+  {
+    "id": "pair-221",
+    "categoryId": "anime-books",
+    "w1": "三十而已",
+    "w2": "二十不惑"
+  },
+  {
+    "id": "pair-222",
+    "categoryId": "anime-books",
+    "w1": "欢乐颂",
+    "w2": "我的前半生"
+  },
+  {
+    "id": "pair-223",
+    "categoryId": "anime-books",
+    "w1": "流金岁月",
+    "w2": "南辕北辙"
+  },
+  {
+    "id": "pair-224",
+    "categoryId": "anime-books",
+    "w1": "爱情公寓",
+    "w2": "老友记"
+  },
+  {
+    "id": "pair-225",
+    "categoryId": "anime-books",
+    "w1": "爆炸Bang",
+    "w2": "姐妹俱乐部"
+  },
+  {
+    "id": "pair-226",
+    "categoryId": "anime-books",
+    "w1": "权力的游戏",
+    "w2": "猎魔人"
+  },
+  {
+    "id": "pair-227",
+    "categoryId": "anime-books",
+    "w1": "哈利波特",
+    "w2": "动物森友会"
+  },
+  {
+    "id": "pair-228",
+    "categoryId": "anime-books",
+    "w1": "哪吒之魔童降世",
+    "w2": "大圣归来"
+  },
+  {
+    "id": "pair-229",
+    "categoryId": "anime-books",
+    "w1": "罗小黑战记",
+    "w2": "雾山五行"
+  },
+  {
+    "id": "pair-230",
+    "categoryId": "anime-books",
+    "w1": "斗罗大陆",
+    "w2": "完美世界"
+  },
+  {
+    "id": "pair-231",
+    "categoryId": "anime-books",
+    "w1": "吞噬星空",
+    "w2": "雪鹰领主"
+  },
+  {
+    "id": "pair-232",
+    "categoryId": "anime-books",
+    "w1": "仙逆",
+    "w2": "求魔"
+  },
+  {
+    "id": "pair-233",
+    "categoryId": "anime-books",
+    "w1": "诡秘之主",
+    "w2": "奥术神座"
+  },
+  {
+    "id": "pair-234",
+    "categoryId": "anime-books",
+    "w1": "惊悚乐园",
+    "w2": "无限恐怖"
+  },
+  {
+    "id": "pair-235",
+    "categoryId": "anime-books",
+    "w1": "鬼吹灯",
+    "w2": "盗墓笔记"
+  },
+  {
+    "id": "pair-236",
+    "categoryId": "anime-books",
+    "w1": "老九门",
+    "w2": "沙海"
+  },
+  {
+    "id": "pair-237",
+    "categoryId": "anime-books",
+    "w1": "云南虫谷",
+    "w2": "昆仑神宫"
+  },
+  {
+    "id": "pair-238",
+    "categoryId": "anime-books",
+    "w1": "龙岭迷窟",
+    "w2": "精绝古城"
+  },
+  {
+    "id": "pair-239",
+    "categoryId": "anime-books",
+    "w1": "恶作剧之吻",
+    "w2": "可能有关系"
+  },
+  {
+    "id": "pair-240",
+    "categoryId": "anime-books",
+    "w1": "花千骨",
+    "w2": "古剑奇谭"
+  },
+  {
+    "id": "pair-241",
+    "categoryId": "outdoor-sports",
+    "w1": "露营",
+    "w2": "野餐"
+  },
+  {
+    "id": "pair-242",
+    "categoryId": "outdoor-sports",
+    "w1": "登山",
+    "w2": "徒步"
+  },
+  {
+    "id": "pair-243",
+    "categoryId": "outdoor-sports",
+    "w1": "攀岩",
+    "w2": "速降"
+  },
+  {
+    "id": "pair-244",
+    "categoryId": "outdoor-sports",
+    "w1": "滑雪",
+    "w2": "单板滑雪"
+  },
+  {
+    "id": "pair-245",
+    "categoryId": "outdoor-sports",
+    "w1": "冲浪",
+    "w2": "帆板冲浪"
+  },
+  {
+    "id": "pair-246",
+    "categoryId": "outdoor-sports",
+    "w1": "潜水",
+    "w2": "浮潜"
+  },
+  {
+    "id": "pair-247",
+    "categoryId": "outdoor-sports",
+    "w1": "骑行",
+    "w2": "公路骑行"
+  },
+  {
+    "id": "pair-248",
+    "categoryId": "outdoor-sports",
+    "w1": "溯溪",
+    "w2": "漂流"
+  },
+  {
+    "id": "pair-249",
+    "categoryId": "outdoor-sports",
+    "w1": "跳伞",
+    "w2": "滑翔伞"
+  },
+  {
+    "id": "pair-250",
+    "categoryId": "outdoor-sports",
+    "w1": "蹦极",
+    "w2": "荡秋千"
+  },
+  {
+    "id": "pair-251",
+    "categoryId": "outdoor-sports",
+    "w1": "滑板",
+    "w2": "轮滑"
+  },
+  {
+    "id": "pair-252",
+    "categoryId": "outdoor-sports",
+    "w1": "皮划艇",
+    "w2": "独木舟"
+  },
+  {
+    "id": "pair-253",
+    "categoryId": "outdoor-sports",
+    "w1": "钓鱼",
+    "w2": "路亚"
+  },
+  {
+    "id": "pair-254",
+    "categoryId": "outdoor-sports",
+    "w1": "射箭",
+    "w2": "飞镖"
+  },
+  {
+    "id": "pair-255",
+    "categoryId": "outdoor-sports",
+    "w1": "飞盘",
+    "w2": "放风筝"
+  },
+  {
+    "id": "pair-256",
+    "categoryId": "outdoor-sports",
+    "w1": "帐篷",
+    "w2": "天幕"
+  },
+  {
+    "id": "pair-257",
+    "categoryId": "outdoor-sports",
+    "w1": "睡袋",
+    "w2": "防潮垫"
+  },
+  {
+    "id": "pair-258",
+    "categoryId": "outdoor-sports",
+    "w1": "头灯",
+    "w2": "手电筒"
+  },
+  {
+    "id": "pair-259",
+    "categoryId": "outdoor-sports",
+    "w1": "指南针",
+    "w2": "指北针"
+  },
+  {
+    "id": "pair-260",
+    "categoryId": "outdoor-sports",
+    "w1": "登山杖",
+    "w2": "护膝"
+  },
+  {
+    "id": "pair-261",
+    "categoryId": "camping",
+    "w1": "冲锋衣",
+    "w2": "软壳衣"
+  },
+  {
+    "id": "pair-262",
+    "categoryId": "camping",
+    "w1": "速干衣",
+    "w2": "运动衣"
+  },
+  {
+    "id": "pair-263",
+    "categoryId": "camping",
+    "w1": "登山鞋",
+    "w2": "徒步鞋"
+  },
+  {
+    "id": "pair-264",
+    "categoryId": "camping",
+    "w1": "救生衣",
+    "w2": "潜水服"
+  },
+  {
+    "id": "pair-265",
+    "categoryId": "camping",
+    "w1": "滑雪镜",
+    "w2": "护目镜"
+  },
+  {
+    "id": "pair-266",
+    "categoryId": "camping",
+    "w1": "头盔",
+    "w2": "护具"
+  },
+  {
+    "id": "pair-267",
+    "categoryId": "camping",
+    "w1": "手套",
+    "w2": "帽子"
+  },
+  {
+    "id": "pair-268",
+    "categoryId": "camping",
+    "w1": "背包",
+    "w2": "挎包"
+  },
+  {
+    "id": "pair-269",
+    "categoryId": "camping",
+    "w1": "腰包",
+    "w2": "胸包"
+  },
+  {
+    "id": "pair-270",
+    "categoryId": "camping",
+    "w1": "水壶",
+    "w2": "水袋"
+  },
+  {
+    "id": "pair-271",
+    "categoryId": "camping",
+    "w1": "炉头",
+    "w2": "气罐"
+  },
+  {
+    "id": "pair-272",
+    "categoryId": "camping",
+    "w1": "套锅",
+    "w2": "煎锅"
+  },
+  {
+    "id": "pair-273",
+    "categoryId": "camping",
+    "w1": "餐具",
+    "w2": "筷子"
+  },
+  {
+    "id": "pair-274",
+    "categoryId": "camping",
+    "w1": "吊床",
+    "w2": "折叠椅"
+  },
+  {
+    "id": "pair-275",
+    "categoryId": "camping",
+    "w1": "篝火",
+    "w2": "晚会"
+  },
+  {
+    "id": "pair-276",
+    "categoryId": "camping",
+    "w1": "摄影",
+    "w2": "摄像"
+  },
+  {
+    "id": "pair-277",
+    "categoryId": "camping",
+    "w1": "无人机",
+    "w2": "航拍器"
+  },
+  {
+    "id": "pair-278",
+    "categoryId": "camping",
+    "w1": "对讲机",
+    "w2": "收音机"
+  },
+  {
+    "id": "pair-279",
+    "categoryId": "camping",
+    "w1": "充电宝",
+    "w2": "太阳能板"
+  },
+  {
+    "id": "pair-280",
+    "categoryId": "camping",
+    "w1": "急救包",
+    "w2": "创可贴"
+  },
+  {
+    "id": "pair-281",
+    "categoryId": "gathering-travel",
+    "w1": "驱蚊",
+    "w2": "防晒"
+  },
+  {
+    "id": "pair-282",
+    "categoryId": "gathering-travel",
+    "w1": "狼人杀",
+    "w2": "阿瓦隆"
+  },
+  {
+    "id": "pair-283",
+    "categoryId": "gathering-travel",
+    "w1": "剧本杀",
+    "w2": "密室逃脱"
+  },
+  {
+    "id": "pair-284",
+    "categoryId": "gathering-travel",
+    "w1": "谁是卧底",
+    "w2": "你画我猜"
+  },
+  {
+    "id": "pair-285",
+    "categoryId": "gathering-travel",
+    "w1": "真心话",
+    "w2": "大冒险"
+  },
+  {
+    "id": "pair-286",
+    "categoryId": "gathering-travel",
+    "w1": "桌游",
+    "w2": "棋牌"
+  },
+  {
+    "id": "pair-287",
+    "categoryId": "gathering-travel",
+    "w1": "麻将",
+    "w2": "扑克牌"
+  },
+  {
+    "id": "pair-288",
+    "categoryId": "gathering-travel",
+    "w1": "骰子",
+    "w2": "猜拳"
+  },
+  {
+    "id": "pair-289",
+    "categoryId": "gathering-travel",
+    "w1": "猜歌名",
+    "w2": "猜词"
+  },
+  {
+    "id": "pair-290",
+    "categoryId": "gathering-travel",
+    "w1": "撕名牌",
+    "w2": "躲猫猫"
+  },
+  {
+    "id": "pair-291",
+    "categoryId": "gathering-travel",
+    "w1": "定向越野",
+    "w2": "寻宝"
+  },
+  {
+    "id": "pair-292",
+    "categoryId": "gathering-travel",
+    "w1": "烧烤",
+    "w2": "野炊"
+  },
+  {
+    "id": "pair-293",
+    "categoryId": "gathering-travel",
+    "w1": "吉他",
+    "w2": "尤克里里"
+  },
+  {
+    "id": "pair-294",
+    "categoryId": "gathering-travel",
+    "w1": "音响",
+    "w2": "麦克风"
+  },
+  {
+    "id": "pair-295",
+    "categoryId": "gathering-travel",
+    "w1": "投影仪",
+    "w2": "幕布"
+  },
+  {
+    "id": "pair-296",
+    "categoryId": "gathering-travel",
+    "w1": "自拍杆",
+    "w2": "三脚架"
+  },
+  {
+    "id": "pair-297",
+    "categoryId": "gathering-travel",
+    "w1": "自由行",
+    "w2": "跟团游"
+  },
+  {
+    "id": "pair-298",
+    "categoryId": "gathering-travel",
+    "w1": "自驾游",
+    "w2": "穷游"
+  },
+  {
+    "id": "pair-299",
+    "categoryId": "gathering-travel",
+    "w1": "民宿",
+    "w2": "酒店"
+  },
+  {
+    "id": "pair-300",
+    "categoryId": "gathering-travel",
+    "w1": "携程",
+    "w2": "飞猪"
+  },
+  {
+    "id": "pair-301",
+    "categoryId": "gathering-travel",
+    "w1": "驴友",
+    "w2": "摄友"
+  },
+  {
+    "id": "pair-302",
+    "categoryId": "mammals",
+    "w1": "猫",
+    "w2": "狗"
+  },
+  {
+    "id": "pair-303",
+    "categoryId": "mammals",
+    "w1": "狮子",
+    "w2": "老虎"
+  },
+  {
+    "id": "pair-304",
+    "categoryId": "mammals",
+    "w1": "大象",
+    "w2": "犀牛"
+  },
+  {
+    "id": "pair-305",
+    "categoryId": "mammals",
+    "w1": "长颈鹿",
+    "w2": "斑马"
+  },
+  {
+    "id": "pair-306",
+    "categoryId": "mammals",
+    "w1": "熊猫",
+    "w2": "考拉"
+  },
+  {
+    "id": "pair-307",
+    "categoryId": "mammals",
+    "w1": "松鼠",
+    "w2": "兔子"
+  },
+  {
+    "id": "pair-308",
+    "categoryId": "mammals",
+    "w1": "狐狸",
+    "w2": "狼"
+  },
+  {
+    "id": "pair-309",
+    "categoryId": "mammals",
+    "w1": "骆驼",
+    "w2": "羊驼"
+  },
+  {
+    "id": "pair-310",
+    "categoryId": "mammals",
+    "w1": "河马",
+    "w2": "犀牛"
+  },
+  {
+    "id": "pair-311",
+    "categoryId": "mammals",
+    "w1": "海豚",
+    "w2": "鲸鱼"
+  },
+  {
+    "id": "pair-312",
+    "categoryId": "mammals",
+    "w1": "蝙蝠",
+    "w2": "飞鼠"
+  },
+  {
+    "id": "pair-313",
+    "categoryId": "mammals",
+    "w1": "刺猬",
+    "w2": "豪猪"
+  },
+  {
+    "id": "pair-314",
+    "categoryId": "mammals",
+    "w1": "水獭",
+    "w2": "海狸"
+  },
+  {
+    "id": "pair-315",
+    "categoryId": "mammals",
+    "w1": "梅花鹿",
+    "w2": "麋鹿"
+  },
+  {
+    "id": "pair-316",
+    "categoryId": "mammals",
+    "w1": "马",
+    "w2": "驴"
+  },
+  {
+    "id": "pair-317",
+    "categoryId": "mammals",
+    "w1": "牛",
+    "w2": "水牛"
+  },
+  {
+    "id": "pair-318",
+    "categoryId": "mammals",
+    "w1": "绵羊",
+    "w2": "山羊"
+  },
+  {
+    "id": "pair-319",
+    "categoryId": "mammals",
+    "w1": "猕猴",
+    "w2": "金丝猴"
+  },
+  {
+    "id": "pair-320",
+    "categoryId": "mammals",
+    "w1": "袋鼠",
+    "w2": "沙袋鼠"
+  },
+  {
+    "id": "pair-321",
+    "categoryId": "birds-insects",
+    "w1": "麻雀",
+    "w2": "燕子"
+  },
+  {
+    "id": "pair-322",
+    "categoryId": "birds-insects",
+    "w1": "喜鹊",
+    "w2": "乌鸦"
+  },
+  {
+    "id": "pair-323",
+    "categoryId": "birds-insects",
+    "w1": "天鹅",
+    "w2": "大雁"
+  },
+  {
+    "id": "pair-324",
+    "categoryId": "birds-insects",
+    "w1": "老鹰",
+    "w2": "猎鹰"
+  },
+  {
+    "id": "pair-325",
+    "categoryId": "birds-insects",
+    "w1": "孔雀",
+    "w2": "锦鸡"
+  },
+  {
+    "id": "pair-326",
+    "categoryId": "birds-insects",
+    "w1": "鸽子",
+    "w2": "斑鸠"
+  },
+  {
+    "id": "pair-327",
+    "categoryId": "birds-insects",
+    "w1": "鹦鹉",
+    "w2": "八哥"
+  },
+  {
+    "id": "pair-328",
+    "categoryId": "birds-insects",
+    "w1": "啄木鸟",
+    "w2": "杜鹃"
+  },
+  {
+    "id": "pair-329",
+    "categoryId": "birds-insects",
+    "w1": "丹顶鹤",
+    "w2": "白鹭"
+  },
+  {
+    "id": "pair-330",
+    "categoryId": "birds-insects",
+    "w1": "鸵鸟",
+    "w2": "鸸鹋"
+  },
+  {
+    "id": "pair-331",
+    "categoryId": "birds-insects",
+    "w1": "蝴蝶",
+    "w2": "飞蛾"
+  },
+  {
+    "id": "pair-332",
+    "categoryId": "birds-insects",
+    "w1": "蜜蜂",
+    "w2": "马蜂"
+  },
+  {
+    "id": "pair-333",
+    "categoryId": "birds-insects",
+    "w1": "蜻蜓",
+    "w2": "豆娘"
+  },
+  {
+    "id": "pair-334",
+    "categoryId": "birds-insects",
+    "w1": "蝉",
+    "w2": "蟋蟀"
+  },
+  {
+    "id": "pair-335",
+    "categoryId": "birds-insects",
+    "w1": "蚂蚁",
+    "w2": "白蚁"
+  },
+  {
+    "id": "pair-336",
+    "categoryId": "birds-insects",
+    "w1": "瓢虫",
+    "w2": "天牛"
+  },
+  {
+    "id": "pair-337",
+    "categoryId": "birds-insects",
+    "w1": "螳螂",
+    "w2": "竹节虫"
+  },
+  {
+    "id": "pair-338",
+    "categoryId": "birds-insects",
+    "w1": "蜈蚣",
+    "w2": "马陆"
+  },
+  {
+    "id": "pair-339",
+    "categoryId": "birds-insects",
+    "w1": "萤火虫",
+    "w2": "独角仙"
+  },
+  {
+    "id": "pair-340",
+    "categoryId": "aquatic-life",
+    "w1": "鲤鱼",
+    "w2": "鲫鱼"
+  },
+  {
+    "id": "pair-341",
+    "categoryId": "aquatic-life",
+    "w1": "鲈鱼",
+    "w2": "鳜鱼"
+  },
+  {
+    "id": "pair-342",
+    "categoryId": "aquatic-life",
+    "w1": "鲨鱼",
+    "w2": "鳐鱼"
+  },
+  {
+    "id": "pair-343",
+    "categoryId": "aquatic-life",
+    "w1": "鲑鱼",
+    "w2": "鳟鱼"
+  },
+  {
+    "id": "pair-344",
+    "categoryId": "aquatic-life",
+    "w1": "金鱼",
+    "w2": "锦鲤"
+  },
+  {
+    "id": "pair-345",
+    "categoryId": "aquatic-life",
+    "w1": "章鱼",
+    "w2": "鱿鱼"
+  },
+  {
+    "id": "pair-346",
+    "categoryId": "aquatic-life",
+    "w1": "海星",
+    "w2": "海胆"
+  },
+  {
+    "id": "pair-347",
+    "categoryId": "aquatic-life",
+    "w1": "虾",
+    "w2": "蟹"
+  },
+  {
+    "id": "pair-348",
+    "categoryId": "aquatic-life",
+    "w1": "龙虾",
+    "w2": "小龙虾"
+  },
+  {
+    "id": "pair-349",
+    "categoryId": "aquatic-life",
+    "w1": "蛤蜊",
+    "w2": "牡蛎"
+  },
+  {
+    "id": "pair-350",
+    "categoryId": "aquatic-life",
+    "w1": "海龟",
+    "w2": "鳄龟"
+  },
+  {
+    "id": "pair-351",
+    "categoryId": "aquatic-life",
+    "w1": "青蛙",
+    "w2": "蟾蜍"
+  },
+  {
+    "id": "pair-352",
+    "categoryId": "aquatic-life",
+    "w1": "蝾螈",
+    "w2": "娃娃鱼"
+  },
+  {
+    "id": "pair-353",
+    "categoryId": "aquatic-life",
+    "w1": "水母",
+    "w2": "海蜇"
+  },
+  {
+    "id": "pair-354",
+    "categoryId": "aquatic-life",
+    "w1": "海马",
+    "w2": "海龙"
+  },
+  {
+    "id": "pair-355",
+    "categoryId": "aquatic-life",
+    "w1": "海豹",
+    "w2": "海狮"
+  },
+  {
+    "id": "pair-356",
+    "categoryId": "aquatic-life",
+    "w1": "企鹅",
+    "w2": "海雀"
+  },
+  {
+    "id": "pair-357",
+    "categoryId": "aquatic-life",
+    "w1": "鳄鱼",
+    "w2": "短吻鳄"
+  },
+  {
+    "id": "pair-358",
+    "categoryId": "aquatic-life",
+    "w1": "河豚",
+    "w2": "刺豚"
+  },
+  {
+    "id": "pair-359",
+    "categoryId": "landforms",
+    "w1": "高山",
+    "w2": "丘陵"
+  },
+  {
+    "id": "pair-360",
+    "categoryId": "landforms",
+    "w1": "平原",
+    "w2": "高原"
+  },
+  {
+    "id": "pair-361",
+    "categoryId": "landforms",
+    "w1": "峡谷",
+    "w2": "山谷"
+  },
+  {
+    "id": "pair-362",
+    "categoryId": "landforms",
+    "w1": "瀑布",
+    "w2": "溪流"
+  },
+  {
+    "id": "pair-363",
+    "categoryId": "landforms",
+    "w1": "湖泊",
+    "w2": "水库"
+  },
+  {
+    "id": "pair-364",
+    "categoryId": "landforms",
+    "w1": "海湾",
+    "w2": "海峡"
+  },
+  {
+    "id": "pair-365",
+    "categoryId": "landforms",
+    "w1": "岛屿",
+    "w2": "半岛"
+  },
+  {
+    "id": "pair-366",
+    "categoryId": "landforms",
+    "w1": "沙漠",
+    "w2": "戈壁"
+  },
+  {
+    "id": "pair-367",
+    "categoryId": "landforms",
+    "w1": "冰川",
+    "w2": "雪原"
+  },
+  {
+    "id": "pair-368",
+    "categoryId": "landforms",
+    "w1": "火山",
+    "w2": "地震"
+  },
+  {
+    "id": "pair-369",
+    "categoryId": "landforms",
+    "w1": "洞穴",
+    "w2": "溶洞"
+  },
+  {
+    "id": "pair-370",
+    "categoryId": "landforms",
+    "w1": "河流",
+    "w2": "运河"
+  },
+  {
+    "id": "pair-371",
+    "categoryId": "landforms",
+    "w1": "湿地",
+    "w2": "沼泽"
+  },
+  {
+    "id": "pair-372",
+    "categoryId": "landforms",
+    "w1": "海岸",
+    "w2": "沙滩"
+  },
+  {
+    "id": "pair-373",
+    "categoryId": "landforms",
+    "w1": "盆地",
+    "w2": "洼地"
+  },
+  {
+    "id": "pair-374",
+    "categoryId": "landforms",
+    "w1": "山脉",
+    "w2": "山峰"
+  },
+  {
+    "id": "pair-375",
+    "categoryId": "landforms",
+    "w1": "草原",
+    "w2": "牧场"
+  },
+  {
+    "id": "pair-376",
+    "categoryId": "landforms",
+    "w1": "珊瑚礁",
+    "w2": "海沟"
+  },
+  {
+    "id": "pair-377",
+    "categoryId": "landforms",
+    "w1": "泉水",
+    "w2": "温泉"
+  },
+  {
+    "id": "pair-378",
+    "categoryId": "weather",
+    "w1": "晴天",
+    "w2": "阴天"
+  },
+  {
+    "id": "pair-379",
+    "categoryId": "weather",
+    "w1": "阵雨",
+    "w2": "雷雨"
+  },
+  {
+    "id": "pair-380",
+    "categoryId": "weather",
+    "w1": "暴雨",
+    "w2": "大雨"
+  },
+  {
+    "id": "pair-381",
+    "categoryId": "weather",
+    "w1": "毛毛雨",
+    "w2": "小雨"
+  },
+  {
+    "id": "pair-382",
+    "categoryId": "weather",
+    "w1": "大雪",
+    "w2": "暴雪"
+  },
+  {
+    "id": "pair-383",
+    "categoryId": "weather",
+    "w1": "雾",
+    "w2": "霾"
+  },
+  {
+    "id": "pair-384",
+    "categoryId": "weather",
+    "w1": "露水",
+    "w2": "霜"
+  },
+  {
+    "id": "pair-385",
+    "categoryId": "weather",
+    "w1": "彩虹",
+    "w2": "霞光"
+  },
+  {
+    "id": "pair-386",
+    "categoryId": "weather",
+    "w1": "闪电",
+    "w2": "雷声"
+  },
+  {
+    "id": "pair-387",
+    "categoryId": "weather",
+    "w1": "台风",
+    "w2": "龙卷风"
+  },
+  {
+    "id": "pair-388",
+    "categoryId": "weather",
+    "w1": "寒潮",
+    "w2": "冷空气"
+  },
+  {
+    "id": "pair-389",
+    "categoryId": "weather",
+    "w1": "春风",
+    "w2": "秋风"
+  },
+  {
+    "id": "pair-390",
+    "categoryId": "weather",
+    "w1": "干旱",
+    "w2": "洪水"
+  },
+  {
+    "id": "pair-391",
+    "categoryId": "weather",
+    "w1": "日食",
+    "w2": "月食"
+  },
+  {
+    "id": "pair-392",
+    "categoryId": "weather",
+    "w1": "流星",
+    "w2": "彗星"
+  },
+  {
+    "id": "pair-393",
+    "categoryId": "weather",
+    "w1": "月亮",
+    "w2": "星星"
+  },
+  {
+    "id": "pair-394",
+    "categoryId": "weather",
+    "w1": "日出",
+    "w2": "日落"
+  },
+  {
+    "id": "pair-395",
+    "categoryId": "weather",
+    "w1": "满月",
+    "w2": "新月"
+  },
+  {
+    "id": "pair-396",
+    "categoryId": "weather",
+    "w1": "潮汐",
+    "w2": "海浪"
+  },
+  {
+    "id": "pair-397",
+    "categoryId": "plants",
+    "w1": "玫瑰",
+    "w2": "月季"
+  },
+  {
+    "id": "pair-398",
+    "categoryId": "plants",
+    "w1": "牡丹",
+    "w2": "芍药"
+  },
+  {
+    "id": "pair-399",
+    "categoryId": "plants",
+    "w1": "荷花",
+    "w2": "睡莲"
+  },
+  {
+    "id": "pair-400",
+    "categoryId": "plants",
+    "w1": "梅花",
+    "w2": "桃花"
+  },
+  {
+    "id": "pair-401",
+    "categoryId": "plants",
+    "w1": "向日葵",
+    "w2": "太阳花"
+  },
+  {
+    "id": "pair-402",
+    "categoryId": "plants",
+    "w1": "菊花",
+    "w2": "百日菊"
+  },
+  {
+    "id": "pair-403",
+    "categoryId": "plants",
+    "w1": "桂花",
+    "w2": "茉莉"
+  },
+  {
+    "id": "pair-404",
+    "categoryId": "plants",
+    "w1": "兰花",
+    "w2": "蝴蝶兰"
+  },
+  {
+    "id": "pair-405",
+    "categoryId": "plants",
+    "w1": "松树",
+    "w2": "柏树"
+  },
+  {
+    "id": "pair-406",
+    "categoryId": "plants",
+    "w1": "银杏",
+    "w2": "梧桐"
+  },
+  {
+    "id": "pair-407",
+    "categoryId": "plants",
+    "w1": "柳树",
+    "w2": "杨树"
+  },
+  {
+    "id": "pair-408",
+    "categoryId": "plants",
+    "w1": "枫树",
+    "w2": "红叶"
+  },
+  {
+    "id": "pair-409",
+    "categoryId": "plants",
+    "w1": "竹子",
+    "w2": "芦苇"
+  },
+  {
+    "id": "pair-410",
+    "categoryId": "plants",
+    "w1": "仙人掌",
+    "w2": "多肉"
+  },
+  {
+    "id": "pair-411",
+    "categoryId": "plants",
+    "w1": "薄荷",
+    "w2": "罗勒"
+  },
+  {
+    "id": "pair-412",
+    "categoryId": "plants",
+    "w1": "水稻",
+    "w2": "小麦"
+  },
+  {
+    "id": "pair-413",
+    "categoryId": "plants",
+    "w1": "玉米",
+    "w2": "高粱"
+  },
+  {
+    "id": "pair-414",
+    "categoryId": "plants",
+    "w1": "棉花",
+    "w2": "油菜"
+  },
+  {
+    "id": "pair-415",
+    "categoryId": "plants",
+    "w1": "蘑菇",
+    "w2": "木耳"
+  },
+  {
+    "id": "pair-416",
+    "categoryId": "kitchenware",
+    "w1": "炒锅",
+    "w2": "煎锅"
+  },
+  {
+    "id": "pair-417",
+    "categoryId": "kitchenware",
+    "w1": "蒸锅",
+    "w2": "汤锅"
+  },
+  {
+    "id": "pair-418",
+    "categoryId": "kitchenware",
+    "w1": "电饭煲",
+    "w2": "电压力锅"
+  },
+  {
+    "id": "pair-419",
+    "categoryId": "kitchenware",
+    "w1": "微波炉",
+    "w2": "烤箱"
+  },
+  {
+    "id": "pair-420",
+    "categoryId": "kitchenware",
+    "w1": "菜刀",
+    "w2": "剪刀"
+  },
+  {
+    "id": "pair-421",
+    "categoryId": "kitchenware",
+    "w1": "砧板",
+    "w2": "面板"
+  },
+  {
+    "id": "pair-422",
+    "categoryId": "kitchenware",
+    "w1": "筷子",
+    "w2": "勺子"
+  },
+  {
+    "id": "pair-423",
+    "categoryId": "kitchenware",
+    "w1": "叉子",
+    "w2": "餐刀"
+  },
+  {
+    "id": "pair-424",
+    "categoryId": "kitchenware",
+    "w1": "碗",
+    "w2": "盘子"
+  },
+  {
+    "id": "pair-425",
+    "categoryId": "kitchenware",
+    "w1": "杯子",
+    "w2": "水壶"
+  },
+  {
+    "id": "pair-426",
+    "categoryId": "kitchenware",
+    "w1": "保鲜盒",
+    "w2": "饭盒"
+  },
+  {
+    "id": "pair-427",
+    "categoryId": "kitchenware",
+    "w1": "漏勺",
+    "w2": "滤网"
+  },
+  {
+    "id": "pair-428",
+    "categoryId": "kitchenware",
+    "w1": "擀面杖",
+    "w2": "揉面垫"
+  },
+  {
+    "id": "pair-429",
+    "categoryId": "kitchenware",
+    "w1": "削皮刀",
+    "w2": "刨丝器"
+  },
+  {
+    "id": "pair-430",
+    "categoryId": "kitchenware",
+    "w1": "围裙",
+    "w2": "袖套"
+  },
+  {
+    "id": "pair-431",
+    "categoryId": "kitchenware",
+    "w1": "冰箱",
+    "w2": "冰柜"
+  },
+  {
+    "id": "pair-432",
+    "categoryId": "kitchenware",
+    "w1": "洗碗机",
+    "w2": "消毒柜"
+  },
+  {
+    "id": "pair-433",
+    "categoryId": "kitchenware",
+    "w1": "咖啡机",
+    "w2": "豆浆机"
+  },
+  {
+    "id": "pair-434",
+    "categoryId": "kitchenware",
+    "w1": "榨汁机",
+    "w2": "破壁机"
+  },
+  {
+    "id": "pair-435",
+    "categoryId": "home-goods",
+    "w1": "沙发",
+    "w2": "躺椅"
+  },
+  {
+    "id": "pair-436",
+    "categoryId": "home-goods",
+    "w1": "书桌",
+    "w2": "餐桌"
+  },
+  {
+    "id": "pair-437",
+    "categoryId": "home-goods",
+    "w1": "床垫",
+    "w2": "床单"
+  },
+  {
+    "id": "pair-438",
+    "categoryId": "home-goods",
+    "w1": "枕头",
+    "w2": "靠垫"
+  },
+  {
+    "id": "pair-439",
+    "categoryId": "home-goods",
+    "w1": "衣柜",
+    "w2": "橱柜"
+  },
+  {
+    "id": "pair-440",
+    "categoryId": "home-goods",
+    "w1": "窗帘",
+    "w2": "百叶窗"
+  },
+  {
+    "id": "pair-441",
+    "categoryId": "home-goods",
+    "w1": "台灯",
+    "w2": "落地灯"
+  },
+  {
+    "id": "pair-442",
+    "categoryId": "home-goods",
+    "w1": "吊灯",
+    "w2": "壁灯"
+  },
+  {
+    "id": "pair-443",
+    "categoryId": "home-goods",
+    "w1": "地毯",
+    "w2": "地垫"
+  },
+  {
+    "id": "pair-444",
+    "categoryId": "home-goods",
+    "w1": "镜子",
+    "w2": "梳妆镜"
+  },
+  {
+    "id": "pair-445",
+    "categoryId": "home-goods",
+    "w1": "衣架",
+    "w2": "挂钩"
+  },
+  {
+    "id": "pair-446",
+    "categoryId": "home-goods",
+    "w1": "扫帚",
+    "w2": "拖把"
+  },
+  {
+    "id": "pair-447",
+    "categoryId": "home-goods",
+    "w1": "吸尘器",
+    "w2": "扫地机器人"
+  },
+  {
+    "id": "pair-448",
+    "categoryId": "home-goods",
+    "w1": "垃圾桶",
+    "w2": "收纳箱"
+  },
+  {
+    "id": "pair-449",
+    "categoryId": "home-goods",
+    "w1": "牙刷",
+    "w2": "牙膏"
+  },
+  {
+    "id": "pair-450",
+    "categoryId": "home-goods",
+    "w1": "毛巾",
+    "w2": "浴巾"
+  },
+  {
+    "id": "pair-451",
+    "categoryId": "home-goods",
+    "w1": "洗衣机",
+    "w2": "烘干机"
+  },
+  {
+    "id": "pair-452",
+    "categoryId": "home-goods",
+    "w1": "空调",
+    "w2": "电风扇"
+  },
+  {
+    "id": "pair-453",
+    "categoryId": "home-goods",
+    "w1": "暖气",
+    "w2": "取暖器"
+  },
+  {
+    "id": "pair-454",
+    "categoryId": "daily-life",
+    "w1": "洗脸",
+    "w2": "刷牙"
+  },
+  {
+    "id": "pair-455",
+    "categoryId": "daily-life",
+    "w1": "洗澡",
+    "w2": "泡澡"
+  },
+  {
+    "id": "pair-456",
+    "categoryId": "daily-life",
+    "w1": "做饭",
+    "w2": "点外卖"
+  },
+  {
+    "id": "pair-457",
+    "categoryId": "daily-life",
+    "w1": "晾衣服",
+    "w2": "叠衣服"
+  },
+  {
+    "id": "pair-458",
+    "categoryId": "daily-life",
+    "w1": "扫地",
+    "w2": "擦地"
+  },
+  {
+    "id": "pair-459",
+    "categoryId": "daily-life",
+    "w1": "整理房间",
+    "w2": "收纳物品"
+  },
+  {
+    "id": "pair-460",
+    "categoryId": "daily-life",
+    "w1": "早起",
+    "w2": "赖床"
+  },
+  {
+    "id": "pair-461",
+    "categoryId": "daily-life",
+    "w1": "午睡",
+    "w2": "熬夜"
+  },
+  {
+    "id": "pair-462",
+    "categoryId": "daily-life",
+    "w1": "看电视",
+    "w2": "听广播"
+  },
+  {
+    "id": "pair-463",
+    "categoryId": "daily-life",
+    "w1": "读书",
+    "w2": "看报"
+  },
+  {
+    "id": "pair-464",
+    "categoryId": "daily-life",
+    "w1": "浇花",
+    "w2": "修剪"
+  },
+  {
+    "id": "pair-465",
+    "categoryId": "daily-life",
+    "w1": "遛狗",
+    "w2": "逗猫"
+  },
+  {
+    "id": "pair-466",
+    "categoryId": "daily-life",
+    "w1": "网购",
+    "w2": "逛商场"
+  },
+  {
+    "id": "pair-467",
+    "categoryId": "daily-life",
+    "w1": "快递柜",
+    "w2": "驿站"
+  },
+  {
+    "id": "pair-468",
+    "categoryId": "daily-life",
+    "w1": "钥匙",
+    "w2": "门卡"
+  },
+  {
+    "id": "pair-469",
+    "categoryId": "daily-life",
+    "w1": "拖鞋",
+    "w2": "凉鞋"
+  },
+  {
+    "id": "pair-470",
+    "categoryId": "daily-life",
+    "w1": "洗发水",
+    "w2": "沐浴露"
+  },
+  {
+    "id": "pair-471",
+    "categoryId": "daily-life",
+    "w1": "洗衣液",
+    "w2": "柔顺剂"
+  },
+  {
+    "id": "pair-472",
+    "categoryId": "daily-life",
+    "w1": "牙线",
+    "w2": "漱口水"
+  },
+  {
+    "id": "pair-473",
+    "categoryId": "clothing",
+    "w1": "衬衫",
+    "w2": "针织衫"
+  },
+  {
+    "id": "pair-474",
+    "categoryId": "clothing",
+    "w1": "卫衣",
+    "w2": "毛衣"
+  },
+  {
+    "id": "pair-475",
+    "categoryId": "clothing",
+    "w1": "牛仔裤",
+    "w2": "休闲裤"
+  },
+  {
+    "id": "pair-476",
+    "categoryId": "clothing",
+    "w1": "短裤",
+    "w2": "七分裤"
+  },
+  {
+    "id": "pair-477",
+    "categoryId": "clothing",
+    "w1": "连衣裙",
+    "w2": "半身裙"
+  },
+  {
+    "id": "pair-478",
+    "categoryId": "clothing",
+    "w1": "风衣",
+    "w2": "夹克"
+  },
+  {
+    "id": "pair-479",
+    "categoryId": "clothing",
+    "w1": "羽绒服",
+    "w2": "棉服"
+  },
+  {
+    "id": "pair-480",
+    "categoryId": "clothing",
+    "w1": "运动鞋",
+    "w2": "帆布鞋"
+  },
+  {
+    "id": "pair-481",
+    "categoryId": "clothing",
+    "w1": "皮鞋",
+    "w2": "靴子"
+  },
+  {
+    "id": "pair-482",
+    "categoryId": "clothing",
+    "w1": "棒球帽",
+    "w2": "渔夫帽"
+  },
+  {
+    "id": "pair-483",
+    "categoryId": "clothing",
+    "w1": "围巾",
+    "w2": "披肩"
+  },
+  {
+    "id": "pair-484",
+    "categoryId": "clothing",
+    "w1": "手套",
+    "w2": "袖套"
+  },
+  {
+    "id": "pair-485",
+    "categoryId": "clothing",
+    "w1": "腰带",
+    "w2": "背带"
+  },
+  {
+    "id": "pair-486",
+    "categoryId": "clothing",
+    "w1": "领带",
+    "w2": "领结"
+  },
+  {
+    "id": "pair-487",
+    "categoryId": "clothing",
+    "w1": "太阳镜",
+    "w2": "近视镜"
+  },
+  {
+    "id": "pair-488",
+    "categoryId": "clothing",
+    "w1": "手表",
+    "w2": "手环"
+  },
+  {
+    "id": "pair-489",
+    "categoryId": "clothing",
+    "w1": "耳环",
+    "w2": "耳钉"
+  },
+  {
+    "id": "pair-490",
+    "categoryId": "clothing",
+    "w1": "项链",
+    "w2": "吊坠"
+  },
+  {
+    "id": "pair-491",
+    "categoryId": "clothing",
+    "w1": "背包",
+    "w2": "行李箱"
+  },
+  {
+    "id": "pair-492",
+    "categoryId": "transport",
+    "w1": "公交车",
+    "w2": "地铁"
+  },
+  {
+    "id": "pair-493",
+    "categoryId": "transport",
+    "w1": "高铁",
+    "w2": "动车"
+  },
+  {
+    "id": "pair-494",
+    "categoryId": "transport",
+    "w1": "火车",
+    "w2": "轻轨"
+  },
+  {
+    "id": "pair-495",
+    "categoryId": "transport",
+    "w1": "出租车",
+    "w2": "网约车"
+  },
+  {
+    "id": "pair-496",
+    "categoryId": "transport",
+    "w1": "自行车",
+    "w2": "电动车"
+  },
+  {
+    "id": "pair-497",
+    "categoryId": "transport",
+    "w1": "摩托车",
+    "w2": "踏板车"
+  },
+  {
+    "id": "pair-498",
+    "categoryId": "transport",
+    "w1": "汽车",
+    "w2": "越野车"
+  },
+  {
+    "id": "pair-499",
+    "categoryId": "transport",
+    "w1": "轮船",
+    "w2": "渡船"
+  },
+  {
+    "id": "pair-500",
+    "categoryId": "transport",
+    "w1": "客机",
+    "w2": "直升机"
+  },
+  {
+    "id": "pair-501",
+    "categoryId": "transport",
+    "w1": "货车",
+    "w2": "卡车"
+  },
+  {
+    "id": "pair-502",
+    "categoryId": "transport",
+    "w1": "救护车",
+    "w2": "消防车"
+  },
+  {
+    "id": "pair-503",
+    "categoryId": "transport",
+    "w1": "警车",
+    "w2": "巡逻车"
+  },
+  {
+    "id": "pair-504",
+    "categoryId": "transport",
+    "w1": "红绿灯",
+    "w2": "信号灯"
+  },
+  {
+    "id": "pair-505",
+    "categoryId": "transport",
+    "w1": "斑马线",
+    "w2": "人行道"
+  },
+  {
+    "id": "pair-506",
+    "categoryId": "transport",
+    "w1": "十字路口",
+    "w2": "环岛"
+  },
+  {
+    "id": "pair-507",
+    "categoryId": "transport",
+    "w1": "停车场",
+    "w2": "加油站"
+  },
+  {
+    "id": "pair-508",
+    "categoryId": "transport",
+    "w1": "车票",
+    "w2": "登机牌"
+  },
+  {
+    "id": "pair-509",
+    "categoryId": "transport",
+    "w1": "站台",
+    "w2": "候车厅"
+  },
+  {
+    "id": "pair-510",
+    "categoryId": "transport",
+    "w1": "驾驶证",
+    "w2": "行驶证"
+  },
+  {
+    "id": "pair-511",
+    "categoryId": "city-spaces",
+    "w1": "机场",
+    "w2": "火车站"
+  },
+  {
+    "id": "pair-512",
+    "categoryId": "city-spaces",
+    "w1": "码头",
+    "w2": "客运站"
+  },
+  {
+    "id": "pair-513",
+    "categoryId": "city-spaces",
+    "w1": "商场",
+    "w2": "超市"
+  },
+  {
+    "id": "pair-514",
+    "categoryId": "city-spaces",
+    "w1": "菜市场",
+    "w2": "便利店"
+  },
+  {
+    "id": "pair-515",
+    "categoryId": "city-spaces",
+    "w1": "公园",
+    "w2": "广场"
+  },
+  {
+    "id": "pair-516",
+    "categoryId": "city-spaces",
+    "w1": "博物馆",
+    "w2": "美术馆"
+  },
+  {
+    "id": "pair-517",
+    "categoryId": "city-spaces",
+    "w1": "电影院",
+    "w2": "剧院"
+  },
+  {
+    "id": "pair-518",
+    "categoryId": "city-spaces",
+    "w1": "医院",
+    "w2": "诊所"
+  },
+  {
+    "id": "pair-519",
+    "categoryId": "city-spaces",
+    "w1": "学校",
+    "w2": "培训班"
+  },
+  {
+    "id": "pair-520",
+    "categoryId": "city-spaces",
+    "w1": "银行",
+    "w2": "邮局"
+  },
+  {
+    "id": "pair-521",
+    "categoryId": "city-spaces",
+    "w1": "写字楼",
+    "w2": "产业园"
+  },
+  {
+    "id": "pair-522",
+    "categoryId": "city-spaces",
+    "w1": "小区",
+    "w2": "公寓"
+  },
+  {
+    "id": "pair-523",
+    "categoryId": "city-spaces",
+    "w1": "图书馆",
+    "w2": "书店"
+  },
+  {
+    "id": "pair-524",
+    "categoryId": "city-spaces",
+    "w1": "体育馆",
+    "w2": "游泳馆"
+  },
+  {
+    "id": "pair-525",
+    "categoryId": "city-spaces",
+    "w1": "咖啡馆",
+    "w2": "茶馆"
+  },
+  {
+    "id": "pair-526",
+    "categoryId": "city-spaces",
+    "w1": "餐厅",
+    "w2": "食堂"
+  },
+  {
+    "id": "pair-527",
+    "categoryId": "city-spaces",
+    "w1": "消防站",
+    "w2": "派出所"
+  },
+  {
+    "id": "pair-528",
+    "categoryId": "city-spaces",
+    "w1": "地铁口",
+    "w2": "公交站"
+  },
+  {
+    "id": "pair-529",
+    "categoryId": "travel-stays",
+    "w1": "旅行",
+    "w2": "度假"
+  },
+  {
+    "id": "pair-530",
+    "categoryId": "travel-stays",
+    "w1": "自驾游",
+    "w2": "房车游"
+  },
+  {
+    "id": "pair-531",
+    "categoryId": "travel-stays",
+    "w1": "登机",
+    "w2": "乘船"
+  },
+  {
+    "id": "pair-532",
+    "categoryId": "travel-stays",
+    "w1": "值机",
+    "w2": "安检"
+  },
+  {
+    "id": "pair-533",
+    "categoryId": "travel-stays",
+    "w1": "护照",
+    "w2": "签证"
+  },
+  {
+    "id": "pair-534",
+    "categoryId": "travel-stays",
+    "w1": "行李箱",
+    "w2": "旅行包"
+  },
+  {
+    "id": "pair-535",
+    "categoryId": "travel-stays",
+    "w1": "地图",
+    "w2": "攻略"
+  },
+  {
+    "id": "pair-536",
+    "categoryId": "travel-stays",
+    "w1": "景点",
+    "w2": "地标"
+  },
+  {
+    "id": "pair-537",
+    "categoryId": "travel-stays",
+    "w1": "古镇",
+    "w2": "古城"
+  },
+  {
+    "id": "pair-538",
+    "categoryId": "travel-stays",
+    "w1": "民宿",
+    "w2": "青年旅舍"
+  },
+  {
+    "id": "pair-539",
+    "categoryId": "travel-stays",
+    "w1": "酒店",
+    "w2": "客栈"
+  },
+  {
+    "id": "pair-540",
+    "categoryId": "travel-stays",
+    "w1": "单人间",
+    "w2": "双人间"
+  },
+  {
+    "id": "pair-541",
+    "categoryId": "travel-stays",
+    "w1": "露台",
+    "w2": "阳台"
+  },
+  {
+    "id": "pair-542",
+    "categoryId": "travel-stays",
+    "w1": "房卡",
+    "w2": "钥匙卡"
+  },
+  {
+    "id": "pair-543",
+    "categoryId": "travel-stays",
+    "w1": "早餐",
+    "w2": "自助餐"
+  },
+  {
+    "id": "pair-544",
+    "categoryId": "travel-stays",
+    "w1": "纪念品",
+    "w2": "伴手礼"
+  },
+  {
+    "id": "pair-545",
+    "categoryId": "travel-stays",
+    "w1": "旅拍",
+    "w2": "自拍"
+  },
+  {
+    "id": "pair-546",
+    "categoryId": "travel-stays",
+    "w1": "导游",
+    "w2": "领队"
+  },
+  {
+    "id": "pair-547",
+    "categoryId": "sports",
+    "w1": "足球",
+    "w2": "篮球"
+  },
+  {
+    "id": "pair-548",
+    "categoryId": "sports",
+    "w1": "排球",
+    "w2": "手球"
+  },
+  {
+    "id": "pair-549",
+    "categoryId": "sports",
+    "w1": "乒乓球",
+    "w2": "羽毛球"
+  },
+  {
+    "id": "pair-550",
+    "categoryId": "sports",
+    "w1": "网球",
+    "w2": "壁球"
+  },
+  {
+    "id": "pair-551",
+    "categoryId": "sports",
+    "w1": "棒球",
+    "w2": "垒球"
+  },
+  {
+    "id": "pair-552",
+    "categoryId": "sports",
+    "w1": "橄榄球",
+    "w2": "美式足球"
+  },
+  {
+    "id": "pair-553",
+    "categoryId": "sports",
+    "w1": "游泳",
+    "w2": "潜水"
+  },
+  {
+    "id": "pair-554",
+    "categoryId": "sports",
+    "w1": "跑步",
+    "w2": "竞走"
+  },
+  {
+    "id": "pair-555",
+    "categoryId": "sports",
+    "w1": "马拉松",
+    "w2": "越野跑"
+  },
+  {
+    "id": "pair-556",
+    "categoryId": "sports",
+    "w1": "体操",
+    "w2": "蹦床"
+  },
+  {
+    "id": "pair-557",
+    "categoryId": "sports",
+    "w1": "拳击",
+    "w2": "散打"
+  },
+  {
+    "id": "pair-558",
+    "categoryId": "sports",
+    "w1": "跆拳道",
+    "w2": "空手道"
+  },
+  {
+    "id": "pair-559",
+    "categoryId": "sports",
+    "w1": "击剑",
+    "w2": "射箭"
+  },
+  {
+    "id": "pair-560",
+    "categoryId": "sports",
+    "w1": "高尔夫",
+    "w2": "保龄球"
+  },
+  {
+    "id": "pair-561",
+    "categoryId": "sports",
+    "w1": "滑冰",
+    "w2": "滑雪"
+  },
+  {
+    "id": "pair-562",
+    "categoryId": "sports",
+    "w1": "攀岩",
+    "w2": "登山"
+  },
+  {
+    "id": "pair-563",
+    "categoryId": "sports",
+    "w1": "跳远",
+    "w2": "三级跳"
+  },
+  {
+    "id": "pair-564",
+    "categoryId": "sports",
+    "w1": "跳高",
+    "w2": "撑杆跳"
+  },
+  {
+    "id": "pair-565",
+    "categoryId": "festivals",
+    "w1": "春节",
+    "w2": "元宵节"
+  },
+  {
+    "id": "pair-566",
+    "categoryId": "festivals",
+    "w1": "清明节",
+    "w2": "寒食节"
+  },
+  {
+    "id": "pair-567",
+    "categoryId": "festivals",
+    "w1": "端午节",
+    "w2": "中秋节"
+  },
+  {
+    "id": "pair-568",
+    "categoryId": "festivals",
+    "w1": "重阳节",
+    "w2": "七夕节"
+  },
+  {
+    "id": "pair-569",
+    "categoryId": "festivals",
+    "w1": "国庆节",
+    "w2": "劳动节"
+  },
+  {
+    "id": "pair-570",
+    "categoryId": "festivals",
+    "w1": "元旦",
+    "w2": "除夕"
+  },
+  {
+    "id": "pair-571",
+    "categoryId": "festivals",
+    "w1": "圣诞节",
+    "w2": "万圣节"
+  },
+  {
+    "id": "pair-572",
+    "categoryId": "festivals",
+    "w1": "生日",
+    "w2": "纪念日"
+  },
+  {
+    "id": "pair-573",
+    "categoryId": "festivals",
+    "w1": "婚礼",
+    "w2": "订婚"
+  },
+  {
+    "id": "pair-574",
+    "categoryId": "festivals",
+    "w1": "庙会",
+    "w2": "灯会"
+  },
+  {
+    "id": "pair-575",
+    "categoryId": "festivals",
+    "w1": "烟花",
+    "w2": "鞭炮"
+  },
+  {
+    "id": "pair-576",
+    "categoryId": "festivals",
+    "w1": "春联",
+    "w2": "福字"
+  },
+  {
+    "id": "pair-577",
+    "categoryId": "festivals",
+    "w1": "红包",
+    "w2": "压岁钱"
+  },
+  {
+    "id": "pair-578",
+    "categoryId": "festivals",
+    "w1": "粽子",
+    "w2": "月饼"
+  },
+  {
+    "id": "pair-579",
+    "categoryId": "festivals",
+    "w1": "汤圆",
+    "w2": "元宵"
+  },
+  {
+    "id": "pair-580",
+    "categoryId": "festivals",
+    "w1": "年夜饭",
+    "w2": "团圆饭"
+  },
+  {
+    "id": "pair-581",
+    "categoryId": "festivals",
+    "w1": "舞龙",
+    "w2": "舞狮"
+  },
+  {
+    "id": "pair-582",
+    "categoryId": "festivals",
+    "w1": "灯笼",
+    "w2": "花灯"
+  },
+  {
+    "id": "pair-583",
+    "categoryId": "jobs-school",
+    "w1": "医生",
+    "w2": "护士"
+  },
+  {
+    "id": "pair-584",
+    "categoryId": "jobs-school",
+    "w1": "老师",
+    "w2": "教授"
+  },
+  {
+    "id": "pair-585",
+    "categoryId": "jobs-school",
+    "w1": "厨师",
+    "w2": "糕点师"
+  },
+  {
+    "id": "pair-586",
+    "categoryId": "jobs-school",
+    "w1": "警察",
+    "w2": "消防员"
+  },
+  {
+    "id": "pair-587",
+    "categoryId": "jobs-school",
+    "w1": "司机",
+    "w2": "飞行员"
+  },
+  {
+    "id": "pair-588",
+    "categoryId": "jobs-school",
+    "w1": "农民",
+    "w2": "园丁"
+  },
+  {
+    "id": "pair-589",
+    "categoryId": "jobs-school",
+    "w1": "记者",
+    "w2": "编辑"
+  },
+  {
+    "id": "pair-590",
+    "categoryId": "jobs-school",
+    "w1": "律师",
+    "w2": "法官"
+  },
+  {
+    "id": "pair-591",
+    "categoryId": "jobs-school",
+    "w1": "演员",
+    "w2": "主持人"
+  },
+  {
+    "id": "pair-592",
+    "categoryId": "jobs-school",
+    "w1": "歌手",
+    "w2": "乐手"
+  },
+  {
+    "id": "pair-593",
+    "categoryId": "jobs-school",
+    "w1": "画家",
+    "w2": "设计师"
+  },
+  {
+    "id": "pair-594",
+    "categoryId": "jobs-school",
+    "w1": "程序员",
+    "w2": "工程师"
+  },
+  {
+    "id": "pair-595",
+    "categoryId": "jobs-school",
+    "w1": "店员",
+    "w2": "收银员"
+  },
+  {
+    "id": "pair-596",
+    "categoryId": "jobs-school",
+    "w1": "快递员",
+    "w2": "外卖员"
+  },
+  {
+    "id": "pair-597",
+    "categoryId": "jobs-school",
+    "w1": "建筑师",
+    "w2": "工长"
+  },
+  {
+    "id": "pair-598",
+    "categoryId": "jobs-school",
+    "w1": "摄影师",
+    "w2": "摄像师"
+  },
+  {
+    "id": "pair-599",
+    "categoryId": "jobs-school",
+    "w1": "理发师",
+    "w2": "化妆师"
+  },
+  {
+    "id": "pair-600",
+    "categoryId": "jobs-school",
+    "w1": "运动员",
+    "w2": "教练"
+  }
+]

@@ -21,15 +21,17 @@
         <div class="section-heading"><div><span class="kicker">01 / PLAYERS</span><h3>玩家与身份</h3></div><span class="tiny-illustration">🧭</span></div>
         <div class="counter-row"><div><b>玩家人数</b><small>3–12 位玩家</small></div><div class="counter"><button data-adjust="players" data-delta="-1" aria-label="减少玩家">−</button><strong id="player-count">5</strong><button data-adjust="players" data-delta="1" aria-label="增加玩家">＋</button></div></div>
         <div class="role-control"><span>🕵️ 卧底人数</span><div class="mini-counter"><button data-adjust="undercover" data-delta="-1" aria-label="减少卧底">−</button><b id="undercover-count">1</b><button data-adjust="undercover" data-delta="1" aria-label="增加卧底">＋</button></div></div>
-        <div class="role-summary"><span>🃏 白板人数 <b id="blank-count">0</b></span><span class="role-switch"><label for="blank-toggle">加入白板</label><input id="blank-toggle" type="checkbox"><i></i></span></div>
+        <div class="role-summary"><span>👥 平民人数 <b id="civilian-count">4</b></span><span class="role-switch"><label for="blank-toggle">加入白板 <b id="blank-count">0</b></label><input id="blank-toggle" type="checkbox"><i></i></span></div>
         <p class="hint">可设置 1–3 位卧底和 0–1 位白板，场上始终至少保留 1 位平民。</p>
       </article>
 
       <article class="panel categories-panel">
-        <div class="section-heading"><div><span class="kicker">02 / WORD BANK</span><h3>挑选主题词库</h3></div><span class="tiny-illustration">📚</span></div>
-        <label class="search-box"><span>⌕</span><input id="category-search" type="search" placeholder="搜索主题或细分类" autocomplete="off"><button id="clear-search" type="button" aria-label="清除搜索">×</button></label>
-        <div class="category-actions"><button id="select-all" type="button">全选</button><button id="clear-all" type="button">清空</button><span id="pair-count">已选 0 组</span></div>
-        <div id="category-tree" class="category-tree" aria-live="polite"><p class="loading">正在打开探险地图…</p></div>
+        <div class="section-heading category-heading"><div><span class="kicker">02 / WORD BANK</span><h3>挑选主题词库</h3><p id="pair-count" class="category-summary">正在载入词库…</p></div><button id="category-toggle" class="category-toggle" type="button" aria-expanded="false" aria-controls="category-controls">展开 <span>⌄</span></button></div>
+        <div id="category-controls" hidden>
+          <label class="search-box"><span>⌕</span><input id="category-search" type="search" placeholder="搜索主题或细分类" autocomplete="off"><button id="clear-search" type="button" aria-label="清除搜索">×</button></label>
+          <div class="category-actions"><button id="select-all" type="button">全选</button><button id="clear-all" type="button">清空</button></div>
+          <div id="category-tree" class="category-tree" aria-live="polite"><p class="loading">正在打开探险地图…</p></div>
+        </div>
       </article>
       <button class="primary-button" id="start-button" disabled>开始游戏 <span>→</span></button>
       <p class="bottom-note">离线也能玩 · 你的游戏身份只保存在当前页面</p>
@@ -39,6 +41,7 @@
       <div class="screen-title"><span class="kicker">PASS THE PHONE</span><h2 id="reveal-heading">请 1 号玩家查看</h2><p>确认只有自己看到屏幕，再轻触卡片。</p></div>
       <button class="secret-card" id="secret-card" type="button" aria-label="轻触显示你的词语"><span class="card-stars">✦　✦</span><img src="assets/mascot.svg" alt=""><b id="secret-word">轻触查看词语</b><small id="secret-role">这是你的秘密任务</small></button>
       <div class="reveal-controls"><button class="secondary-button" id="camera-button" type="button" disabled>📷 拍张头像</button><button class="primary-button" id="seen-button" type="button" disabled>我记住了，传给下一位 <span>→</span></button></div>
+      <button class="text-button restart-button" type="button" data-restart>↻ 词语不合适？换词重开</button>
       <div class="progress-dots" id="reveal-progress"></div>
     </section>
 
@@ -48,6 +51,7 @@
       <div class="selection-label" id="selection-label">先点选一位玩家</div>
       <div class="action-row"><button class="secondary-button" id="forget-button" disabled>👀 忘词了</button><button class="danger-button" id="eliminate-button" disabled>⚡ 记录淘汰</button></div>
       <button class="text-button" id="finish-button">结束游戏并查看身份</button>
+      <button class="text-button restart-button" type="button" data-restart>↻ 词语不合适？换词重开</button>
     </section>
 
     <section class="screen" id="result-screen">

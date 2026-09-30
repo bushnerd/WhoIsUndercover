@@ -1,4 +1,4 @@
-const CACHE_NAME = 'whoisundercover-v2-5';
+const CACHE_NAME = 'whoisundercover-v2-6';
 const APP_SHELL = ['./', './index.html', './styles.css', './app.js', './manifest.json', './assets/mascot.svg', './data/categories.json', './data/pairs.json'];
 
 self.addEventListener('install', (event) => {

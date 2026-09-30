@@ -6,10 +6,12 @@ const state = {
   pairs: [],
   selected: new Set(),
   players: [],
+  currentPairId: null,
   currentPlayer: 0,
   selectedPlayer: null,
   round: 1,
   stream: null,
+  cameraRequestId: 0,
   photoData: null,
   peekTimer: null,
 };
@@ -26,6 +28,7 @@ async function loadData() {
     ]);
     state.categories = categories;
     state.pairs = pairs;
+    state.selected = new Set(categories.filter((category) => category.parentId != null).map((category) => category.id));
     renderCategories();
     updateCounts();
   } catch (error) {
@@ -74,9 +77,11 @@ function renderCategories() {
 
 function updateCounts() {
   const count = countPairs([...state.selected]);
-  $('#pair-count').textContent = `已选 ${count} 组`;
+  const selectedThemes = rootsAndLeaves().filter((root) => root.children.some((leaf) => state.selected.has(leaf.id))).length;
+  $('#pair-count').textContent = `已选 ${count} 组 · ${selectedThemes} 个主题`;
   $('#start-button').disabled = count === 0;
   $('#player-count').textContent = state.playerCount;
+  $('#civilian-count').textContent = state.playerCount - state.undercoverCount - state.blankCount;
   $('#undercover-count').textContent = state.undercoverCount;
   $('#blank-count').textContent = state.blankCount;
   $$('[data-adjust="players"]').forEach((button) => {
@@ -100,10 +105,15 @@ function toast(message) {
   window.setTimeout(() => element.classList.remove('show'), 2100);
 }
 
-function startGame() {
+function startGame({ avoidCurrentPair = false } = {}) {
   const selectedPairs = state.pairs.filter((pair) => state.selected.has(pair.categoryId));
-  if (selectedPairs.length === 0) return;
-  const pair = selectedPairs[Math.floor(Math.random() * selectedPairs.length)];
+  if (selectedPairs.length === 0) return false;
+  if (avoidCurrentPair && selectedPairs.length === 1 && selectedPairs[0].id === state.currentPairId) return false;
+  const availablePairs = avoidCurrentPair && selectedPairs.length > 1
+    ? selectedPairs.filter((pair) => pair.id !== state.currentPairId)
+    : selectedPairs;
+  const pair = availablePairs[Math.floor(Math.random() * availablePairs.length)];
+  state.currentPairId = pair.id;
   const roles = [
     ...Array(state.undercoverCount).fill({ type: 'undercover', word: pair.w2 }),
     ...Array(state.blankCount).fill({ type: 'blank', word: '' }),
@@ -119,6 +129,7 @@ function startGame() {
   state.round = 1;
   renderReveal();
   setScreen('reveal-screen', 1);
+  return true;
 }
 
 function roleName(player) {
@@ -243,6 +254,7 @@ function showResult(winner) {
 
 async function openCamera() {
   const player = state.players[state.currentPlayer];
+  const requestId = ++state.cameraRequestId;
   state.stream = null;
   state.photoData = null;
   $('#camera-preview').hidden = true;
@@ -257,16 +269,23 @@ async function openCamera() {
     return;
   }
   try {
-    state.stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
+    const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
+    if (requestId !== state.cameraRequestId || !$('#camera-dialog').open) {
+      stream.getTracks().forEach((track) => track.stop());
+      return;
+    }
+    state.stream = stream;
     $('#camera-video').srcObject = state.stream;
     player.cameraReady = true;
   } catch (error) {
+    if (requestId !== state.cameraRequestId || !$('#camera-dialog').open) return;
     $('#camera-message').textContent = '没有获得相机权限也没关系，关闭窗口后可以继续传手机。';
     $('#capture-button').disabled = true;
   }
 }
 
 function stopCamera() {
+  state.cameraRequestId += 1;
   if (state.stream) state.stream.getTracks().forEach((track) => track.stop());
   state.stream = null;
   $('#camera-video').srcObject = null;
@@ -344,6 +363,13 @@ function bindEvents() {
   });
 
   $('#category-search').addEventListener('input', renderCategories);
+  $('#category-toggle').addEventListener('click', (event) => {
+    const controls = $('#category-controls');
+    const expanded = event.currentTarget.getAttribute('aria-expanded') === 'true';
+    event.currentTarget.setAttribute('aria-expanded', String(!expanded));
+    event.currentTarget.innerHTML = expanded ? '展开 <span>⌄</span>' : '收起 <span>⌃</span>';
+    controls.hidden = expanded;
+  });
   $('#clear-search').addEventListener('click', () => { $('#category-search').value = ''; renderCategories(); });
   $('#select-all').addEventListener('click', () => { state.categories.filter((category) => category.parentId).forEach((leaf) => state.selected.add(leaf.id)); renderCategories(); updateCounts(); });
   $('#clear-all').addEventListener('click', () => { state.selected.clear(); renderCategories(); updateCounts(); });
@@ -353,6 +379,23 @@ function bindEvents() {
     state.blankCount = next; updateCounts();
   });
   $('#start-button').addEventListener('click', startGame);
+  $$('[data-restart]').forEach((button) => button.addEventListener('click', () => {
+    const selectedPairs = state.pairs.filter((pair) => state.selected.has(pair.categoryId));
+    if (selectedPairs.length === 0) {
+      toast('词库为空，请回到设置页选择主题词库');
+      return;
+    }
+    if (selectedPairs.length === 1 && selectedPairs[0].id === state.currentPairId) {
+      toast('当前只选了一组词，请展开词库多选主题后再换词');
+      return;
+    }
+    if ($('#camera-dialog').open) closeDialog($('#camera-dialog'));
+    if ($('#peek-dialog').open) closeDialog($('#peek-dialog'));
+    state.selectedPlayer = null;
+    state.photoData = null;
+    if (!startGame({ avoidCurrentPair: true })) return;
+    toast('当前游戏已结束，已更换词语');
+  }));
   $('#secret-card').addEventListener('click', revealCurrentWord);
   $('#seen-button').addEventListener('click', confirmSeen);
   $('#camera-button').addEventListener('click', openCamera);
